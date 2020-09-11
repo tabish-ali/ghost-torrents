@@ -1,0 +1,15 @@
+.user-img{
+    max-width: 100%;
+    height: auto;
+
+}
+.user-img:hover{
+    transition: all .4s ease;
+    -webkit-transition: all .4s ease;
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.image-upload>input {
+    display: none;
+  }

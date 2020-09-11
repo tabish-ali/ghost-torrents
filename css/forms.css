@@ -1,0 +1,10 @@
+.default-form{
+    padding: 10px;
+    background-color: rgb(255, 255, 255);
+}
+
+.center-form{
+    margin: auto;
+    width: 300px;
+}
+

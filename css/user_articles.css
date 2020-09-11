@@ -1,0 +1,13 @@
+.edit-btn{
+    background-color: rgb(241, 241, 241);
+    color: rgb(56, 56, 56);
+    font-weight: bold;
+    border-radius: 3px;
+    max-height: 50px;
+}
+
+.edit-btn:hover{
+    background-color: rgb(231, 231, 231);
+    text-decoration: none;
+    color: rgb(56, 56, 56);
+}

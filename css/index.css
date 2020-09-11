@@ -1,0 +1,40 @@
+.index-text{
+    background-color: #f1f1f1;
+    color: #fff;
+    text-align: justify;
+    
+}
+
+.header{
+    background: #00B4DB;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #0083B0, #00B4DB);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #0083B0, #00B4DB); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    border-radius: 3px;
+    color: #fff;
+}
+
+.call-to-action{
+    background-color: #f0f0f0;
+    text-align: center;
+    border: 3px;
+}
+
+.search-bar-div{
+    text-align: center;
+    padding: 5px ;
+}
+
+.search-bar{
+ margin: auto;
+}
+
+.search-bar:hover{
+}
+
+.svgs{
+    height: 100px;
+}
+
+.result-div{
+    display: none;
+}

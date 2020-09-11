@@ -1,0 +1,31 @@
+.article-div{
+
+    border: 1px solid lightgrey;
+    padding: 10px;
+    -webkit-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.2);
+    -moz-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.2);
+    box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.2);
+
+}
+
+.date-tag{
+    padding: 5px;
+    color: #fff;
+    border-radius: 3px;
+
+}
+.vl{
+    border-left: 6px solid green;
+  height: 10px;
+}
+.paragraph-div{
+    border: 1px solid rgb(231, 231, 231);
+    background-color: rgb(248, 248, 248);
+    padding: 10px;
+    border-radius: 5px;
+}
+.action-div{
+    border: 1px solid rgb(235, 235, 235);
+    padding: 5px;
+    background-color: rgb(248, 248, 248);
+}

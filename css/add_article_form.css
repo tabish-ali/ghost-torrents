@@ -1,0 +1,27 @@
+.add-articles-form {
+
+    border: 2px solid rgb(231, 231, 231);
+    padding: 10px;
+}
+
+.sign-up-form{
+
+    margin: auto;
+    width: 50%;
+    border: 2px solid rgb(231, 231, 231);
+    padding: 10px;
+    background-color: rgb(249, 248, 255);
+}
+
+.primary-heading{
+    background-color: rgb(105, 105, 105);
+    padding:5px;
+    border-radius: 5px;
+    color:#fff;
+}
+.header{
+    background-color: rgb(105, 105, 105);
+    padding:5px;
+    border-radius: 5px;
+    color:#fff;
+}
