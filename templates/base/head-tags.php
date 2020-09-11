@@ -10,8 +10,8 @@
 <link rel="stylesheet" href="/css/navbar.css">
 <link rel="stylesheet" href="/css/forms.css">
 <!-- <script src="https://kit.fontawesome.com/9c2b1f7cff.js" crossorigin="anonymous"></script> -->
-<link rel="stylesheet" href="/fontawesome-free-5.14.0-web/css/all.css">
-<link rel="stylesheet" href="/fontawesome-free-5.14.0-web/css/fontawesome.min.css">
+<link rel="stylesheet" href="/fontawesome/css/all.css">
+<link rel="stylesheet" href="/fontawesome/css/fontawesome.min.css">
 <script src="/js/sweetalert.min.js"></script>
 <?php
 session_start();
