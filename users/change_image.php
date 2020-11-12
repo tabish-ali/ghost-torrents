@@ -34,4 +34,6 @@ if ($image_file['size'] != 0 && $image_file['error'] == 0) {
     echo $target_file;
 
 } else {
+
+    $notification = "Error uploading image";
 }

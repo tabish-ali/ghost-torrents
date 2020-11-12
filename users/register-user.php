@@ -45,7 +45,7 @@ if (isset($_POST['reg-btn'])) {
 
         $default_image = "/static/user-images/default-user.svg";
         $id = UserDatabase::registerUser($username, $email, $hashed_password, $default_image);
-        $user = new Users($username, $email, $hashed_password, $id, $default_image);
+        $user = new Users($username, $email, $hashed_password, $id, $default_image, false);
         $_SESSION['id'] = $id;
         $_SESSION['username'] = $username;
         $_SESSION['email'] = $email;

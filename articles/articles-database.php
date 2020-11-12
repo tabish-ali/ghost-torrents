@@ -14,8 +14,9 @@ class ArticlesDatabase
 
         $date = date_format(DateAndTime::getDate(), "m/d/Y H:i:s");
 
-        $insert_query = $conn->prepare("INSERT INTO articles (title, content, author, image_path, date)
-        VALUES(?,?,?,?,?)");
+        $insert_query = $conn->prepare("INSERT INTO articles (title, content, author, 
+        image_path, date, interactions)
+        VALUES(?,?,?,?,?,JSON_ARRAY())");
 
         $insert_query->bind_param(
             "sssss",
@@ -57,7 +58,6 @@ class ArticlesDatabase
 
             ArticlesDatabase::setLike($article_id, $interaction);
             ArticlesDatabase::unSetInteractions($article_id, $pos);
-
         } else if ($command === "remove") {
 
             ArticlesDatabase::unSetInteractions($article_id, $pos);
@@ -144,22 +144,12 @@ class ArticlesDatabase
 
     public static function deleteArticles($selected_ids)
     {
-        // $conn = DBConnection::getConnection();
+        $conn = DBConnection::getConnection();
 
-        // $selected_ids_array = array();
-
-        // foreach ($selected_ids as $id) {
-
-        //     $mongo_id = new MongoDB\BSON\ObjectID($id);
-
-        //     array_push($selected_ids_array, $mongo_id);
-        // }
-
-        // $delete_query = array('_id' => array('$in' => $selected_ids_array));
-
-        // $cursor = $conn->php->articles;
-
-        // $cursor->deleteMany($delete_query);
+        foreach ($selected_ids as $id) {
+            $delete_query = "DELETE FROM articles WHERE id = $id";
+            $conn->query($delete_query);
+        }
     }
 
     public static function updateArticle($article_id, $title, $content)
@@ -170,6 +160,19 @@ class ArticlesDatabase
         WHERE id = $article_id");
 
         $update_query->bind_param("ss", $title, $content);
+
+        $update_query->execute();
+
+        $conn->close();
+    }
+
+    public static function updateImage($article_id, $image_path){
+
+        $conn = DBConnection::getConnection();
+
+        $update_query = $conn->prepare("UPDATE articles SET image_path = ? WHERE id = $article_id");
+
+        $update_query->bind_param("s", $image_path);
 
         $update_query->execute();
 

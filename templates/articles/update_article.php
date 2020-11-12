@@ -17,25 +17,22 @@
     ?>
 
     <link rel="stylesheet" href="/css/izi_toast.min.css">
+    <link rel="stylesheet" href="/css/update_article.css">
     <script src="/js/izi_toast.min.js" type="text/javascript"></script>
 
     <!-- <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script> -->
 
     <script>
-        var article_id = "<?php echo $_GET['article_id']; ?>";
+        var article_id = <?php echo $_GET['article_id']; ?>;
+        var old_image_path = "<?php echo $image_path ?>";
 
         // $(document).ready(function() {
         //     $('#content').summernote({
         //         height: 250,
         //     });    });
 
-        var html_str = "<?php echo $content; ?>";
-
         // $('#content').summernote('code', html_str);
-
-        console.log(html_str);
-        
     </script>
 
     <script src="/js/update_article.js"></script>
@@ -54,28 +51,39 @@
 
         </div>
 
-        <div class="p-3 border">
+        <div class="dark-bg">
 
-            <div class="form-group">
-                <label for="title">Title</label>
-                <input id="title" value="<?php echo $title; ?>" type="text" class="form-control form-control-sm">
-            </div>
-            <div class="form-group">
-                <label for="content">Content</label>
-                <textarea id="content" name="content" id="" class="form-control form-control-sm" cols="30" rows="10"><?php echo $content; ?></textarea>
-            </div>
-            <hr>
-            <button id="update-content-btn" class="btn btn-primary">Update</button>
-            <hr>
-            <div class="form-group mt-4">
-                <label for="article-image">Image</label><br>
-                <img id="article-image" name="article-image" style="height: 300px;" class="img-fluid img-thumbnail" src="<?php echo $image_path; ?>" alt="">
-            </div>
-            <hr>
-            <button class="btn btn-primary">Update</button>
+            <h4 class="p-2 rounded text-light bg-dark">Update Article</h4>
 
+            <div class="p-4">
+
+                <div class="form-group">
+                    <label for="title" class="text-light">Title</label>
+                    <input id="title" value="<?php echo $title; ?>" type="text" class="form-control form-control-sm">
+                </div>
+                <div class="form-group">
+                    <label for="content" class="text-light">Content</label>
+                    <textarea id="content" name="content" id="" class="form-control form-control-sm" cols="30" rows="10"><?php echo $content; ?></textarea>
+                </div>
+                <hr>
+                <button id="update-content-btn" class="btn btn-primary">Update</button>
+                <hr>
+                <form method="post" enctype="multipart/form-data" id="image-upload-form">
+                    <div class="image-upload" id="img-upload-div">
+                        <label class="shadow" for="article-img-input">
+                            <img id="out-img" name="article-image" style="height: 300px;" class="article-img img-fluid img-thumbnail" src="<?php echo $image_path; ?>" alt="">
+                        </label>
+                        <input name="image" id="article-img-input" type="file" /> <br>
+                        <Button id="save-image-btn" style="display: none;" type="submit" class="btn btn-sm btn-dark mt-2">Save</Button>
+                    </div>
+                    <small class="shadow-lg p-1 text-muted">Please click on image to change</small>
+                    <small id="notification" class="danger-label shadow-lg p-1 text-muted" style="display: none;"></small>
+                </form>
+
+                <hr>
+
+            </div>
         </div>
-
     </div>
 
     <?php include_once $_SERVER['DOCUMENT_ROOT'] . '/templates/base/footer.php'; ?>

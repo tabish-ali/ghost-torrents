@@ -21,7 +21,6 @@
                             echo $_SESSION['username'];
                         }
                         ?>";
-
     </script>
 
     <script src="/js/like_article.js"></script>
@@ -34,46 +33,30 @@
     include $_SERVER['DOCUMENT_ROOT'] . '/templates/base/navbar.php';
     ?>
 
-    <div class="container mt-5">
-        <?php foreach ($article as $key) : ?>
-
-            <div class=" article-div">
-                <h4 class="bg-dark text-white p-1 rounded"><?php echo $key['title'] ?></h4>
-
-                <div class="mb-2">
-                    <small class="date-tag bg-primary shadow-sm"><?php echo $key['date'] ?></small>
-                    <small class="date-tag bg-primary shadow-sm"><?php echo DateAndTime::time_elapsed_string($key['date']); ?></small>
-                </div>
-                <hr>
-
-                <div class="image-div mb-2">
-
-                    <img class="img-fluid" src="<?php echo $key['image_path']; ?>" alt="">
-
-                </div>
-                <hr>
-
-                <div class="paragraph-div">
-                    <?php echo $key['content']; ?>
-                </div>
-
-
-
-                <div class="action-div mt-3">
-                    <Button class="btn btn-sm btn-light" id="like-btn"><i class="fa fa-thumbs-up"></i></Button>
-                    <strong id="likes-count"> </strong>
-                    <Button class="btn btn-sm btn-light ml-2" id="unlike-btn"><i class="fa fa-thumbs-down"></i></Button>
-                    <strong id="unlikes-counter"></strong>
-                </div>
-
-
+    <div class="container mt-5" id="container">
+        <div id="main">
+            <div class="row m-4 mb-5">
+                <?php foreach ($article as $key) : ?>
+                    <div class="card mb-3 dark-bg">
+                        <img class="card-img-top" src="<?php echo $key['image_path']; ?>" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title text-light"><?php echo $key['title'] ?></h5>
+                            <p class="card-text text-light">
+                                <?php echo $key['content']; ?>
+                            </p>
+                            <hr>
+                            <div class="action-div mt-3 rounded">
+                                <Button class="btn btn-sm btn-default text-light" id="like-btn"><i class="fa fa-thumbs-up"></i></Button>
+                                <strong class="text-light" id="likes-count"> </strong>
+                                <Button class="btn btn-sm btn-default ml-2 text-light" id="unlike-btn"><i class="fa fa-thumbs-down"></i></Button>
+                                <strong class="text-light" id="unlikes-counter"></strong>
+                            </div>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
             </div>
-
-
-        <?php endforeach; ?>
-
+        </div>
     </div>
-
 </body>
 
 <?php

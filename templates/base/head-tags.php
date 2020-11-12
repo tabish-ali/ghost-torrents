@@ -12,6 +12,7 @@
 <!-- <script src="https://kit.fontawesome.com/9c2b1f7cff.js" crossorigin="anonymous"></script> -->
 <link rel="stylesheet" href="/fontawesome/css/all.css">
 <link rel="stylesheet" href="/fontawesome/css/fontawesome.min.css">
+<link rel="stylesheet" href="/css/main.css">
 <script src="/js/sweetalert.min.js"></script>
 <?php
 session_start();

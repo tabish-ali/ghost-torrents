@@ -17,53 +17,73 @@
 <body>
     <?php
 
-    include $_SERVER['DOCUMENT_ROOT'] . '/templates/base/navbar.php';
+    include_once $_SERVER['DOCUMENT_ROOT'] . '/templates/base/navbar.php';
+    include_once $_SERVER['DOCUMENT_ROOT'] . '/users/user-database.php';
+
+
+    $user = UserDatabase::getUserById($_SESSION['id']);
 
     ?>
+    <div class="container mt-5 mb-5" id="container">
 
-    <div class="container mt-5">
-        <form id="torrent-upload-form" method="post" enctype="multipart/form-data">
-            <div class="torrent-form-div shadow">
+        <div id="main">
+            <?php if ($user["admin"]) : ?>
 
-                <h3 class="header p-2">Add Torrent</h3>
-                <div class="form-group p-2">
-                    <label for="title">Description</label>
-                    <textarea id="description" name="description" id="description" cols="30" rows="5" class="form-control form-control-sm"></textarea>
-                </div>
+                <form id="torrent-upload-form" method="post" enctype="multipart/form-data">
+                    <div class="torrent-form-div dark-bg p-3 shadow">
 
-                <div class="form-group p-2">
-                    <div class="border p-1">
-                        <label for="title">File</label>
-                        <input name="torrent-file" class="p-1" type="file" class="form-control form-control-sm">
+                        <h3 class="header p-2 text-light">Add Torrent</h3>
+                        <div class="form-group p-2">
+                            <label for="title" class="text-light">Description</label>
+                            <textarea id="description" name="description" id="description" cols="30" rows="5" class="form-control form-control-sm"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="p-1">
+                                <label for="title" class="text-light">File</label> <br>
+                                <input name="torrent-file" class="p-1 border-dark" type="file" class="form-control form-control-sm">
+                            </div>
+                        </div>
+                        <div class="form-group p-2">
+                            <label class="text-light" for="">Select Category</label>
+                            <select name="category" id="category-box" class="custom-select custom-select-sm dark-bg">
+                                <option value="movies" selected>Movies</option>
+                                <option value="games">Games</option>
+                                <option value="software">Softwares</option>
+                                <option value="tv">TV</option>
+                                <option value="music">Music</option>
+                            </select>
+                        </div>
+                        <hr>
+                        <div class="form-group p-2">
+                            <button type="submit" id="add-btn" class="btn btn-primary">
+                                <i id="submit-icon" class="fa fa-save"></i>
+                                Submit
+                            </button>
+                        </div>
+
                     </div>
-                </div>
-                <div class="form-group p-2">
-                    <label for="">Select Category</label>
-                    <select name="category" id="category-box" class="custom-select custom-select-sm">
-                        <option value="movies" selected>Movies</option>
-                        <option value="games">Games</option>
-                        <option value="software">Softwares</option>
-                        <option value="tv">TV</option>
-                        <option value="music">Music</option>
-                    </select>
-                </div>
-                <hr>
-                <div class="form-group p-2">
-                    <button type="submit" id="add-btn" class="btn btn-primary">
-                    <i id="submit-icon" class="fa fa-save"></i>
-                     Submit 
-                     </button>
-                </div>
 
-            </div>
+                </form>
 
-        </form>
+                <small id="notification" style="display: none;"></small>
+
+            <?php else : ?>
+
+                <center>
+                    <small class="bg-danger text-white p-1 rounded">
+                        <b>Only admin can add torrents</b>
+                    </small>
+                </center>
+
+
+            <?php endif; ?>
+        </div>
     </div>
 
     <?php
     include $_SERVER['DOCUMENT_ROOT'] . '/templates/base/footer.php';
     ?>
-
 </body>
 
 </html>

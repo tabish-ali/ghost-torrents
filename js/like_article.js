@@ -18,7 +18,10 @@ $(document).ready(function () {
 
     id = article.id;
 
-    var interaction_arry = JSON.parse(article.interactions);
+    var interaction_arry = [];
+
+    if (article.interactions != null)
+        interaction_arry = JSON.parse(article.interactions);
 
     if (interaction_arry.length > 0) {
 
@@ -165,15 +168,15 @@ $(document).ready(function () {
     function setStatus() {
 
         if (like_status) {
-            like_icon.style = "color: #0275d8";
+            like_icon.className = "fa fa-thumbs-up primary-label";
         } else {
-            like_icon.style = "color: #292b2c ";
+            like_icon.className = "fa fa-thumbs-up text-light";
         }
         if (unlike_status) {
-            unlike_icon.style = "color:#0275d8";
+            unlike_icon.className = "fa fa-thumbs-down primary-label";
         }
         else {
-            unlike_icon.style = "color:#292b2c ";
+            unlike_icon.className = "fa fa-thumbs-down text-light";
         }
     }
 

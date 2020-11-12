@@ -146,11 +146,11 @@ $(document).ready(function () {
 
                 if (element.delete_selection.checked) {
                     selected_articles_count++;
-                    selected_articles.push(element._id.$oid);
+                    selected_articles.push(element.id);
                 }
                 else {
                     selected_articles_count--;
-                    selected_articles.pop(element._id.$oid);
+                    selected_articles.pop(element.id);
                 }
 
                 if (selected_articles_count > 0) {

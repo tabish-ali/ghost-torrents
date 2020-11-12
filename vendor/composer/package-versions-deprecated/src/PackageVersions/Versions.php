@@ -37,7 +37,8 @@ final class Versions
   'composer/package-versions-deprecated' => '1.10.99@dd51b4443d58b34b6d9344cf4c288e621c9a826f',
   'jean85/pretty-package-versions' => '1.5.0@e9f4324e88b8664be386d90cf60fbc202e1f7fc9',
   'mongodb/mongodb' => '1.7.0@cdeff1d45e4da6c6f70fc495e8e8a628b026b6d7',
-  '__root__' => 'No version set (parsed as 1.0.0)@',
+  'phpmailer/phpmailer' => 'v6.1.7@2c2370ba3df7034f9eb7b8f387c97b52b2ba5ad0',
+  '__root__' => 'dev-master@49555f3910ab598a16750dfd7248db31292565bd',
 );
 
     private function __construct()

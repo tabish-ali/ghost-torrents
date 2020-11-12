@@ -216,7 +216,9 @@ $(document).ready(function () {
 
         comments_div.appendChild(comment_div);
 
-        comment_div.className = "p-2 border-bottom";
+        comment_div.className = "p-2 rounded mt-1 shadow";
+
+        comment_div.style = "border: 1px solid #2f2f2f";
 
         if (commented_username == username) {
 

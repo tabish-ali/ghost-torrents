@@ -31,6 +31,7 @@
 
         console.log(articles);
     </script>
+
     <link rel="stylesheet" href="/css/articles_list.css">
 
 
@@ -42,52 +43,33 @@
     ?>
 
 
-    <div class="container mb-4">
+    <div class="container mt-5" id="container">
 
-        <div class="row">
+        <div id="main">
 
             <?php foreach ($articles_array as $value) : ?>
 
-                <div class="article-div col-sm-4 mt-1">
-
-                    <h6 class="bg-dark text-white p-1 rounded"><?php echo $value['title'] ?></h6>
-
-                    <div class="mb-2 p-1 border-bottom">
-                        <small class="p-2 text-muted">Author:
-                            <b><?php echo $value['author']; ?></b>
-                        </small>
-                        <small class="text-muted">
-                            Added:
-                            <b><?php echo DateAndTime::time_elapsed_string($value['date']); ?></b>
-                        </small>
+                <div class="row m-4 mb-5">
+                    <div class="card mb-3 dark-bg">
+                        <img class="card-img-top" src="<?php echo $value['image_path']; ?>" alt="">
+                        <div class="card-body">
+                            <h5 class="card-title text-light"><?php echo $value['title'] ?></h5>
+                            <p class="card-text text-light">
+                                <?php echo substr($value['content'], 0, 300); ?>...
+                                <a href="/templates/articles/article.php?article_id=<?php echo $value['id']; ?>">Read More</a>
+                            </p>
+                            <hr>
+                            <p class="card-text text-light">
+                                <small class="text-muted">Added <?php echo DateAndTime::time_elapsed_string($value['date']); ?></small>
+                            </p>
+                        </div>
                     </div>
-
-                    <div class="image-div">
-                        <a href="/templates/articles/article.php?article_id=<?php echo $value['id']; ?>">
-                            <img class="image-thumbnail" src="<?php echo $value['image_path']; ?>" alt="">
-                        </a>
-                    </div>
-
-                    <div class="mt-4">
-                        <small><?php echo substr($value['content'], 0, 300); ?>...
-                            <a href="/templates/articles/article.php?article_id=<?php echo $value['id']; ?>">Read More</a>
-                        </small>
-
-                    </div>
-                    <hr>
-
-                </div>
-
-                <div style="width: 10px;">
-
                 </div>
 
             <?php endforeach; ?>
 
-            test
-
-
         </div>
+
     </div>
     <?php include_once $_SERVER['DOCUMENT_ROOT'] . '/templates/base/footer.php' ?>
 </body>

@@ -1,7 +1,6 @@
 .user-img{
-    max-width: 100%;
-    height: auto;
-
+   height: 250px;
+   width: 250px;
 }
 .user-img:hover{
     transition: all .4s ease;

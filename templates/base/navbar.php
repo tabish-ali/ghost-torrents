@@ -1,9 +1,9 @@
-<div class="navbar-div mb-5">
-    <nav class="navbar navbar-expand-md sticky-top navbar-light bg-light shadow p-3 bg-white rounded">
+<div class="navbar-div">
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top shadow p-3">
         <a style="letter-spacing: 2px; font-size: 18px;" class="navbar-brand" href="/">
-            <img style="height: 25px; width: 25px;" src="/static/logos/logo.png" alt="">
-            <em class="text-primary"><b>G</b></em>host
-            <em class="text-danger"><b>T</b></em>orrents
+        <img src="/static/logos/ghost.png" style="height: 35px;" class="rounded-circle" alt="">
+            <em><b>G</b></em>host
+            <em><b>T</b></em>orrents
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -20,7 +20,7 @@
             <ul class="navbar-nav ml-auto">
                 <?php
 
-                if (empty($_SESSION)) : ?>
+                if (empty($_SESSION['username'])) : ?>
 
                     <li class="nav-item">
                         <a href="/templates/auth/sign_up.php" class="nav-link">Register</a>
@@ -50,10 +50,22 @@
                                 <i class="fa fa-plus-circle"></i>
                                 Add Articles
                             </a>
-                            <a class="dropdown-item btn-sm" href="/templates/torrents/user_torrents.php">
-                                <i class="fas fa-rss"></i>
-                                My Torrents
+
+                            <a href="/templates/torrents/add_torrent.php" class="dropdown-item btn-sm">
+                                <i class="fa fa-plus-circle"></i>
+                                Add Torrents
                             </a>
+
+                            <?php if (isset($_SESSION['admin'])) : ?>
+
+
+                                <a class="dropdown-item btn-sm" href="/templates/torrents/torrents_dashboard.php">
+                                    <i class="fas fa-rss"></i>
+                                    My Torrents
+                                </a>
+
+                            <?php endif; ?>
+
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item btn-sm" href="/users/logout.php">
                                 <i class="fas fa-sign-out-alt"></i>

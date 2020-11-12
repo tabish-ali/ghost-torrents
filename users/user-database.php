@@ -59,10 +59,11 @@ class UserDatabase
                 $email = $row['email'];
                 $id = $row['id'];
                 $image = $row['image_path'];
+                $admin = $row['admin'];
             }
 
             if (UserDatabase::verifyPassword($password, $user_password)) {
-                $user = new Users($username, $email, $user_password, $id, $image);
+                $user = new Users($username, $email, $user_password, $id, $image, $admin);
                 return $user;
             } else {
                 return "password-error";
@@ -144,6 +145,7 @@ class UserDatabase
         return $row['password'];
     }
 
+
     // this function checks if username already exist
     public static function checkUsername($user_id, $username)
     {
@@ -155,6 +157,20 @@ class UserDatabase
 
         return $result->num_rows == 0;
     }
+
+    public static function enterPasswordCode($email, $code)
+    {
+        $conn = DBConnection::getConnection();
+
+        $hashed_password = password_hash($code, PASSWORD_DEFAULT);
+
+        $update_query = "UPDATE users SET password = '$hashed_password' 
+        WHERE email = '$email'";
+
+        $conn->query($update_query);
+    }
+
+
 
     public static function checkEmail($user_id, $email)
     {
@@ -176,7 +192,9 @@ class UserDatabase
 
         $result = $conn->query($check_query);
 
-        return $result->num_rows == 0;
+        $result  = $result->num_rows == 0;
+
+        return $result;
     }
 
 

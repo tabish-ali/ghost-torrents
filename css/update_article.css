@@ -1,0 +1,9 @@
+.image-upload>input {
+    display: none;
+  }
+ .article-img:hover{
+     transition: all .4s ease;
+     -webkit-transition: all .4s ease;
+     opacity: 0.8;
+     cursor: pointer;
+ }

@@ -8,9 +8,10 @@ class Users
     private $password;
     private $id;
     private $image;
+    private $admin;
 
 
-    function __construct($username, $email, $password, $id, $image)
+    function __construct($username, $email, $password, $id, $image, $admin)
     {
 
         $this->username = $username;
@@ -18,6 +19,7 @@ class Users
         $this->password = $password;
         $this->id = $id;
         $this->image = $image;
+        $this->admin = $admin;
     }
 
     public function regUser($username, $email, $password)
@@ -61,5 +63,14 @@ class Users
     public function getImage()
     {
         return $this->image;
+    }
+
+    public function getAdmin(){
+
+        return $this->admin;
+    }
+
+    public function setAdmin(){
+
     }
 }

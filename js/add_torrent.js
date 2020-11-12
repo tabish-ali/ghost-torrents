@@ -8,6 +8,8 @@ $(document).ready(function (e) {
 
     const submit_icon = document.getElementById('submit-icon');
 
+    const notification = document.getElementById('notification');
+
     $("#torrent-upload-form").on('submit', (function (e) {
         e.preventDefault();
 
@@ -31,6 +33,10 @@ $(document).ready(function (e) {
                 console.log(data);
 
                 submit_icon.className = "fa fa-save";
+
+                notification.innerHTML = "Torrent added successfully";
+        
+                notification.style = "display: block";
 
             }
         });

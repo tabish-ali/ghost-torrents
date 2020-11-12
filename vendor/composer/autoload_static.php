@@ -14,6 +14,7 @@ class ComposerStaticInit2cb427fc9b6707ad61a18ed7adc94376
         'P' => 
         array (
             'PackageVersions\\' => 16,
+            'PHPMailer\\PHPMailer\\' => 20,
         ),
         'M' => 
         array (
@@ -33,6 +34,10 @@ class ComposerStaticInit2cb427fc9b6707ad61a18ed7adc94376
         'PackageVersions\\' => 
         array (
             0 => __DIR__ . '/..' . '/composer/package-versions-deprecated/src/PackageVersions',
+        ),
+        'PHPMailer\\PHPMailer\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/phpmailer/phpmailer/src',
         ),
         'MongoDB\\' => 
         array (

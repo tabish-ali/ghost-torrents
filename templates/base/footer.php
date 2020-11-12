@@ -1,3 +1,9 @@
-<footer class="blog-footer mt-5">
-    <p>Ghost Programmers <a href="https://getbootstrap.com/">Site</a> by <a href="https://twitter.com/mdo">Ghost Programmers</a>.</p>
-</footer>
+<div id="footer">
+
+    <div class="footer-content">
+        <small class="text-light"><a class="primary-label" href="">About</a> | </small> 
+        <small class="text-light"><a class="primary-label" href="">Privacy Policy</a> | </small> 
+        <small class="text-light"><a class="primary-label" href="">Contact Us</a> | </small> 
+    </div>
+
+</div>

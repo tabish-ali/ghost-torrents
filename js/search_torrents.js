@@ -42,7 +42,9 @@ $(document).ready(function () {
 
                 var search_title = document.createElement("small");
 
-                search_title.className = "alert alert-success p-1 rounded";
+                result_div.className = "mb-4 m-4 dark-bg p-4";
+
+                search_title.className = "bg-dark text-light p-1 rounded";
 
                 search_title.appendChild(document.createTextNode("Search Results"));
 
@@ -60,7 +62,7 @@ $(document).ready(function () {
                     var notification = document.createElement("small");
                     notification.appendChild(document.createTextNode("Sorry no results found..."));
 
-                    notification.className = "alert alert-danger";
+                    notification.className = "bg-dark p-1 text-light rounded";
                     $('#result-div').fadeIn("slow");
                     result_div.appendChild(notification);
                 }

@@ -1,0 +1,104 @@
+html{
+    height: 100%;
+}
+
+body{
+    background-color: #121212;
+    height: 100%;
+}
+
+#container{
+    min-height: 100%;
+}
+
+#main{
+    overflow: auto;
+}
+
+#footer{
+    background-color: #1d1d1d;
+    position: relative;
+    height: 50px;
+    margin-top: -50px;
+    clear:both;
+    padding: 5px;
+    text-align: center;
+}
+
+input{
+    background: #1d1d1d !important; 
+    border: 1px solid gray !important;
+    color: wheat !important;
+}
+
+hr{
+    background: black;
+}
+textarea {
+    background: #1d1d1d !important; 
+    border: 1px solid gray !important;
+    color: wheat !important;
+}
+
+.aqua-label{
+    color:aqua;
+}
+
+.danger-label{
+    color:rgb(255, 73, 49);
+}
+
+.primary-label{
+    color: rgb(71, 172, 255);
+}
+
+.primary-label:hover{
+    text-decoration: none;
+    color: rgb(43, 160, 255);
+}
+
+.dark-bg{
+    background-color: rgb(31, 31, 31);
+}
+
+.success-label{
+    color: springgreen;
+}
+
+.navbar-nav > li > .dropdown-menu {     
+    background-color:rgb(31, 31, 31);
+  }
+
+/* Dropdown menu font color*/ 
+
+ .navbar-nav > li > .dropdown-menu a{ 
+       color: #fff; 
+ }
+
+ .navbar-nav > li > .dropdown-menu a:hover{
+    background-color:#e94560;
+ }
+
+ .dark-check-box{
+     background-color: rgb(31, 31, 31) !important;
+ }
+
+ .edit-btn{
+    background-color:  rgb(43, 43, 43);
+    color:  #fff;
+    font-weight: bold;
+    border-radius: 3px;
+    max-height: 50px;
+}
+
+.edit-btn:hover{
+    background-color: rgb(54, 54, 54);
+    text-decoration: none;
+    color: #fff;
+}
+.main{
+
+}
+.footer{
+    background-color: #1d1d1d;
+}

@@ -48,8 +48,6 @@ $(document).ready(function () {
 
                 var response = data['response'];
 
-                document.getElementById('nav-username').innerHTML = username_field.value;
-
                 if (response == "taken") {
                     iziToast.warning({
                         title: data_type.charAt(0).toUpperCase() + data_type.slice(1),
@@ -69,7 +67,8 @@ $(document).ready(function () {
                         message: data_type.charAt(0).toUpperCase() + data_type.slice(1) +
                             " updated successfully.",
                     });
-
+                    document.getElementById('nav-username').innerHTML = username_field.value;
+                    document.getElementById('username-text').innerHTML = username_field.value;
 
                 }
             }
