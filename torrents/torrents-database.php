@@ -313,4 +313,14 @@ class TorrentsDatabase
 
         $conn->query($delete_query);
     }
+
+    public static function deleteTorrents($selected_ids){
+
+        $conn = DBConnection::getConnection();
+
+        foreach ($selected_ids as $id) {
+            $delete_query = "DELETE FROM torrents WHERE id = $id";
+            $conn->query($delete_query);
+        }
+    }
 }

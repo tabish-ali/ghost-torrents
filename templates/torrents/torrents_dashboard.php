@@ -20,7 +20,7 @@
         var torrents = <?php echo json_encode($torrents); ?>;
     </script>
 
-
+    <script src="/js/delete_torrents.js"></script>
 </head>
 
 <body>
@@ -39,10 +39,10 @@
             </div>
 
             <div class="table-table-responsive">
-                <table class="table table-borderless table-dark shadow-sm dark-bg rounded" <thead class="thead-light">
+                <table class="table table-borderless table-dark shadow-sm dark-bg rounded" id="torrents-table">
                     <thead class="thead-dark">
                         <tr>
-                            <th scope="col"><input type="checkbox" id="select-all-choicebox"></th>
+                            <th scope="col"><input type="checkbox" id="select-all"></th>
                             <th scope="col">Name</th>
                             <th scope="col">Date</th>
                             <th scope="col">Time</th>
