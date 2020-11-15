@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+ <?php
+    include_once $_SERVER['DOCUMENT_ROOT'] . '/templates/base/head-tags.php';
+    ?>
+
+
+<head>
+
+<div class="container py-3">
+    <div class="card float-right">
+      <div class="row">
+        <div class="col-sm-5">
+          <img class="d-block w-100" src="https://picsum.photos/150?image=641" alt="">
+        </div>
+        <div class="col-sm-7">
+          <div class="card-block">
+            <!--           <h4 class="card-title">Small card</h4> -->
+            <p>Copy paste the HTML and CSS.</p>
+            <p>Change around the content for awsomenes</p>
+            <br>
+            <a href="#" class="btn btn-primary btn-sm float-right">Read More</a>
+          </div>
+        </div>
+ 
+      </div>
+    </div>
+    
+  </div>
+ 
+ <br>
+<br>
+ 
+<html>
+

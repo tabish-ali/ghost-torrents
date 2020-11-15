@@ -96,8 +96,7 @@
                                 </td>
 
                                 <td width=5%>
-                                    <a href="/templates/torrents/edit_torrent.php?torrent_id=
-                                    <?php echo $torrent['id']; ?>" class="p-2 edit-btn small" href="#">
+                                    <a href="/templates/torrents/edit_torrent.php?torrent_id=<?php echo $torrent['id']; ?>" class="p-2 edit-btn small" href="#">
                                         Edit
                                     </a>
                                 </td>

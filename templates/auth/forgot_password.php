@@ -20,13 +20,15 @@
     ?>
 
 
-    <div class="container mt-5">
+    <div class="container mt-5" id="container">
+
+    <div id="main">
 
         <div id="form-div" method="post" class="default-form center-form mb-4 shadow">
 
             <div class="input-group input-group-sm mb-3">
                 <div class="input-group-prepend">
-                    <span class="input-group-text" id="inputGroup-sizing-sm">
+                    <span class="input-group-text border-dark" id="inputGroup-sizing-sm">
                         <i class="fa fa-envelope"></i>
                     </span>
                 </div>
@@ -38,8 +40,8 @@
                 Reset Password
             </button><br>
 
+         </div>
         </div>
-
     </div>
 
 

@@ -26,8 +26,8 @@ body{
 }
 
 input{
-    background: #1d1d1d !important; 
-    border: 1px solid gray !important;
+    background:#1a1a1a !important; 
+    border: 1px solid #292b2c !important;
     color: wheat !important;
 }
 
@@ -35,9 +35,9 @@ hr{
     background: black;
 }
 textarea {
-    background: #1d1d1d !important; 
-    border: 1px solid gray !important;
+    background: #1a1a1a !important; 
     color: wheat !important;
+    border-color:#292b2c !important ;
 }
 
 .aqua-label{
@@ -95,9 +95,6 @@ textarea {
     background-color: rgb(54, 54, 54);
     text-decoration: none;
     color: #fff;
-}
-.main{
-
 }
 .footer{
     background-color: #1d1d1d;

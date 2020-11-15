@@ -1,17 +1,15 @@
 $(document).ready(function () {
 
     var title_input = document.getElementById("title");
-    var content_input = document.getElementById("content");
+    const content_input = document.getElementById("content");
     var save_image_btn = document.getElementById("save-image-btn");
-
-    console.log(old_image_path);
 
     document.getElementById("update-content-btn").addEventListener("click", updateArticle);
 
     function updateArticle() {
 
         var updated_title = title_input.value;
-        var updated_content = content_input.value;
+        var updated_content = tinyMCE.get('content').getContent()
 
         console.log(updated_content);
 

@@ -29,5 +29,6 @@ if ($image_file['size'] != 0 && $image_file['error'] == 0) {
     ArticlesDatabase::updateImage($article_id, $target_file);
 
     echo $target_file;
+    
 } else {
 }

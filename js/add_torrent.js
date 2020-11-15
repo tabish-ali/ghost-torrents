@@ -38,6 +38,8 @@ $(document).ready(function (e) {
         
                 notification.style = "display: block";
 
+                notification.className ="text-success";
+
             }
         });
 

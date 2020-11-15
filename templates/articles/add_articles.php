@@ -9,17 +9,23 @@
     <title>Add New Article</title>
 
     <link rel="stylesheet" href="/css/add_article_form.css">
-    <!-- <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
-    <script src="/js/summernote.min.js"></script> -->
+
+    <script src="https://cdn.tiny.cloud/1/x0ijlg4e0a2wemrzk658tg7n867slze12uejhcy58nd16soc/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+
     <script>
-        // $(document).ready(function() {
-        //     $('#content').summernote({
-        //         height: 300,
-        //     });
-        // });
+      tinymce.init({
+        selector: '#content',
+        skin: "oxide-dark",
+        content_css: "dark",
+      });
     </script>
 
     <script src="/js/add_article.js"></script>
+
+    <style>
+
+    
+    </style>
 
 </head>
 
@@ -41,7 +47,7 @@
                         <input required name="title" type="text" class="form-control form-control-sm" id="title" aria-describedby="title" placeholder="Enter title here...">
                     </div>
                     <div class="form-group p-2">
-                        <label class="text-light" for="content">Content</label><textarea rows="20" name="content" id="content" class="form-control form-control-sm"></textarea>
+                        <label class="text-light" for="content">Content</label><textarea name="content" id="content"></textarea>
                     </div>
 
                     <div class="form-group p-2">

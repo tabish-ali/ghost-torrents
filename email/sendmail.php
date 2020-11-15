@@ -20,7 +20,49 @@ function passwordReset()
 
     if ($email_check) {
 
+        $exp_format = mktime(
+            date("H"),
+            date("i"),
+            date("s"),
+            date("m"),
+            date("d"),
+            date("Y")
+        );
+
+        $exp_date = date("Y-m-d H:i:s", $exp_format);
+        $key = md5(2418 * 2 . $user_email);
+        $add_key = substr(md5(uniqid(rand(), 1)), 3, 10);
+        $key = $key . $add_key;
+
+        mysqli_query(
+            DBConnection::getConnection(),
+            "INSERT INTO `password_reset_temp` (`email`, `key`,
+        `exp_date`) VALUES('" . $user_email . "',  '" . $key . "', '" . $exp_date . "');"
+        );
+
         $mail = PhpEmail::getPhpMailer();
+
+        $output = '<p>Dear user,</p>';
+        $output .= '<p>Please click on the following link to reset your password.</p>';
+        $output .= '<p>-------------------------------------------------------------</p>';
+        $output .= '<p><a href="http://ghost-torrents.com/templates/auth/password-reset.php?key=' . $key . '&email=' . $user_email . '&action=reset" target="_blank">
+        http://ghost-torrents.com/templates/auth/password-reset.php?key=' . $key . '&email=' . $user_email . '&action=reset</a></p>';
+        $output .= '<p>-------------------------------------------------------------</p>';
+        $output .= '<p>Please be sure to copy the entire link into your browser.
+        The link will expire after 1 day for security reason.</p>';
+        $output .= '<p>
+        
+
+        Hi, welcome from ghost torrents, you have requested to reset password.
+        Please make sure to follow the link for password reset or paste the link in your browser.
+        If you did not make this request kindly ignore this email. However, you may want to go 
+        to your profile to change your password for security purpose, because someone has gussed your email 
+        and trying to reset your password.
+        
+        </p>';
+
+        $output .= '<p>Thanks,</p>';
+        $output .= '<p>Ghost Torrents</p>';
 
         $mail->IsHTML(true);
         $mail->AddAddress($user_email, "user");
@@ -28,33 +70,13 @@ function passwordReset()
         $mail->AddReplyTo("torrentsghost@gmail.com", "ghost torrents");
         $mail->Subject = "Password Reset Request";
 
-        $code = mt_rand(100000, 999999);
-
-        UserDatabase::enterPasswordCode($user_email, $code);
-
-        $content = '
-    <h3 style="background-color: #2f2f2f; color:aliceblue; padding:5px; border-radius: 5px;">
-    Ghost Torrents
-    </h3>
-    <p>Hi you have made a request to reset your password. 
-    This six digit key is your password now. 
-    Please update your password as soon as possible. Conside this as your temporary password.
-    If you have not made this request then some one else is trying to reset your password.
-    Please report to us using contact form. <br><br>
-
-    <span style="margin-top:5px; padding: 1px; border: 1px solid lightgray;">
-    PASS KEY: ' . '<b style="letter-spacing: 2px;">'
-            . $code . '</b> ' .
-            ' </span>
-
-    <h4> Team Ghost </h4>
-    ';
-
-        $mail->MsgHTML($content);
+        $mail->Body = $output;
 
         if (!$mail->Send()) {
-            echo json_encode(["response" => $mail]);
+
+            echo json_encode(["response" =>  $mail->ErrorInfo]);
         } else {
+
             echo json_encode(["response" => $email_check]);
         }
     } else {

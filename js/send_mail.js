@@ -14,9 +14,9 @@ $(document).ready(function () {
             type: "post",
             url: "/email/sendmail.php",
             dataType: "json",
+            header: 'Content-type:appSMALLcation/json',
             data: {
-                type: "password_reset",
-                email: email_input.value,
+                type: 'password_reset', email: email_input.value,
             },
 
             beforeSend: function () {
@@ -40,17 +40,22 @@ $(document).ready(function () {
                     form_div.appendChild(msg_node);
 
                 }
-                else{
+                else {
                     var msg_node = document.createElement("small");
 
                     msg_node.className = "text-success p-1";
 
-                    msg_node.appendChild(document.createTextNode("Password sent to email, please check inbox"));
+                    msg_node.appendChild(document.createTextNode("Please check email for instructions to reset password"));
 
                     form_div.appendChild(msg_node);
                 }
                 reset_btn_icon.className = "fa fa-redo";
-            }
+                reset_btn.disabled = false;
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                console.log(errorThrown);
+            },
+
         });
 
     }

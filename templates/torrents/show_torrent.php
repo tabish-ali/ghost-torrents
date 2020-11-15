@@ -142,7 +142,7 @@
                             <small class="text-light">
                                 <b class="success-label" id="seeders">Seeds: <?php echo $torrent['peers_info']['seeders']; ?></b> |
                                 <b class="aqua-label" id="completed">Completed: <?php echo $torrent['peers_info']['completed'];  ?></b> |
-                                <b class="danger-label"" id=" leechers">Leeches: <?php echo $torrent['peers_info']['leechers']; ?></b>
+                                <b class="danger-label" id="leechers">Leeches: <?php echo $torrent['peers_info']['leechers']; ?></b>
                             </small>
 
                             <button id="refresh-peers-btn" class="btn btn-sm btn-dark ml-1">

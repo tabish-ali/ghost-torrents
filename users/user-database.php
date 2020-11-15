@@ -131,6 +131,19 @@ class UserDatabase
         $conn->query($update_query);
     }
 
+    public static function changePasswordByEmail($email, $new_password)
+    {
+
+        $conn = DBConnection::getConnection();
+
+        $update_query = "UPDATE users SET password = '$new_password' WHERE email = '$email'";
+
+        $conn->query($update_query);
+
+        $conn->close();
+
+    }
+
     public static function getPassword($user_id)
     {
 
@@ -229,5 +242,18 @@ class UserDatabase
         $image_path = $result->fetch_assoc()['image_path'];
 
         return $image_path;
+    }
+
+    public static function getPasswordFromMail($email){
+    
+        $conn = DBConnection::getConnection();
+
+        $select_query = "SELECT password FROM users WHERE email = '$email'";
+
+        $result = $conn->query($select_query);
+
+        $password = $result->fetch_assoc()['password'];
+
+
     }
 }

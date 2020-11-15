@@ -1,5 +1,5 @@
 <div class="navbar-div">
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top shadow p-3">
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow p-2">
         <a style="letter-spacing: 2px; font-size: 18px;" class="navbar-brand" href="/">
         <img src="/static/logos/ghost.png" style="height: 35px;" class="rounded-circle" alt="">
             <em><b>G</b></em>host
@@ -15,6 +15,9 @@
                 </li>
                 <li class="nav-item">
                     <a href="/templates/torrents/torrents.php" class="nav-link">Torrents</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/templates/torrents/torrents.php" class="nav-link">Services</a>
                 </li>
             </ul>
             <ul class="navbar-nav ml-auto">

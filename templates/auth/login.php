@@ -24,7 +24,7 @@
 
                 <div class="input-group input-group-sm mb-3">
                     <div class="input-group-prepend">
-                        <span class="input-group-text" id="inputGroup-sizing-sm">
+                        <span class="input-group-text border-dark" id="inputGroup-sizing-sm">
                             <i class="fas fa-user"></i>
                         </span>
                     </div>
@@ -33,7 +33,7 @@
 
                 <div class="input-group input-group-sm mb-3">
                     <div class="input-group-prepend">
-                        <span class="input-group-text" id="inputGroup-sizing-sm">
+                        <span class="input-group-text border-dark" id="inputGroup-sizing-sm">
                             <i class="fas fa-key"></i>
                         </span>
                     </div>

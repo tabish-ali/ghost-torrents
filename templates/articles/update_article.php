@@ -7,6 +7,7 @@
     include_once $_SERVER['DOCUMENT_ROOT'] . '/articles/articles-database.php';
     $article = ArticlesDatabase::getArticle($_GET['article_id']);
 
+
     foreach ($article as $val) {
 
         $title = $val['title'];
@@ -20,19 +21,22 @@
     <link rel="stylesheet" href="/css/update_article.css">
     <script src="/js/izi_toast.min.js" type="text/javascript"></script>
 
-    <!-- <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script> -->
+    <script src="https://cdn.tiny.cloud/1/x0ijlg4e0a2wemrzk658tg7n867slze12uejhcy58nd16soc/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 
     <script>
         var article_id = <?php echo $_GET['article_id']; ?>;
-        var old_image_path = "<?php echo $image_path ?>";
+        var old_image_path = "<?php echo $image_path;?>";
+        
+        tinymce.init({
+            selector: '#content',
+            skin: "oxide-dark",
+            content_css: "dark",
+            init_instance_callback: function(editor) {
+                var freeTiny = document.querySelector('.tox .tox-notification--in');
+                freeTiny.style.display = 'none';
+            }
 
-        // $(document).ready(function() {
-        //     $('#content').summernote({
-        //         height: 250,
-        //     });    });
-
-        // $('#content').summernote('code', html_str);
+        });
     </script>
 
     <script src="/js/update_article.js"></script>
@@ -63,7 +67,7 @@
                 </div>
                 <div class="form-group">
                     <label for="content" class="text-light">Content</label>
-                    <textarea id="content" name="content" id="" class="form-control form-control-sm" cols="30" rows="10"><?php echo $content; ?></textarea>
+                    <textarea id="content" name="content" class="form-control form-control-sm" cols="30" rows="10"><?php echo $content; ?></textarea>
                 </div>
                 <hr>
                 <button id="update-content-btn" class="btn btn-primary">Update</button>

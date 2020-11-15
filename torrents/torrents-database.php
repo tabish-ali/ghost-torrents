@@ -323,4 +323,39 @@ class TorrentsDatabase
             $conn->query($delete_query);
         }
     }
+
+    public static function updateTorrentInfo($torrent){
+
+        $conn = DBConnection::getConnection();
+
+        $description = $torrent['description'];
+
+        $category = $torrent['category'];
+
+        $torrent_id = $torrent['torrent_id'];
+
+        $update_query = $conn->prepare("UPDATE torrents SET description = ?, category = ?
+        WHERE id = $torrent_id");
+
+        $update_query->bind_param("ss", $description, $category);
+
+        $update_query->execute();
+
+        $conn->close();
+    }
+
+    public static function updateFile($torrent_id, $file_path){
+
+        $conn = DBConnection::getConnection();
+
+        $update_query = $conn->prepare("UPDATE torrents SET file_path = ? 
+        WHERE id = $torrent_id");
+
+        $update_query->bind_param("s", $file_path);
+
+        $update_query->execute();
+
+        $conn->close();
+    }
+    
 }

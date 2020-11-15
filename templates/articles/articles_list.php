@@ -46,28 +46,29 @@
     <div class="container mt-5" id="container">
 
         <div id="main">
+            <div class="row m-4 mb-5">
+                <?php foreach ($articles_array as $value) : ?>
 
-            <?php foreach ($articles_array as $value) : ?>
 
-                <div class="row m-4 mb-5">
-                    <div class="card mb-3 dark-bg">
-                        <img class="card-img-top" src="<?php echo $value['image_path']; ?>" alt="">
-                        <div class="card-body">
-                            <h5 class="card-title text-light"><?php echo $value['title'] ?></h5>
-                            <p class="card-text text-light">
-                                <?php echo substr($value['content'], 0, 300); ?>...
-                                <a href="/templates/articles/article.php?article_id=<?php echo $value['id']; ?>">Read More</a>
-                            </p>
-                            <hr>
-                            <p class="card-text text-light">
-                                <small class="text-muted">Added <?php echo DateAndTime::time_elapsed_string($value['date']); ?></small>
-                            </p>
+
+                    <div class="col-sm-12">
+                        <div class="card mb-3 dark-bg">
+                            <img class="card-img-top" id="article-img" src="<?php echo $value['image_path']; ?>" alt="">
+                            <div class="card-body">
+                                <h5 class="card-title text-light"><?php echo $value['title'] ?></h5>
+
+                                <a class="btn btn-dark btn-sm" href="/templates/articles/article.php?article_id=<?php echo $value['id']; ?>">Read More</a>
+
+                                <hr>
+                                <p class="card-text text-light">
+                                    <small class="text-muted">Added <?php echo DateAndTime::time_elapsed_string($value['date']); ?></small>
+                                </p>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-            <?php endforeach; ?>
-
+                <?php endforeach; ?>
+            </div>
         </div>
 
     </div>

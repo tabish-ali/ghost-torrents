@@ -155,6 +155,7 @@ class ArticlesDatabase
     public static function updateArticle($article_id, $title, $content)
     {
         $conn = DBConnection::getConnection();
+        
 
         $update_query = $conn->prepare("UPDATE articles SET title = ?, content = ?
         WHERE id = $article_id");

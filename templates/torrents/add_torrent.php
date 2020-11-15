@@ -10,6 +10,20 @@
     <title>Add Torrent</title>
 
 
+    <script src="https://cdn.tiny.cloud/1/x0ijlg4e0a2wemrzk658tg7n867slze12uejhcy58nd16soc/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+
+    <script>
+      tinymce.init({
+        selector: '#description',
+        skin: "oxide-dark",
+        content_css: "dark",
+        init_instance_callback: function(editor) {
+                var freeTiny = document.querySelector('.tox .tox-notification--in');
+                freeTiny.style.display = 'none';
+            }
+      });
+    </script>
+
     <script src="/js/add_torrent.js"></script>
 
 </head>
