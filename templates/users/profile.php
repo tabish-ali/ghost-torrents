@@ -79,7 +79,7 @@
                                 <form method="post" enctype="multipart/form-data" id="image-upload-form">
                                     <div class="image-upload" id="img-upload-div">
                                         <label class="shadow" for="image-file-input">
-                                            <img id="out-image" class="user-img rounded-circle" src="<?php echo $_SESSION['image']; ?>" alt="image" />
+                                            <img id="out-image" class="text-light user-img rounded-circle" src="<?php echo $_SESSION['image']; ?>" alt="Change image here" />
                                         </label>
                                         <input name="image" id="image-file-input" type="file" /> <br>
                                         <Button id="save-image-btn" style="display: none;" type="submit" class="btn btn-sm btn-dark mt-2">Save</Button>
