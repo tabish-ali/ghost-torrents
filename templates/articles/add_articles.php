@@ -17,6 +17,10 @@
         selector: '#content',
         skin: "oxide-dark",
         content_css: "dark",
+        init_instance_callback: function(editor) {
+                var freeTiny = document.querySelector('.tox .tox-notification--in');
+                freeTiny.style.display = 'none';
+            }
       });
     </script>
 
@@ -34,7 +38,7 @@
     include_once $_SERVER['DOCUMENT_ROOT'] . '/templates/base/navbar.php';
     ?>
 
-    <div class="container mt-5" style="margin-bottom: 100px;" id="container">
+    <div class="container" style="margin-bottom: 30px; margin-top: 100px;" id="container">
 
         <div class="shadow dark-bg" id="main">
 
@@ -99,10 +103,6 @@
             </div>
         </div>
     </div>
-
-    <?php
-    include $_SERVER['DOCUMENT_ROOT'] . '/templates/base/footer.php';
-    ?>
 
 </body>
 

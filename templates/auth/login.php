@@ -16,7 +16,7 @@
     include_once $_SERVER['DOCUMENT_ROOT'] . '/users/login-user.php';
     ?>
 
-    <div class="container mt-5" id="container">
+    <div class="container" style="margin-top: 100px;" id="container">
 
         <div id="main">
 
@@ -77,9 +77,6 @@
         </div>
 
     </div>
-    <?php
-    include $_SERVER['DOCUMENT_ROOT'] . '/templates/base/footer.php';
-    ?>
 </body>
 
 </html>

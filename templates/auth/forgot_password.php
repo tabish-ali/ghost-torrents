@@ -7,7 +7,6 @@
     include_once $_SERVER['DOCUMENT_ROOT'] . '/templates/base/head-tags.php';
     ?>
 
-
     <script src="/js/send_mail.js"></script>
 
 </head>
@@ -20,9 +19,7 @@
     ?>
 
 
-    <div class="container mt-5" id="container">
-
-    <div id="main">
+    <div class="container" id="container">
 
         <div id="form-div" method="post" class="default-form center-form mb-4 shadow">
 
@@ -39,15 +36,9 @@
                 <i id="reset-btn-icon" class="fas fa-redo"></i>
                 Reset Password
             </button><br>
-
-         </div>
+            <small id="msg" style="display: none;"></small>
         </div>
     </div>
-
-
-    <?php
-    include $_SERVER['DOCUMENT_ROOT'] . '/templates/base/footer.php';
-    ?>
 
 </body>
 

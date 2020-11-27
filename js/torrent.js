@@ -20,6 +20,10 @@ $(document).ready(function () {
 
     const comments_div = document.getElementById('comments-div');
 
+    const copy_hash_btn = document.getElementById('copy-hash-btn');
+
+    copy_hash_btn.addEventListener("click", copyHash);
+
     refresh_peers_btn.addEventListener("click", refreshPeersInfo);
 
     torrent_comments_obj.forEach(comment => {
@@ -297,4 +301,5 @@ $(document).ready(function () {
             }
         });
     }
+
 });

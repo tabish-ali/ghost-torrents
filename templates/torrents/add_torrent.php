@@ -38,7 +38,7 @@
     $user = UserDatabase::getUserById($_SESSION['id']);
 
     ?>
-    <div class="container mt-5 mb-5" id="container">
+    <div class="container" style="margin-top: 100px; margin-bottom: 30px;" id="container">
 
         <div id="main">
             <?php if ($user["admin"]) : ?>
@@ -94,10 +94,6 @@
             <?php endif; ?>
         </div>
     </div>
-
-    <?php
-    include $_SERVER['DOCUMENT_ROOT'] . '/templates/base/footer.php';
-    ?>
 </body>
 
 </html>

@@ -19,7 +19,7 @@
     include_once $_SERVER['DOCUMENT_ROOT'] . '/users/register-user.php';
     ?>
 
-    <div class="container mt-5" id="container">
+    <div class="container" style="margin-top: 100px;" id="container">
 
         <div id="main">
             <form method="post" action="#" class="default-form center-form mb-5 shadow">
@@ -106,9 +106,6 @@
         </div>
     </div>
 
-    <?php
-    include $_SERVER['DOCUMENT_ROOT'] . '/templates/base/footer.php';
-    ?>
 </body>
 
 </html>

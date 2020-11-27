@@ -44,10 +44,8 @@ function passwordReset()
 
         $output = '<p>Dear user,</p>';
         $output .= '<p>Please click on the following link to reset your password.</p>';
-        $output .= '<p>-------------------------------------------------------------</p>';
         $output .= '<p><a href="http://ghost-torrents.com/templates/auth/password-reset.php?key=' . $key . '&email=' . $user_email . '&action=reset" target="_blank">
         http://ghost-torrents.com/templates/auth/password-reset.php?key=' . $key . '&email=' . $user_email . '&action=reset</a></p>';
-        $output .= '<p>-------------------------------------------------------------</p>';
         $output .= '<p>Please be sure to copy the entire link into your browser.
         The link will expire after 1 day for security reason.</p>';
         $output .= '<p>

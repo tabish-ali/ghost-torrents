@@ -33,8 +33,7 @@
     include $_SERVER['DOCUMENT_ROOT'] . '/templates/base/navbar.php';
     ?>
 
-    <div class="container mt-5" id="container">
-        <div id="main">
+    <div class="container" style="margin-top: 100px;" id="container">
             <div class="row m-4 mb-5">
                 <?php foreach ($article as $key) : ?>
                     <div class="card mb-3 dark-bg">
@@ -55,7 +54,6 @@
                     </div>
                 <?php endforeach; ?>
             </div>
-        </div>
     </div>
 </body>
 

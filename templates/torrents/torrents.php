@@ -29,10 +29,7 @@
     ?>
 
 
-    <div class="container-fluid mt-4" id="container">
-        <div id="main">
-
-
+    <div class="container-fluid" id="container">
 
             <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
                 <li class="nav-item">
@@ -337,7 +334,6 @@
                 </div>
             </div>
         </div>
-    </div>
 </body>
 
 </html>

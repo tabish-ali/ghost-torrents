@@ -13,6 +13,7 @@
 <link rel="stylesheet" href="/css/main.css">
 <link rel="stylesheet" href="/css/cards.css">
 <script src="/js/sweetalert.min.js"></script>
+<script src="/js/nav.js"></script>
 <?php
 session_start();
 ?>

@@ -49,7 +49,7 @@
     include_once $_SERVER['DOCUMENT_ROOT'] . '/templates/base/navbar.php';
     ?>
 
-    <div class="container mt-4">
+    <div class="container" style="margin-top: 100px; margin-bottom: 30px;">
 
         <div id="alert" style="display: none;" class="alert alert-success" role="alert">
 
@@ -89,8 +89,6 @@
             </div>
         </div>
     </div>
-
-    <?php include_once $_SERVER['DOCUMENT_ROOT'] . '/templates/base/footer.php'; ?>
 
 </body>
 

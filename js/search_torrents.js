@@ -16,85 +16,86 @@ $(document).ready(function () {
 
     function searchTorrents() {
 
-        $('#result-div').fadeOut('slow');
+        if (search_field.value.length > 0) {
 
-        var category = document.querySelector('input[name="category"]:checked').value;
+            $('#result-div').fadeOut('slow');
 
-        $.ajax({
+            var category = document.querySelector('input[name="category"]:checked').value;
 
-            url: "/torrents/search-torrents.php",
-            method: "post",
-            data: {
-                search_string: search_field.value,
-                category: category
-            },
-            dataType: "json",
+            $.ajax({
 
-            beforeSend: function () {
+                url: "/torrents/search-torrents.php",
+                method: "post",
+                data: {
+                    search_string: search_field.value,
+                    category: category
+                },
+                dataType: "json",
 
-                search_btn.disabled = true;
-                search_icon.className = "fa fa-spinner fa-spin";
-            },
+                beforeSend: function () {
 
-            success: function (data) {
+                    search_btn.disabled = true;
+                    search_icon.className = "fa fa-spinner fa-spin";
+                },
 
-                result_div.innerHTML = "";
+                success: function (data) {
 
-                var search_title = document.createElement("small");
+                    result_div.innerHTML = "";
 
-                result_div.className = "mb-4 m-4 dark-bg p-4";
+                    var search_title = document.createElement("small");
 
-                search_title.className = "bg-dark text-light p-1 rounded";
+                    result_div.className = "mb-4 m-4 dark-bg p-4";
 
-                search_title.appendChild(document.createTextNode("Search Results"));
+                    search_title.className = "bg-dark text-light p-1 rounded";
 
-                result_div.appendChild(search_title);
+                    search_title.appendChild(document.createTextNode("Search Results"));
 
-                result_div.appendChild(document.createElement("hr"));
+                    result_div.appendChild(search_title);
 
-                search_btn.disabled = false;
-                search_icon.className = "fa fa-search";
+                    result_div.appendChild(document.createElement("hr"));
 
-                var count = 0;
+                    search_btn.disabled = false;
+                    search_icon.className = "fa fa-search";
 
-                if (data.length == 0) {
+                    var count = 0;
 
-                    var notification = document.createElement("small");
-                    notification.appendChild(document.createTextNode("Sorry no results found..."));
+                    if (data.length == 0) {
 
-                    notification.className = "bg-dark p-1 text-light rounded";
-                    $('#result-div').fadeIn("slow");
-                    result_div.appendChild(notification);
-                }
+                        var notification = document.createElement("small");
+                        notification.appendChild(document.createTextNode("Sorry no results found..."));
 
-                data.forEach(torrent => {
+                        notification.className = "bg-dark p-1 text-light rounded";
+                        $('#result-div').fadeIn("slow");
+                        result_div.appendChild(notification);
+                    }
 
-                    $('#result-div').fadeIn('slow');
+                    data.forEach(torrent => {
 
-                    count++;
+                        $('#result-div').fadeIn('slow');
 
-                    var result_node = document.createElement("small");
+                        count++;
 
-                    var result_link_node = document.createElement("a");
+                        var result_node = document.createElement("small");
 
-                    result_link_node.href = "/templates/torrents/show_torrent.php?torrent_id="
-                        + torrent.id + "&name=" + torrent.name;
+                        var result_link_node = document.createElement("a");
 
-                    var result_text = document.createTextNode(count + ". " + torrent.name);
+                        result_link_node.href = "/templates/torrents/show_torrent.php?torrent_id="
+                            + torrent.id + "&name=" + torrent.name;
 
-                    result_link_node.appendChild(result_text);
+                        var result_text = document.createTextNode(count + ". " + torrent.name);
 
-                    result_node.appendChild(result_link_node);
+                        result_link_node.appendChild(result_text);
 
-                    result_node.appendChild(document.createElement("br"));
+                        result_node.appendChild(result_link_node);
 
-                    result_div.appendChild(result_node);
+                        result_node.appendChild(document.createElement("br"));
 
-                });
+                        result_div.appendChild(result_node);
 
+                    });
 
-
-            },
-        });
+                },
+            });
+        }
     }
 });

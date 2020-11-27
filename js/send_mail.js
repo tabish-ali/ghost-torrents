@@ -4,6 +4,7 @@ $(document).ready(function () {
     const email_input = document.getElementById('email-input');
     const form_div = document.getElementById('form-div');
     const reset_btn_icon = document.getElementById('reset-btn-icon');
+    const msg_node = document.getElementById('msg');
 
     reset_btn.addEventListener("click", resetPassword);
 
@@ -31,24 +32,18 @@ $(document).ready(function () {
 
                 if (!response) {
 
-                    var msg_node = document.createElement("small");
-
                     msg_node.className = "text-danger p-1";
 
-                    msg_node.appendChild(document.createTextNode("User with this username does not exist"));
-
-                    form_div.appendChild(msg_node);
-
+                    msg_node.innerHTML = "Sorry user with this email does not exist";
                 }
                 else {
-                    var msg_node = document.createElement("small");
 
                     msg_node.className = "text-success p-1";
 
-                    msg_node.appendChild(document.createTextNode("Please check email for instructions to reset password"));
+                    msg_node.innerHTML = "Please check email for instructions to reset password";
 
-                    form_div.appendChild(msg_node);
                 }
+                $('#msg').fadeIn("slow")
                 reset_btn_icon.className = "fa fa-redo";
                 reset_btn.disabled = false;
             },

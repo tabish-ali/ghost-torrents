@@ -30,7 +30,7 @@
     $serial = 0;
     ?>
 
-    <div class="container-fluid mt-4">
+    <div class="container-fluid">
 
         <?php if (!empty($_SESSION)) : ?>
 

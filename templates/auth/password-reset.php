@@ -16,7 +16,7 @@
     <?php include $_SERVER['DOCUMENT_ROOT'] . '/users/password-reset.php'; ?>
 
 
-    <div class="container mt-5" id="container">
+    <div class="container" id="container">
 
         <?php if ($row != "") : ?>
             <?php if ($exp_date <= $curDate) : ?>
@@ -49,19 +49,20 @@
 
             <?php endif; ?>
 
+        <?php else : ?>
 
-            <div style="margin:0 auto; width:50%; text-align: center;" class="mt-2 rounded dark-bg p2">
+            <div style="margin:0 auto; width:50%; text-align: center;" class="mt-2 rounded dark-bg p-1">
                 <p class="text-light"><?php echo $message; ?></p>
             </div>
 
-        <?php else : ?>
-
-            <div style="margin:0 auto; width:50%; text-align: center;" class="rounded dark-bg p-2">
-                <p class="danger-label">Link has expired or you have already used that link to reset password.
-                    You can generate new link using address below inorder to reset password.
-                </p>
-                <a href="/templates/auth/forgot_password.php" class="primary-label">Reset Password Link</a>
-            </div>
+            <?php if ($message == "") : ?>
+                <div style="margin:0 auto; width:50%; text-align: center;" class="rounded dark-bg p-2">
+                    <p class="danger-label">Link has expired or you have already used that link to reset password.
+                        You can generate new link using address below inorder to reset password.
+                    </p>
+                    <a href="/templates/auth/forgot_password.php" class="primary-label">Reset Password Link</a>
+                </div>
+            <?php endif; ?>
 
         <?php endif; ?>
 

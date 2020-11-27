@@ -5,6 +5,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/users/user-database.php';
 $conn = DBConnection::getConnection();
 
 $message = "";
+$row = "";
 
 if (
     isset($_GET["key"]) && isset($_GET["email"]) && isset($_GET["action"])

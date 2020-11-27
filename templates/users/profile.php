@@ -30,7 +30,7 @@
 
     ?>
 
-    <div class="container p-2 mt-5 mb-5" id="container">
+    <div class="container" style="margin-top: 100px;" id="container">
 
         <?php if (!empty($_SESSION)) : ?>
 
