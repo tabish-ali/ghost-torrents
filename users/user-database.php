@@ -26,6 +26,16 @@ class UserDatabase
         return $new_user['id'];
     }
 
+    public static function getUsers(){
+        $conn = DBConnection::getConnection();
+
+        $select_query = "SELECT * FROM users ORDER BY username";
+
+        $result = $conn->query($select_query);
+
+        return $result;
+    }
+
     public static function getLastID()
     {
 
@@ -75,7 +85,6 @@ class UserDatabase
 
     public static function getUserById($user_id)
     {
-
         $conn = DBConnection::getConnection();
 
         $select_query = "SELECT * FROM users WHERE id = '$user_id'";
@@ -242,6 +251,17 @@ class UserDatabase
         $image_path = $result->fetch_assoc()['image_path'];
 
         return $image_path;
+    }
+
+    public static function getUserByName($username)
+    {
+        $conn = DBConnection::getConnection();
+
+        $select_query = "SELECT * FROM users WHERE username = '$username'";
+
+        $result = $conn->query($select_query);
+
+        return $result->fetch_assoc();
     }
 
     public static function getPasswordFromMail($email){

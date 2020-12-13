@@ -30,8 +30,6 @@ $(document).ready(function (e) {
 
             success: function (data) {
 
-                console.log(data);
-
                 submit_icon.className = "fa fa-save";
 
                 notification.innerHTML = "Torrent added successfully";

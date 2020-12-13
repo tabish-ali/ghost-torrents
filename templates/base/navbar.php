@@ -23,9 +23,12 @@
             <li class="nav-item">
                 <a href="/templates/articles/articles_list.php" class="nav-link">Articles</a>
             </li>
+            <li class="nav-item">
+                <a href="/templates/users/list_users.php" class="nav-link">Members</a>
+            </li>
             <?php
 
-            if (empty($_SESSION['username'])) : ?>
+if (empty($_SESSION['username'])): ?>
 
                 <li class="nav-item">
                     <a href="/templates/auth/sign_up.php" class="nav-link">Register</a>
@@ -34,7 +37,7 @@
                     <a href="/templates/auth/login.php" class="nav-link">Login</a>
                 </li>
 
-            <?php else : ?>
+            <?php else: ?>
 
                 <li class="nav-item dropdown shadow-lg">
 
@@ -55,21 +58,16 @@
                             <i class="fa fa-plus-circle"></i>
                             Add Articles
                         </a>
-
+                        <?php if (isset($_SESSION['admin'])): ?>
                         <a href="/templates/torrents/add_torrent.php" class="dropdown-item btn-sm">
                             <i class="fa fa-plus-circle"></i>
                             Add Torrents
                         </a>
-
-                        <?php if (isset($_SESSION['admin'])) : ?>
-
-
                             <a class="dropdown-item btn-sm" href="/templates/torrents/torrents_dashboard.php">
                                 <i class="fas fa-rss"></i>
                                 My Torrents
                             </a>
-
-                        <?php endif; ?>
+                        <?php endif;?>
 
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item btn-sm" href="/users/logout.php">
@@ -79,7 +77,7 @@
                 </li>
 
 
-            <?php endif ?>
+            <?php endif?>
         </ul>
     </div>
 

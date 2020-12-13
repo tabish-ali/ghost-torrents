@@ -6,9 +6,8 @@
     <?php
     include_once $_SERVER['DOCUMENT_ROOT'] . '/templates/base/head-tags.php';
     ?>
-
-
     <script src="/js/password_check.js"></script>
+    <title>Ghost | Sign Up</title>
 
 </head>
 
@@ -68,10 +67,6 @@
 
                 <div class="form-group">
                     <small><a href="/templates/auth/login.php">Already have an account?</a></small>
-                </div>
-
-                <div class="form-group">
-                    <small><a href="#" class="">Forgot password?</a></small>
                 </div>
 
                 <div style="display: none;" class="alert alert-warning alert-dismissible fade show" id="p-n" role="alert">

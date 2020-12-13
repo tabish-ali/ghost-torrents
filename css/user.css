@@ -1,0 +1,9 @@
+.user-div{
+    border: 4px solid  #121212;;
+    background-color: rgb(31, 31, 31);
+}
+.user-avatar{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}

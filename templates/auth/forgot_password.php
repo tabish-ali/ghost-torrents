@@ -9,6 +9,7 @@
 
     <script src="/js/send_mail.js"></script>
 
+    <title>Ghost | Forgot Password</title>
 </head>
 
 <body>

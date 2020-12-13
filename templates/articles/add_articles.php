@@ -20,7 +20,9 @@
         init_instance_callback: function(editor) {
                 var freeTiny = document.querySelector('.tox .tox-notification--in');
                 freeTiny.style.display = 'none';
-            }
+            },
+            height: "450",
+            content_style: "body { background: #2d2d2d; color: #fff;}",
       });
     </script>
 
@@ -50,6 +52,7 @@
                         <label for="title" class="text-light">Title</label>
                         <input required name="title" type="text" class="form-control form-control-sm" id="title" aria-describedby="title" placeholder="Enter title here...">
                     </div>
+                    <small class="p-2 text-muted">Please Change the formating before posting. Format > Text color > color</small>
                     <div class="form-group p-2">
                         <label class="text-light" for="content">Content</label><textarea name="content" id="content"></textarea>
                     </div>

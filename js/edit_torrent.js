@@ -23,16 +23,15 @@ $(document).ready(function () {
                 category: category.value,
                 type: 'text',
             },
-        
-
-            success: function (response) {
-
-                console.log(response);
-
+            success: function (data) {
+                $("#update-div small:last-child").remove();
+                var msg = $("<small class='success-label' style='display:none'> " + data["response"] + "</small > ");
+                $('#update-div').append(msg);
+                msg.fadeIn("slow");
             },
-            error: function(jqXhr, textStatus, errorMessage){
+            error: function (jqXhr, textStatus, errorMessage) {
                 console.log("Error: ", errorMessage);
-             }
+            }
 
         });
     }
@@ -56,16 +55,19 @@ $(document).ready(function () {
             cache: false,
             processData: false,
 
-            success: function (response) {
+            success: function (data) {
 
-                console.log(response);
-
-                if (response == "error") {
-
-
+                if (data["response"] === "error") {
+                    $("#file-div small:last-child").remove();
+                    var msg = $("<small class='danger-label' style='display:none'>Please add a valid file</small > ");
+                    $('#file-div').append(msg);
+                    msg.fadeIn("slow");
                 }
                 else {
-
+                    $("#file-div small:last-child").remove();
+                    var msg = $("<small class='success-label' style='display:none'> " + data["response"] + "</small > ");
+                    $('#file-div').append(msg);
+                    msg.fadeIn("slow");
                 }
             }
         });

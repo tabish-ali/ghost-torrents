@@ -6,21 +6,21 @@ $torrent_id = $_POST['torrent_id'];
 
 $type = $_POST['type'];
 
-//updating torrent info 
+//updating torrent info
 if ($type == "text") {
 
-    // $description = $_POST['description'];
-    // $category = $_POST['category'];
+    $description = $_POST['description'];
+    $category = $_POST['category'];
 
-    // $torrent = [
-    //     "torrent_id" => $torrent_id,
-    //     "description" => $description,
-    //     "category" => $category,
-    // ];
+    $torrent = [
+        "torrent_id" => $torrent_id,
+        "description" => $description,
+        "category" => $category,
+    ];
 
-    // TorrentsDatabase::updateTorrentInfo($torrent);
+    TorrentsDatabase::updateTorrentInfo($torrent);
 
-    echo "Torrent updated";
+    echo json_encode(["response" => "Torrent updated successfully."]);
 
 } else {
 
@@ -43,7 +43,6 @@ if ($type == "text") {
 
         echo $target_file;
     } else {
-        echo "error";
+        echo json_encode(["response"=>"error"]);
     }
 }
-

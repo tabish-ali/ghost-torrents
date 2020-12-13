@@ -19,6 +19,8 @@
     <script src="/js/change_password.js"></script>
     <link rel="stylesheet" href="/css/izi_toast.min.css">
     <script src="/js/izi_toast.min.js" type="text/javascript"></script>
+
+    <title>Ghost | User Profile | <?php echo $_SESSION['username']; ?></title>
 </head>
 
 <body>
@@ -135,12 +137,13 @@
                             <label for="password1" class="text-light"> <small>Confirm Password</small></label>
                             <input type="password" name="password3" id="password3" class="form-control form-control-sm">
                             <small id="emailHelp" class="form-text text-muted">Make sure to match last two passwords.</small>
-                    
+
                             <Button id="change-btn" class="btn btn-sm btn-secondary mt-3">Change</Button>
+                            <br>
                             <small id="password-match-notification" style="display: none;"></small>
                         </div>
 
-               
+
 
                     </div>
                 </div>

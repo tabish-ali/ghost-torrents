@@ -31,7 +31,9 @@
             init_instance_callback: function(editor) {
                 var freeTiny = document.querySelector('.tox .tox-notification--in');
                 freeTiny.style.display = 'none';
-            }
+            },
+            height: "450",
+            content_style: "body { background: #2d2d2d; color: #fff;}",
         });
     </script>
 
@@ -56,7 +58,7 @@
                 <div class="torrent-form-div shadow p-3">
                     <div class="form-group p-2">
                         <label for="title" class="text-light">Description</label>
-                        <textarea id="description" name="description" cols="30" rows="5" class="form-control form-control-sm"><?php echo $torrent['description']; ?></textarea>
+                        <textarea id="description" name="description" cols="30" rows="10" class="form-control form-control-sm"><?php echo $torrent['description']; ?></textarea>
                     </div>
 
                     <div class="form-group p-2">
@@ -69,17 +71,21 @@
                             <option value="music">Music</option>
                         </select>
                     </div>
-                    <div class="p-2">
+                    <div class="p-2" id="update-div">
                         <button type="submit" id="update-btn" class="btn btn-dark btn-sm">
                             Update
                         </button>
+                        <a class="btn btn-sm btn-primary" href="/templates/torrents/show_torrent.php?torrent_id=<?php echo $torrent['id']; ?>&name=<?php echo $torrent['name']; ?>">
+                            View
+                        </a>
+                        <br>
                     </div>
                     <hr>
-                    <div class="form-group p-2">
-
+                    <div class="form-group p-2" id="file-div">
                         <label for="title" class="text-light">File</label><br>
                         <input id="torrent-file" value="<?php echo $torrent['file_path']; ?>" name="torrent-file" type="file">
                         <button class="btn btn-sm btn-dark" id="save-file-btn">Save</button>
+                        <br>
                     </div>
 
                 </div>

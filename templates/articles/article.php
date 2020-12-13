@@ -3,8 +3,6 @@
 
 <head>
 
-    <title>Document</title>
-
     <link rel="stylesheet" href="/css/article.css">
 
     <?php
@@ -24,22 +22,21 @@
     </script>
 
     <script src="/js/like_article.js"></script>
-
 </head>
 
 <body>
-
     <?php
     include $_SERVER['DOCUMENT_ROOT'] . '/templates/base/navbar.php';
     ?>
-
     <div class="container" style="margin-top: 100px;" id="container">
-            <div class="row m-4 mb-5">
-                <?php foreach ($article as $key) : ?>
+        <div class="row m-4 mb-5">
+            <?php foreach ($article as $key) : ?>
+                <div class="col-sm-12">
                     <div class="card mb-3 dark-bg">
-                        <img class="card-img-top" src="<?php echo $key['image_path']; ?>" alt="Card image cap">
+                        <img id="article-img" class="card-img-top" src="<?php echo $key['image_path']; ?>" alt="Card image cap">
                         <div class="card-body">
                             <h5 class="card-title text-light"><?php echo $key['title'] ?></h5>
+                            <title><?php echo $key['title'] ?></title>
                             <p class="card-text text-light">
                                 <?php echo $key['content']; ?>
                             </p>
@@ -52,8 +49,9 @@
                             </div>
                         </div>
                     </div>
-                <?php endforeach; ?>
-            </div>
+                </div>
+            <?php endforeach; ?>
+        </div>
     </div>
 </body>
 

@@ -6,7 +6,7 @@
     <?php
     include_once $_SERVER['DOCUMENT_ROOT'] . '/templates/base/head-tags.php';
     ?>
-
+    <title>Ghost | Login In</title>
 </head>
 
 <body>

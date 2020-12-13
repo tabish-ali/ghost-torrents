@@ -55,6 +55,9 @@ textarea {
 .navbar-nav > li > .dropdown-menu {     
     background-color:rgb(31, 31, 31);
   }
+.navbar-nav > li > .dropdown-menu a:focus{
+    background-color: transparent;
+}
 
 /* Dropdown menu font color*/ 
 

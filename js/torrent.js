@@ -19,16 +19,14 @@ $(document).ready(function () {
     const comment_btn = document.getElementById('comment-btn');
 
     const comments_div = document.getElementById('comments-div');
-
-    const copy_hash_btn = document.getElementById('copy-hash-btn');
-
-    copy_hash_btn.addEventListener("click", copyHash);
-
+    
     refresh_peers_btn.addEventListener("click", refreshPeersInfo);
 
     torrent_comments_obj.forEach(comment => {
 
         // return true if it was user own comment
+
+        console.log("click");
 
         setCommentNode(comment.comment,
             comment.username,
@@ -146,11 +144,25 @@ $(document).ready(function () {
         }
 
         else {
+            swal("Currently you are not logged in.\n Please loginc or register to use this feature", {
+                buttons: {
+                    login: "Login",
+                    register: "Register",
+                },
+            })
+                .then((value) => {
+                    switch (value) {
 
-            iziToast.info({
-                title: 'Not logged in!',
-                message: "Please login to make comments",
-            });
+                        case "login":
+                            window.location.href = '/templates/auth/login.php';
+                            break;
+
+                        case "register":
+                            window.location.href = '/templates/auth/sign_up.php';
+                            break;
+
+                    }
+                });
 
             comment_btn_icon.className = "fas fa-comment";
 
@@ -188,7 +200,7 @@ $(document).ready(function () {
         add_text.className = "ml-1 text-muted";
 
         var username_div = document.createElement("username-div");
-
+        
         username_div.appendChild(user_avatar);
 
         username_div.appendChild(username_text);
@@ -210,7 +222,6 @@ $(document).ready(function () {
         comment_text_div.appendChild(comment_text);
 
         /////////////////////////////////////////////////////////////////
-
 
         var comment_div = document.createElement('div');
 
@@ -300,6 +311,19 @@ $(document).ready(function () {
                 refresh_peers_btn.disabled = false;
             }
         });
+    }
+    $('#copy-hash-btn').click(copyHash);
+    function copyHash() {
+            var $temp = $("<input>");
+            $("body").append($temp);
+            $temp.val($('#hash').text()).select();
+            document.execCommand("copy");
+            $temp.remove();
+            iziToast.info({
+                title: 'Hash copied',
+                message: 'Torrent hash has been copied to your clipboard.',
+            });
+          
     }
 
 });

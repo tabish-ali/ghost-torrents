@@ -10,7 +10,7 @@
     <script src="/js/search_torrents.js"></script>
     <link rel="stylesheet" href="/css/index.css">
 
-    <title>GHOST</title>
+    <title>Ghost | Home</title>
 
 </head>
 
@@ -104,7 +104,7 @@
             </div>
             <div class="col-sm-6">
                 <div class="mb-5 p-3 rounded dark-bg">
-                    <a class="btn btn-info btn-lg" href="/templates/articles/articles_list.php">Articles</a> <br>
+                    <a class="btn btn-success btn-lg" href="/templates/articles/articles_list.php">Articles</a> <br>
                     <div class="mt-2">
                         <small class="text-light">
                             Read latest articles about technologies and movies. There are many other

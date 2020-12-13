@@ -34,7 +34,6 @@ $(document).ready(function (e) {
                 var response = data['response'];
 
                 if (response == 'success') {
-
                     password_match_notification.innerHTML = "Password changed successfully";
                     password_match_notification.className = "text-success p1";
                     $('#password-match-notification').fadeIn();

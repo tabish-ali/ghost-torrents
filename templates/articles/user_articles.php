@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>My Articles</title>
+    <title>Ghost | My Articles</title>
 
 
     <?php

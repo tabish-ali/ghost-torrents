@@ -142,12 +142,18 @@ class ArticlesDatabase
         return $result;
     }
 
-    public static function deleteArticles($selected_ids)
+    public static function deleteArticles($selected_articles)
     {
         $conn = DBConnection::getConnection();
+        foreach ($selected_articles as $article) {
+            // unlinking images for deleted articles
 
-        foreach ($selected_ids as $id) {
-            $delete_query = "DELETE FROM articles WHERE id = $id";
+            $article = (array)$article;
+
+            if ($article['image_path'] != "/static/article-images/default.jpg")
+                unlink($_SERVER['DOCUMENT_ROOT'] . $article['image_path']);
+            $article_id = $article['id'];
+            $delete_query = "DELETE FROM articles WHERE id = $article_id";
             $conn->query($delete_query);
         }
     }
@@ -155,7 +161,7 @@ class ArticlesDatabase
     public static function updateArticle($article_id, $title, $content)
     {
         $conn = DBConnection::getConnection();
-        
+
 
         $update_query = $conn->prepare("UPDATE articles SET title = ?, content = ?
         WHERE id = $article_id");
@@ -167,7 +173,8 @@ class ArticlesDatabase
         $conn->close();
     }
 
-    public static function updateImage($article_id, $image_path){
+    public static function updateImage($article_id, $image_path)
+    {
 
         $conn = DBConnection::getConnection();
 
@@ -178,5 +185,20 @@ class ArticlesDatabase
         $update_query->execute();
 
         $conn->close();
+    }
+
+    public static function getArticlesCount($username)
+    {
+        $conn = DBConnection::getConnection();
+        $count_query = "SELECT count(*) as articles_count FROM articles WHERE author = '$username'";
+        $result = $conn->query($count_query);
+        return $result->fetch_assoc()['articles_count'];
+    }
+    public static function totalLikesOnArticle($username)
+    {
+        $conn = DBConnection::getConnection();
+        $count_query = "SELECT interactions FROM articles WHERE author = '$username'";
+        $result = $conn->query($count_query);
+        return $result->fetch_assoc()['interactions'];
     }
 }

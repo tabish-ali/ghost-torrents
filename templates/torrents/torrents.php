@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Torrents List</title>
+    <title>Ghost | Torrents</title>
 
     <?php
     include $_SERVER['DOCUMENT_ROOT'] . '/templates/base/head-tags.php';

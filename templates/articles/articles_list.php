@@ -20,7 +20,7 @@
     ?>
 
 
-    <title>Articles</title>
+    <title>Ghost | Articles</title>
 
 
     <script type="text/javascript">
@@ -48,12 +48,12 @@
         <div id="main">
             <div class="row m-4 mb-5">
                 <?php foreach ($articles_array as $value) : ?>
-
-
-
                     <div class="col-sm-12">
                         <div class="card mb-3 dark-bg">
-                            <img class="card-img-top" id="article-img" src="<?php echo $value['image_path']; ?>" alt="">
+                            <a id="article-img" href="/templates/articles/article.php?article_id=<?php echo $value['id']; ?>">
+                                <img class="card-img-top" id="article-img" src="<?php echo $value['image_path']; ?>" alt="">
+                            </a>
+
                             <div class="card-body">
                                 <h5 class="card-title text-light"><?php echo $value['title'] ?></h5>
 
@@ -62,6 +62,13 @@
                                 <hr>
                                 <p class="card-text text-light">
                                     <small class="text-muted">Added <?php echo DateAndTime::time_elapsed_string($value['date']); ?></small>
+
+                                    <small class="text-muted"> by
+                                        <a href="/templates/users/user.php?username=<?php echo $value['author']; ?>">
+                                            <b><?php echo $value['author']; ?></b>
+                                        </a>
+                                    </small>
+
                                 </p>
                             </div>
                         </div>

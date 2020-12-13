@@ -45,10 +45,6 @@
 
     ?>
 
-    <title><?php echo $torrent_meta_info_array['name']; ?></title>
-
-
-
     <script>
         var torrent_meta_info = <?php echo json_encode($torrent_meta_info_array); ?>;
         var torrent_id = "<?php echo $_GET['torrent_id']; ?>";
@@ -77,7 +73,7 @@
     <script src="/js/torrent.js"></script>
     <script src="/js/show_torrent.js"></script>
 
-
+    <title><?php echo $torrent_meta_info_array['name']; ?></title>
 </head>
 
 <body>
@@ -104,11 +100,11 @@
 
             <div class="row">
                 <div class="col">
-                    <a href="<?php echo $magnet_link; ?>" class="btn btn-sm btn-danger">
+                    <a title="Download by magnet link" href="<?php echo $magnet_link; ?>" class="btn btn-sm btn-danger">
                         <i class="fa fa-magnet fa-1x"></i>
                         Magnet
                     </a>
-                    <a href="<?php echo $torrent['file_path'] ?>" class="btn btn-sm btn-primary">
+                    <a title="Download .torrent file" href="<?php echo $torrent['file_path'] ?>" class="btn btn-sm btn-primary">
                         <i class="fa fa-file fa-1x"></i>
                         Download Torrent
                     </a>
@@ -137,6 +133,9 @@
                             Hash:
                             <b id="hash" class="primary-label"><?php echo strtoupper($torrent_meta_info_array['hash']); ?></b>
                         </small>
+                        <button id="copy-hash-btn" title="Copy hash" class="btn btn-sm btn-dark">
+                            <i class="fas fa-copy"></i>
+                        </button>
                         <br>
 
                         <small class="text-light">
@@ -145,8 +144,8 @@
                             <b class="danger-label" id="leechers">Leeches: <?php echo $torrent['peers_info']['leechers']; ?></b>
                         </small>
 
-                        <button id="refresh-peers-btn" class="btn btn-sm btn-dark ml-1">
-                            <i id="refresh-icon" class="fa fa-sync fa-xs" aria-hidden="true"></i>
+                        <button id="refresh-peers-btn" title="Refresh peers info" class="btn btn-sm btn-dark ml-1">
+                            <i id="refresh-icon" class="fa fa-sync" aria-hidden="true"></i>
                         </button>
                     </div>
                 </div>

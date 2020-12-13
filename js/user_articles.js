@@ -14,23 +14,25 @@ $(document).ready(function () {
     var select_all_choicebox = document.getElementById("select-all-choicebox");
 
     setActionButtons();
-
     delete_btn.addEventListener("click", deleteArticleConfirmation);
-
     select_all_choicebox.addEventListener("click", function () {
-
-
         delete_selection.forEach(element => {
-
             if (element != undefined) {
                 element.checked = select_all_choicebox.checked;
                 delete_btn.disabled = !select_all_choicebox.checked
-
                 if (select_all_choicebox.checked) {
                     selected_articles_count = delete_selection.length - 1;
+                    articles.forEach(article => {
+                        if (!selected_articles.includes(article))
+                            selected_articles.push(article);
+                    });
                 }
                 else {
                     selected_articles_count = 0;
+                    articles.forEach(article => {
+                        selected_articles.pop(article);
+                    });
+  
                 }
             }
         });
@@ -61,18 +63,12 @@ $(document).ready(function () {
     }
 
     function deleteTableRows() {
-
-
         articles_to_del = Array();
-
         articles.forEach(element => {
-
-
             if (element.delete_selection.checked) {
 
                 row_index = element.delete_selection.parentElement.parentElement.rowIndex;
                 document.getElementById('articles-table').deleteRow(row_index);
-
                 articles_to_del.push(element);
             }
         });
@@ -82,29 +78,20 @@ $(document).ready(function () {
             articles.pop(element);
         });
 
-        console.log(articles);
-
-
         if (articles.length < 1) {
 
             delete_btn.disabled = true;
         }
-
     }
 
     function deleteArticle() {
-
-
         var selected_articles_json = JSON.stringify(selected_articles);
-
         $.ajax({
             type: 'POST',
             data: { selected_articles_json: selected_articles_json },
             url: '/articles/delete-articles.php',
             header: 'Content-type:appSMALLcation/json',
             success: function (data) {
-
-                console.log(data);
             }
 
         });
@@ -130,27 +117,18 @@ $(document).ready(function () {
 
             element.edit_btn = edit_btn_array[btn_counter];
             element.delete_selection = delete_selection[btn_counter];
-
             btn_counter++;
         });
-
-
         articles.forEach(element => {
-
-            element.edit_btn.addEventListener("click", function () {
-
-
-            });
-
             element.delete_selection.addEventListener("click", function () {
-
                 if (element.delete_selection.checked) {
                     selected_articles_count++;
-                    selected_articles.push(element.id);
+                    selected_articles.push(element);
+               
                 }
                 else {
                     selected_articles_count--;
-                    selected_articles.pop(element.id);
+                    selected_articles.pop(element);
                 }
 
                 if (selected_articles_count > 0) {
