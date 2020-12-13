@@ -1,14 +1,13 @@
-
--- MySQL dump 10.13  Distrib 8.0.22, for Linux (x86_64)
+-- MySQL dump 10.13  Distrib 5.7.32, for Linux (x86_64)
 --
 -- Host: localhost    Database: ghost_torrents
 -- ------------------------------------------------------
--- Server version	8.0.22-0ubuntu0.20.04.2
+-- Server version	5.7.32-0ubuntu0.18.04.1
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!50503 SET NAMES utf8mb4 */;
+/*!40101 SET NAMES utf8 */;
 /*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
 /*!40103 SET TIME_ZONE='+00:00' */;
 /*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
@@ -22,18 +21,18 @@
 
 DROP TABLE IF EXISTS `articles`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `articles` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `title` varchar(1000) DEFAULT NULL,
-  `content` text NOT NULL,
-  `author` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
-  `image_path` varchar(300) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(1000) COLLATE latin1_general_ci DEFAULT NULL,
+  `content` text COLLATE latin1_general_ci NOT NULL,
+  `author` varchar(100) COLLATE latin1_general_ci DEFAULT NULL,
+  `image_path` varchar(300) COLLATE latin1_general_ci DEFAULT NULL,
   `interactions` json DEFAULT NULL,
-  `date` varchar(100) DEFAULT NULL,
+  `date` varchar(100) COLLATE latin1_general_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -42,8 +41,34 @@ CREATE TABLE `articles` (
 
 LOCK TABLES `articles` WRITE;
 /*!40000 ALTER TABLE `articles` DISABLE KEYS */;
-INSERT INTO `articles` VALUES (2,'How to manage JSON object in sql.','<p><span style=\"color: #ced4d9;\">In this article we are going to look that how we can populate json object in sql.</span></p>\n<p><span style=\"font-size: 12pt; color: #ced4d9;\">So first we need to make data type in sql. If you don\'t seed json data type in your database manager no worries you can also used long text to store json array.</span></p>\n<p><span style=\"color: #ced4d9;\">So First we need to make empty json object. Query is :</span></p>\n<div style=\"color: #d4d4d4; background-color: #1e1e1e; font-family: \'Droid Sans Mono\', \'monospace\', monospace, \'Droid Sans Fallback\'; font-weight: normal; font-size: 14px; line-height: 19px; white-space: pre;\">\n<div><span style=\"color: #569cd6;\">INSERT</span><span style=\"color: #ce9178;\"> </span><span style=\"color: #569cd6;\">INTO</span><span style=\"color: #ce9178;\"> table (json_array</span><span style=\"color: #ce9178;\">) </span><span style=\"color: #569cd6;\">VALUES</span><span style=\"color: #ce9178;\">(JSON_ARRAY());</span></div>\n</div>','tabish','/static/article-images/25faf96c4929665.53613410.png','[{\"status\": \"liked\", \"username\": \"ali\", \"interact_id\": \"1b4054573bfc670d52a43345a97bdce45f89a5655a1f1\"}, {\"status\": \"liked\", \"username\": \"tabish\", \"interact_id\": \"29798c4d89512c26dbd0a49f9ee1940f5fad68b95567b\"}]','09/05/2020 23:13:29','2020-09-05 18:13:29'),(10,'Article 2','1914 translation by H. Rackham\n\n\"But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?\"\nSection 1.10.33 of \"de Finibus Bonorum et Malorum\", written by Cicero in 45 BC\n\n\"At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.\"','tabish','/static/article-images/105f8bd6b949ebd2.37455679.png','[{\"status\": \"liked\", \"username\": \"ali\", \"interact_id\": \"158a28927d585278385dedcddfb3d5c25f89a5f1ec2e0\"}, {\"status\": \"liked\", \"username\": \"tabish\", \"interact_id\": \"4cc4ac9c43b8b0326f9e056de53a626a5f8bd6d0e979a\"}]','09/11/2020 20:01:36','2020-09-11 15:01:36'),(15,'test','<p><span style=\"background-color: #000000;\"><strong><span style=\"color: #ecf0f1;\">this is test article and i would like to enter some of the articles and we are using tinymce and it is very light textarea plugin and very <span style=\"color: #e03e2d;\">efficient.</span></span></strong></span></p>','tabish','/static/article-images/default.jpg','[]','11/14/2020 10:01:37','2020-11-14 05:01:37');
+INSERT INTO `articles` VALUES (16,'this is my first article','<p><span style=\"color: #ced4d9;\">Hope youre doing good. More good articles to come. Stick with us</span></p>\n<p><span style=\"color: #ced4d9;\">bye</span></p>','henry','/static/article-images/article-image-5fd37ee6edc878.24704064.jpg','[{\"status\": \"liked\", \"username\": \"henry\", \"interact_id\": \"03f922191cbbc8c01729b2c99efcb12d5fd4908e71b2b\"}]','12/11/2020 19:15:02','2020-12-11 14:15:02'),(17,'How to converting JSON text to PHP associative array','<p class=\"lang-php s-code-block hljs\"><code>$assocArray = json_decode($data, <span class=\"hljs-literal\">true</span>);<br /></code><span style=\"color: #ecf0f1;\">The second parameter set the result as an object(false, default) or an associative array(true).</span></p>','james','/static/article-images/175fd46d7ed51df2.59993633.png','[{\"status\": \"liked\", \"username\": \"james\", \"interact_id\": \"778230376987ef4a068d2cf61b8cd7205fd466a152ca9\"}, {\"status\": \"liked\", \"username\": \"tabish\", \"interact_id\": \"df82c013d063a5da11f9b7598b05c1fa5fd49bf8c1645\"}]','12/12/2020 11:43:31','2020-12-12 06:43:31');
 /*!40000 ALTER TABLE `articles` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `messages`
+--
+
+DROP TABLE IF EXISTS `messages`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `messages` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) COLLATE latin1_general_ci DEFAULT NULL,
+  `email` varchar(100) COLLATE latin1_general_ci DEFAULT NULL,
+  `message` text COLLATE latin1_general_ci,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `messages`
+--
+
+LOCK TABLES `messages` WRITE;
+/*!40000 ALTER TABLE `messages` DISABLE KEYS */;
+INSERT INTO `messages` VALUES (11,'tabish','tabish@email.com','this is message from tabish ali\nhi how are you'),(12,'tabish','tabish@email.com','this is message from tabish ali\nhi how are you'),(13,'name','tabish@email.com','sdfadf'),(14,'Ali','tabish@email.com','Hi i am glad to visit your site.\nThanks');
+/*!40000 ALTER TABLE `messages` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -52,7 +77,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `password_reset_temp`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `password_reset_temp` (
   `email` varchar(250) NOT NULL,
   `key` varchar(250) NOT NULL,
@@ -66,7 +91,6 @@ CREATE TABLE `password_reset_temp` (
 
 LOCK TABLES `password_reset_temp` WRITE;
 /*!40000 ALTER TABLE `password_reset_temp` DISABLE KEYS */;
-INSERT INTO `password_reset_temp` VALUES ('alitabish669@gmail.com','03da61d2af3a270799ac64462cd17bc6420b6b284e','2020-11-15 16:02:25'),('alitabish669@gmail.com','03da61d2af3a270799ac64462cd17bc67313114a00','2020-11-15 16:03:32');
 /*!40000 ALTER TABLE `password_reset_temp` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -76,19 +100,19 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `torrents`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `torrents` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `description` text,
-  `uploader` varchar(100) DEFAULT NULL,
-  `category` varchar(100) DEFAULT NULL,
-  `file_path` varchar(200) DEFAULT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `description` text COLLATE latin1_general_ci,
+  `uploader` varchar(100) COLLATE latin1_general_ci DEFAULT NULL,
+  `category` varchar(100) COLLATE latin1_general_ci DEFAULT NULL,
+  `file_path` varchar(200) COLLATE latin1_general_ci DEFAULT NULL,
   `peers_info` json DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `date` varchar(100) DEFAULT NULL,
+  `date` varchar(100) COLLATE latin1_general_ci DEFAULT NULL,
   `comments` json DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -97,7 +121,7 @@ CREATE TABLE `torrents` (
 
 LOCK TABLES `torrents` WRITE;
 /*!40000 ALTER TABLE `torrents` DISABLE KEYS */;
-INSERT INTO `torrents` VALUES (1,'This is big buck bunny torrent.','tabish','movies','/static/torrent-statics/torrent-files/big-buck-bunny.torrent','{\"seeders\": 9, \"leechers\": 4, \"completed\": 627}','2020-09-02 07:03:12','09/02/2020 12:03:12','[{\"date\": \"09/29/2020 10:17:49\", \"comment\": \"wow very nice torrent.\", \"username\": \"tabish\", \"comment_id\": \"a45d6f2aa25f021fb83ba415c1b281ae5f72c37d027f5\"}, {\"date\": \"10/15/2020 21:14:55\", \"comment\": \"nice\", \"username\": \"tabish\", \"comment_id\": \"1d2290b314969c3682131bbff7f8e5855f88757f92309\"}, {\"date\": \"10/16/2020 19:06:00\", \"comment\": \"Very nice torrent. Thanks\", \"username\": \"ali\", \"comment_id\": \"e286e5478ebec170b1cf00161703118f5f89a8c853f85\"}]'),(2,'This is cosmos-laundromat torrent.','tabish','movies','/static/torrent-statics/torrent-files/cosmos-laundromat.torrent','{\"seeders\": 12, \"leechers\": 0, \"completed\": 49}','2020-09-02 07:03:52','09/02/2020 12:03:52','[]'),(29,'','tabish','movies','/static/torrent-statics/torrent-files/1C11F931CA0E0CBB47F63E59E6A6B76277E772E6.torrent','{\"seeders\": 9, \"leechers\": 131, \"completed\": 0}','2020-11-15 05:15:05','11/15/2020 10:15:05','[]');
+INSERT INTO `torrents` VALUES (31,'<p>Dead or Alive 5 is a fighting video game in the Dead or Alive series, developed by Team Ninja and released by Tecmo Koei simultaneously for the PlayStation 3 and Xbox 360 in 2012.</p>','tabish','games','/static/torrent-statics/torrent-files/[limetorrents.info]3DMGAME-Dead.or.Alive.5.Last.Round.Update.16.v1.08A.H1..and.Crack-3DM.torrent','null','2020-12-11 13:15:21','12/11/2020 18:15:21','[{\"date\": \"12/12/2020 12:07:01\", \"comment\": \"nice thanks.\", \"username\": \"james\", \"comment_id\": \"a92571a39fab1554dcc5d959746d601c5fd46c15ed449\"}]'),(32,'<p>Half-human, half-Atlantean Arthur is born with the ability to communicate with marine creatures. He goes on a quest to retrieve the legendary Trident of Atlan and protect the water world.</p>','tabish','movies','/static/torrent-statics/torrent-files/[limetorrents.info]Aquaman..2018..720p.BluRay..Org..DD5.1..160Kbps..[Tam...Tel...Hin...Eng]..1.6GB..ESubs.torrent','null','2020-12-11 13:16:57','12/11/2020 18:16:57','[]'),(33,'<p>Baldur\'s Gate III is an upcoming role-playing video game that is being developed and published by Larian Studios. It is the third main game in the Baldur\'s Gate series, itself based on the Dungeons &amp; Dragons tabletop role-playing system.</p>','tabish','movies','/static/torrent-statics/torrent-files/[limetorrents.info]Baldur\'s.Gate.3.v4.1.90.2222..GOG..torrent','{\"seeders\": 2, \"leechers\": 13, \"completed\": 0}','2020-12-11 13:21:11','12/11/2020 18:21:11','[]'),(34,'<p>Hello sailors!<br /><br />The Uncharted Depths update has just been released. Be sure to update your game to the latest version to be able to host and join multiplayer servers! You can find a summary of the update in this <a class=\"eventbbcodeparser_Link_29bMZ\" href=\"https://store.steampowered.com/newshub/app/602960/view/2880578659072337283\"><span data-tooltip-text=\"store.steampowered.com\">this earlier post</span></a>, and scroll further below for the full list of changes.<br /><br />Let us know what you think!</p>','tabish','games','/static/torrent-statics/torrent-files/[limetorrents.info]Barotrauma.Uncharted.Depths.torrent','{\"seeders\": 1, \"leechers\": 3, \"completed\": 7}','2020-12-11 13:29:33','12/11/2020 18:29:33','[]'),(35,'<p><span class=\"ILfuVd\"><span class=\"hgKElc\">Adapted from the short film of the same name, <strong>Don\'t Click</strong> attempts to critique the dark web and the nasty world of underground porn. Unfortunately this disturbingly self congratulatory film ends up being no better than the practices it tries to criticise.</span></span></p>','tabish','movies','/static/torrent-statics/torrent-files/[limetorrents.info]Dont.Click.2020.HDRip.XviD.torrent','{\"seeders\": 2, \"leechers\": 8, \"completed\": 0}','2020-12-11 13:31:26','12/11/2020 18:31:26','[]'),(36,'<p>An Angolan woman and her daughter reunite with her husband after spending 17 years in exile. Now strangers, they find common ground in their shared love of dance.</p>','tabish','movies','/static/torrent-statics/torrent-files/[limetorrents.info]Farewell.Amor.2020.HDRip.XviD.torrent','{\"seeders\": 7, \"leechers\": 8, \"completed\": 33}','2020-12-11 13:34:00','12/11/2020 18:34:00','[{\"date\": \"12/12/2020 15:24:48\", \"comment\": \"nice\", \"username\": \"tabish\", \"comment_id\": \"2ea51dc438bff9e4bf53bd8c6c688d0d5fd49a70abff9\"}]'),(37,'<p>Grand Theft Auto is a series of action-adventure games created by David Jones and Mike Dailly. Later titles were developed under the oversight of brothers Dan and Sam Houser, Leslie Benzies and Aaron Garbut.</p>','tabish','movies','/static/torrent-statics/torrent-files/[limetorrents.info]GTA.NEXTRP.10.12.20.torrent','{\"seeders\": 6, \"leechers\": 1, \"completed\": 5}','2020-12-11 13:36:50','12/11/2020 18:36:50','[{\"date\": \"12/11/2020 18:43:22\", \"comment\": \"Enjoy people. More to come\", \"username\": \"tabish\", \"comment_id\": \"8aa00826735935c7e0e3b267762972305fd3777a3910f\"}]'),(38,'<p>Horizon Zero Dawn is a 2017 action role-playing game developed by Guerrilla Games and published by Sony Interactive Entertainment. The plot follows Aloy, a hunter in a world overrun by machines, who sets out to uncover her past. <a class=\"ruhjFe NJLBac fl\" href=\"https://en.wikipedia.org/wiki/Horizon_Zero_Dawn\" data-ved=\"2ahUKEwj2uuGAisbtAhXimFwKHdfHDEMQmhMwInoECDIQAg\">Wikipedia</a></p>\n<p>Initial release date: February 28, 2017<br />Developer: Guerrilla Games<br />Engine: Decima<br />Series: <span style=\"color: #f1c40f;\"><strong>Horizon</strong></span><br />Platforms: PlayStation 4, Microsoft Windows<br />Awards: Writers Guild of America Award for Achievement in Videogame Writing, MORE</p>','tabish','movies','/static/torrent-statics/torrent-files/[limetorrents.info]Horizon.Zero.Dawn.Complete.Edition.v1.0.9.3..GOG..torrent','{\"seeders\": 1, \"leechers\": 27, \"completed\": 0}','2020-12-11 13:54:44','12/11/2020 18:54:44','[{\"date\": \"12/11/2020 19:18:28\", \"comment\": \"nice one \", \"username\": \"tabish\", \"comment_id\": \"6dffdba4ea3c3ab23d3dbfebc6309c305fd37fb45266c\"}]'),(39,'<p style=\"text-align: justify;\">Roman empire. 20 A.D. very hard times. No! Not for you! For the slaves! You are a damn Roman! You can do whatever you like. You are a god among men! And men (and women) are here for one reason only. To serve you and other Romans. It\'s not all fun and games however. For decades, your family was bringing the best slaves in the republic. You are mostly known for your ability and knowledge in training the most hard, stubborn northern women and bending them to the will of the empire! However, with the last war, money ran out. Now that victory has been achieved on the northern boarders, slaves are pouring in again and you know just what to do with them. It\'s time to fill your purse (and your dungeons) with new toys. And you, my <strong><span style=\"color: #2dc26b;\">noble master</span></strong> you know just how to do that. Release Date: <span style=\"color: #f1c40f;\"><strong>3 December 2020</strong></span></p>\n<p style=\"text-align: justify;\">Genre: 3D Game, Male protagonist, <span style=\"text-decoration: underline;\"><em>Female protagonist</em></span>, Vaginal sex, Simulation, Female domination, Male domination, BDSM <br />Version: 0.9.9 ($100 build)<br />Censorship: No<br />Language: English<br />OS: Windows<br />Enjoy !</p>','tabish','games','/static/torrent-statics/torrent-files/C1E47255F0DDE66BA2BEF147824F1BFB58FABB90.torrent','{\"seeders\": 9, \"leechers\": 2, \"completed\": 619}','2020-12-12 07:36:16','12/12/2020 12:36:16','[]');
 /*!40000 ALTER TABLE `torrents` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -107,18 +131,18 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `users`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `users` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `username` varchar(45) DEFAULT NULL,
-  `email` varchar(45) DEFAULT NULL,
-  `password` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
-  `image_path` varchar(300) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(45) COLLATE latin1_general_ci DEFAULT NULL,
+  `email` varchar(45) COLLATE latin1_general_ci DEFAULT NULL,
+  `password` varchar(100) COLLATE latin1_general_ci DEFAULT NULL,
+  `image_path` varchar(300) COLLATE latin1_general_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `intro` text,
+  `intro` text COLLATE latin1_general_ci,
   `admin` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -127,7 +151,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (2,'tabish','alitabish669@gmail.com','$2y$10$FPHy9.JCblZc7h6wOcGFLuxa7Nn10U7ChwmooF2Jn/Dnf8r98ULPe','/static/user-images/tabish5f89b47c3fb142.59892861.png','2020-09-01 14:45:09','Hi this is tabish, developer of this site. I am enhancing this site. Soon i will online it.',1),(4,'ali','ali@email.com','$2y$10$MRihLqMu.v6aILgRoxtgw.7Jma70KMUctcej59RkEsvwxXenrizeq','/static/user-images/ali5f54975aa35dc6.55581135.jpg','2020-09-01 15:09:22','this is intro',NULL);
+INSERT INTO `users` VALUES (5,'henry','henry@email.com','$2y$10$554LBaL/rZ9/cvdXs3a.k.Yj9zAG9hRRCpoxmHKH2.JVrHyEPC3UW','/static/user-images/henry5fd36d848d7080.07423440.jpeg','2020-12-11 13:00:40','Hi my name is henry and i am new member of ghost torrents.',NULL),(6,'tabish','alitabish669@gmail.com','$2y$10$Lkzbsr3/eWq3tFTi5f1Lxum5oX2393OEQisjfVqBJUfHk2tkl2Oi6','/static/user-images/tabish5fd36f695948c2.47409017.jpg','2020-12-11 13:01:51','Hi i am Tabish developer and programmer of Ghost Torrents.',1),(7,'james','james@email.com','$2y$10$.l7p7naDA2I9olueXAnuwe/v./U85KFjJadU6vnWVOVVskJwmXpdS','/static/user-images/james5fd465d176ae26.64607412.jpg','2020-12-12 05:04:06','Hi my name is james.',NULL);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -140,7 +164,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-11-15 16:33:21
-
-
-
+-- Dump completed on 2020-12-13 11:51:13
