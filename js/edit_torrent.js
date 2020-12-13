@@ -12,7 +12,6 @@ $(document).ready(function () {
 
     function editTorrent() {
         $.ajax({
-
             type: 'POST',
             url: '/torrents/edit-torrent.php',
             header: 'Content-type:appSMALLcation/json',

@@ -7,6 +7,14 @@ $(document).ready(function () {
     const intro_input = document.getElementById('intro-input');
     const save_intro_btn = document.getElementById('save-intro-btn');
 
+    $('#clear-btn').click(clearPasswordFields);
+    function clearPasswordFields() {
+        console.log("clearing");
+        $('#password1').val('');
+        $('#password2').val('');
+        $('#password3').val('');
+    }
+
     save_username_btn.addEventListener("click", function () {
 
         updateData("username");
@@ -76,4 +84,5 @@ $(document).ready(function () {
 
         });
     }
+ 
 });

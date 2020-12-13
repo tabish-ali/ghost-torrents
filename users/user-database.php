@@ -19,14 +19,13 @@ class UserDatabase
 
         $conn->close();
 
-        $insert_query->close();
-
         $new_user = UserDatabase::getLastID();
 
         return $new_user['id'];
     }
 
-    public static function getUsers(){
+    public static function getUsers()
+    {
         $conn = DBConnection::getConnection();
 
         $select_query = "SELECT * FROM users ORDER BY username";
@@ -150,7 +149,6 @@ class UserDatabase
         $conn->query($update_query);
 
         $conn->close();
-
     }
 
     public static function getPassword($user_id)
@@ -264,8 +262,8 @@ class UserDatabase
         return $result->fetch_assoc();
     }
 
-    public static function getPasswordFromMail($email){
-    
+    public static function getPasswordFromMail($email)
+    {
         $conn = DBConnection::getConnection();
 
         $select_query = "SELECT password FROM users WHERE email = '$email'";
@@ -273,7 +271,14 @@ class UserDatabase
         $result = $conn->query($select_query);
 
         $password = $result->fetch_assoc()['password'];
+    }
 
-
+    public static function contactUs($message)
+    {
+        $conn = DBConnection::getConnection();
+        $insert_query = $conn->prepare("INSERT INTO messages (name, email, message) VALUES(?,?,?)");
+        $insert_query->bind_param("sss", $message['name'], $message['email'], $message['message']);
+        $insert_query->execute();
+        $conn->close();
     }
 }

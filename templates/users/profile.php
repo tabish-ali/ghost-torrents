@@ -55,9 +55,7 @@
 
                 </div>
 
-                <hr>
-
-                <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                <ul class="nav nav-pills mb-3 shadow-lg" id="pills-tab" role="tablist">
                     <li class="nav-item btn-sm">
                         <a class="flex-sm-fill nav-link active" id="pills-avatar-tab" data-toggle="pill" href="#pills-avatar" role="tab" aria-controls="pills-avatar" aria-selected="true">Avatar</a>
                     </li>
@@ -71,7 +69,6 @@
                         <a class="flex-sm-fill nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Password</a>
                     </li>
                 </ul>
-                <hr>
                 <div class="tab-content" id="pills-tabContent">
 
                     <div class="tab-pane fade show active" id="pills-avatar" role="tabpanel" aria-labelledby="pills-avatar-tab">
@@ -96,7 +93,7 @@
                     <div class="tab-pane fade" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
                         <div class="col-sm">
                             <textarea id="intro-input" class="form-control form-control-sm" name="intro" id="" cols="15" rows="6"><?php if (isset($user['intro'])) echo nl2br($user['intro']); ?></textarea>
-                            <button id="save-intro-btn" class="btn btn-sm btn-success mt-2" style="width: 100px;">Save</button>
+                            <button id="save-intro-btn" class="btn btn-sm btn-dark mt-2 text-light" style="width: 100px;">Save</button>
                         </div>
                     </div>
 
@@ -106,14 +103,14 @@
                         <div class="form-group col-sm-6">
                             <label class="text-light" for="username"> <small>Username</small></label>
                             <input type="text" class="form-control form-control-sm" id="username-field" value="<?php echo $_SESSION['username'] ?>">
-                            <button id="save-username-btn" style="width: 100px;" class="btn btn-sm btn-primary mt-2">Save</button>
+                            <button id="save-username-btn" style="width: 100px;" class="text-light btn btn-sm btn-dark mt-2">Save</button>
 
                         </div>
 
                         <div class="form-group col-sm-6">
                             <label class="text-light" for="Email"> <small>Email</small></label>
                             <input type="email" id="email" class="form-control form-control-sm" id="exampleInputEmail1" aria-describedby="emailHelp" value="<?php echo $_SESSION['email'] ?>">
-                            <button id="save-email-btn" style="width: 100px;" class="btn btn-sm btn-primary mt-2">Save</button>
+                            <button id="save-email-btn" style="width: 100px;" class="btn btn-sm btn-dark text-light mt-2">Save</button>
                         </div>
 
                     </div>
@@ -138,7 +135,8 @@
                             <input type="password" name="password3" id="password3" class="form-control form-control-sm">
                             <small id="emailHelp" class="form-text text-muted">Make sure to match last two passwords.</small>
 
-                            <Button id="change-btn" class="btn btn-sm btn-secondary mt-3">Change</Button>
+                            <button style="width: 100px;" id="change-btn" class="btn btn-sm btn-dark mt-3">Change</button>
+                            <button style="width: 100px;" id="clear-btn" class="btn btn-sm btn-danger mt-3">Clear</button>
                             <br>
                             <small id="password-match-notification" style="display: none;"></small>
                         </div>
