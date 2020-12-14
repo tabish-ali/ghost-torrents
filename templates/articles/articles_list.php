@@ -29,7 +29,6 @@
         var username = "<?php if (!empty($_SESSION))
                             echo $_SESSION['username']; ?>";
 
-        console.log(articles);
     </script>
 
     <link rel="stylesheet" href="/css/articles_list.css">
@@ -42,11 +41,10 @@
     include $_SERVER['DOCUMENT_ROOT'] . '/templates/base/navbar.php';
     ?>
 
-
     <div class="container" style="margin-top: 100px;" id="container">
 
         <div id="main">
-            <div class="row m-4 mb-5">
+            <div class="row m-1 mb-5">
                 <?php foreach ($articles_array as $value) : ?>
                     <div class="col-sm-12">
                         <div class="card mb-3 dark-bg">

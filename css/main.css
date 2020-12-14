@@ -1,3 +1,19 @@
+html {
+    position: relative;
+    min-height: 100%;
+}
+body {
+    margin: 0 0 100px; /* bottom = footer height */
+    background-color: #121212;
+}
+footer {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 30px;
+    width: 100%;
+}
+
 .container{
     margin-bottom: 30px;
     margin-top: 100px;
@@ -5,11 +21,6 @@
 .container-fluid{
     margin-bottom: 30px;
     margin-top: 100px;
-}
-
-body{
-    background-color: #121212;
-
 }
 
 input{
