@@ -18,13 +18,13 @@
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <a href="/templates/torrents/torrents.php" class="nav-link">Torrents</a>
+                <a href="/templates/torrents/torrents.php?type=torrents" class="nav-link">Torrents</a>
             </li>
             <li class="nav-item">
-                <a href="/templates/articles/articles_list.php" class="nav-link">Articles</a>
+                <a href="/templates/articles/articles_list.php?type=articles" class="nav-link">Articles</a>
             </li>
             <li class="nav-item">
-                <a href="/templates/users/list_users.php" class="nav-link">Members</a>
+                <a href="/templates/users/list_users.php?type=users" class="nav-link">Members</a>
             </li>
             <?php
 

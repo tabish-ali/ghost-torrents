@@ -92,7 +92,7 @@
 
             <div class="col-sm-6">
                 <div class="mb-5 p-3 rounded dark-bg">
-                    <a class="btn btn-primary btn-lg" href="/templates/torrents/torrents.php">Torrents</a> <br>
+                    <a class="btn btn-primary btn-lg" href="/templates/torrents/torrents.php?type=torrents?category=all">Torrents</a> <br>
                     <div class="mt-2">
                         <small class="text-light">
                             Browse and download torrents of your desired choice, easy to use and
@@ -114,13 +114,13 @@
 
                 </div>
             </div>
+
         </div>
+        <?php include_once $_SERVER['DOCUMENT_ROOT'] . '/templates/torrents/categories.php' ?>
     </div>
 
     <?php
-
     include $_SERVER['DOCUMENT_ROOT'] . '/templates/base/footer.php';
-
     ?>
 
 </body>

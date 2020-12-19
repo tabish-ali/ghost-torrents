@@ -35,6 +35,17 @@ class UserDatabase
         return $result;
     }
 
+    public static function getUsersByOffset($offset, $total_records)
+    {
+        $conn = DBConnection::getConnection();
+
+        $select_query = "SELECT * FROM users ORDER BY username LIMIT $offset, $total_records";
+
+        $result = $conn->query($select_query);
+
+        return $result;
+    }
+
     public static function getLastID()
     {
 
@@ -273,12 +284,21 @@ class UserDatabase
         $password = $result->fetch_assoc()['password'];
     }
 
-    public static function contactUs($message)
+    public static function contactUs($message_obj)
     {
         $conn = DBConnection::getConnection();
         $insert_query = $conn->prepare("INSERT INTO messages (name, email, message) VALUES(?,?,?)");
-        $insert_query->bind_param("sss", $message['name'], $message['email'], $message['message']);
+        $insert_query->bind_param("sss", $message_obj['name'], $message_obj['email'], $message_obj['message']);
         $insert_query->execute();
         $conn->close();
+    }
+
+    public static function countUsers()
+    {
+        $conn = DBConnection::getConnection();
+        $count_query = "SELECT COUNT(*) as total_users FROM users";
+        $result = $conn->query($count_query);
+        $count = $result->fetch_assoc()['total_users'];
+        return $count;
     }
 }

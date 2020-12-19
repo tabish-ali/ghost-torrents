@@ -83,11 +83,8 @@
 
     ?>
 
-    <div class="container" id="container">
-
-
+    <div class="container" id="container" style="margin-top: 100px;">
         <div class="dark-bg p-4">
-
             <div class="row">
                 <div class="col-12">
                     <h5 style="word-wrap:break-word; letter-spacing: 2px;" ; class="p-1 rounded text-white">
@@ -260,7 +257,6 @@
             </div>
         </div>
     </div>
-
     <?php include $_SERVER['DOCUMENT_ROOT'] . '/templates/base/footer.php' ?>
 </body>
 

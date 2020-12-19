@@ -11,10 +11,10 @@ $search_string = $_POST['search_string'];
 $category = $_POST['category'];
 
 if ($category == "all")
-    $torrents = TorrentsDatabase::getTorrents();
+    $torrents = TorrentsDatabase::getTorrents(0, TorrentsDatabase::countTotalTorrents("all"));
 
 else
-    $torrents = TorrentsDatabase::getDesiredTorrents($category);
+    $torrents = TorrentsDatabase::getTorrentsByCategory(0, TorrentsDatabase::countTotalTorrents($category), $category);
 
 foreach ($torrents as $torrent) {
 

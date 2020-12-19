@@ -77,6 +77,7 @@
         </div>
 
     </div>
+    <?php include_once $_SERVER['DOCUMENT_ROOT'] . '/templates/base/footer.php' ?>
 </body>
 
 </html>

@@ -148,12 +148,28 @@ class TorrentsDatabase
         // return $torrents_info_array;
     }
 
-    public static function getTorrents()
+    public static function countTotalTorrents($category)
     {
-
         $conn = DBConnection::getConnection();
 
-        $select_query = "SELECT * FROM torrents";
+        if ($category === "all") {
+            $select_query = "SELECT COUNT(*) as total_torrents FROM torrents";
+        } else {
+            $select_query = "SELECT COUNT(*) as total_torrents FROM torrents WHERE category = '$category'";
+        }
+
+        $result = $conn->query($select_query);
+
+        $count = $result->fetch_assoc()['total_torrents'];
+
+        return $count;
+    }
+
+    public static function getTorrents($offset, $total_records_per_page)
+    {
+        $conn = DBConnection::getConnection();
+
+        $select_query = "SELECT * FROM torrents LIMIT $offset, $total_records_per_page";
 
         $torrents = $conn->query($select_query);
 
@@ -203,12 +219,11 @@ class TorrentsDatabase
         return $magnet;
     }
 
-    public static function getDesiredTorrents($category)
+    public static function getTorrentsByCategory($offset, $total_records_per_page, $category)
     {
-
         $conn = DBConnection::getConnection();
 
-        $select_query = "SELECT * FROM torrents WHERE category = '$category'";
+        $select_query = "SELECT * FROM torrents WHERE category = '$category' LIMIT $offset, $total_records_per_page";
 
         $torrents = $conn->query($select_query);
 
@@ -314,7 +329,8 @@ class TorrentsDatabase
         $conn->query($delete_query);
     }
 
-    public static function deleteTorrents($selected_ids){
+    public static function deleteTorrents($selected_ids)
+    {
 
         $conn = DBConnection::getConnection();
 
@@ -324,7 +340,8 @@ class TorrentsDatabase
         }
     }
 
-    public static function updateTorrentInfo($torrent){
+    public static function updateTorrentInfo($torrent)
+    {
 
         $conn = DBConnection::getConnection();
 
@@ -344,7 +361,8 @@ class TorrentsDatabase
         $conn->close();
     }
 
-    public static function updateFile($torrent_id, $file_path){
+    public static function updateFile($torrent_id, $file_path)
+    {
 
         $conn = DBConnection::getConnection();
 
@@ -357,5 +375,4 @@ class TorrentsDatabase
 
         $conn->close();
     }
-    
 }

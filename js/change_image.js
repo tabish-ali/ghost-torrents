@@ -11,29 +11,35 @@ $(document).ready(function (e) {
             contentType: false,
             cache: false,
             processData: false,
+            dataType: 'json',
             beforeSend: function () {
-                //$("#preview").fadeOut();
-                $("#notification1").fadeOut();
             },
             success: function (data) {
-                if (data == 'invalid') {
+                $("#msg-div").html("");
+                if (data === 'error') {
                     // invalid file format.
-                    $("#notification1").html("Invalid File !").fadeIn();
+                    $("#msg-div").append("<small style='display:none;' class='text-danger' id='msg' > Invalid file.</small>");
+                }
+                else if (data['type'] === "success") {
+                    // view uploaded file.
+                    save_image_btn.style = "display:none";
+                    document.getElementById("nav-img").src = data['new_image'];
+                    $("#image-upload-form")[0].reset();
+                    $('#msg-div').append("<small style='display:none;' class='text-success' id='msg' >Profile avatar change successfully.</small>");
                 }
                 else {
-                    // view uploaded file.
-
-                    save_image_btn.style = "display:none";
-                    document.getElementById("nav-img").src = data; 
-                    $("#image-upload-form")[0].reset();
-                    console.log(data);
-                  
-                    iziToast.success({
-                        title: 'OK',
-                        message: 'Image changed successfully!',
-                    });
-
+                    for (var key in data) {
+                        if (data.hasOwnProperty(key)) {
+                            $('#msg-div').append("<small style='display:none;' class='text-danger' id='msg' >" + data[key] + "</small><br>").fadeIn();
+                        }
+                    }
                 }
+                $('#msg').fadeIn("slow");
+
+                setTimeout(function () {
+                    $('#msg').fadeOut("slow");
+                }, 5000);
+
             },
         });
     }));

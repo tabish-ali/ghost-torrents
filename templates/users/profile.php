@@ -85,6 +85,9 @@
                                     </div>
                                 </form>
                                 <small class="dark-bg p-1 rounded text-muted">Please click on image to change</small>
+                                <div id="msg-div">
+
+                                </div>
                             </div>
 
                         </div>

@@ -8,7 +8,6 @@ class SaveImages
     public static function uploadImage($image_file, $image_file_name, $target_dir)
     {
         // show error notifications if any occurs
-
         $error = new Notifications();
 
         $target_file = $target_dir . $image_file_name;

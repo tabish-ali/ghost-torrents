@@ -2,7 +2,7 @@
 
 use function PHPSTORM_META\type;
 
-include $_SERVER['DOCUMENT_ROOT'] . '/db-config/db-connection.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/db-config/db-connection.php';
 
 class ArticlesDatabase
 {
@@ -200,5 +200,23 @@ class ArticlesDatabase
         $count_query = "SELECT interactions FROM articles WHERE author = '$username'";
         $result = $conn->query($count_query);
         return $result->fetch_assoc()['interactions'];
+    }
+
+    // count total articles for pagination
+    public static function countArticles()
+    {
+        $conn = DBConnection::getConnection();
+        $count_query = "SELECT count(*) as total_articles FROM articles";
+        $result = $conn->query($count_query);
+        return $result->fetch_assoc()['total_articles'];
+    }
+
+    // get articles by offset for pagination
+    public static function getArticlesByOffset($offset, $total_records_per_page)
+    {
+        $conn = DBConnection::getConnection();
+        $count_query = "SELECT * FROM articles LIMIT $offset, $total_records_per_page";
+        $result = $conn->query($count_query);
+        return $result;
     }
 }

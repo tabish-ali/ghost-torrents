@@ -3,7 +3,7 @@
         <small>
             <a href="/templates/users/contact_us.php">Contact Us</a> |
             <a href="/templates/info/about_us.php">About Us</a> |
-            <a href="">Privacy Policy</a>
+            <a href="/templates/info/privacy_policy.php">Privacy Policy</a>
         </small>
     </div>
 </footer>

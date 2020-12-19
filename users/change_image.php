@@ -13,11 +13,6 @@ $notification = null;
 
 if ($image_file['size'] != 0 && $image_file['error'] == 0) {
 
-    // unlink old file
-
-    if ($_SESSION['image'] != "/static/user-images/default-user.svg")
-        unlink($_SERVER['DOCUMENT_ROOT'] . $_SESSION['image']);
-
     $target_dir = $_SERVER['DOCUMENT_ROOT'] . '/static/user-images/';
 
     $newFileName = uniqid($username, true)
@@ -25,15 +20,17 @@ if ($image_file['size'] != 0 && $image_file['error'] == 0) {
 
     $notification = SaveImages::uploadImage($image_file, $newFileName, $target_dir);
 
-    $target_file = '/static/user-images/' . $newFileName;
-
-    UserDatabase::saveImagePath($user_id, $target_file);
-
-    $_SESSION['image'] = $target_file;
-
-    echo $target_file;
-
+    if (!empty($notification)) {
+        echo json_encode((array)$notification);
+    } else {
+        if ($_SESSION['image'] != "/static/user-images/default-user.svg")
+            unlink($_SERVER['DOCUMENT_ROOT'] . $_SESSION['image']);
+        $target_file = '/static/user-images/' . $newFileName;
+        UserDatabase::saveImagePath($user_id, $target_file);
+        $_SESSION['image'] = $target_file;
+        echo json_encode(["type" => "success", "new_image" => $target_file]);
+    }
 } else {
 
-    $notification = "Error uploading image";
+    echo json_encode(["error" => "error"]);
 }

@@ -5,35 +5,13 @@
 
     <?php
     include $_SERVER['DOCUMENT_ROOT'] . '/templates/base/head-tags.php';
-    include $_SERVER['DOCUMENT_ROOT'] . '/articles/articles-database.php';
     include $_SERVER['DOCUMENT_ROOT'] . '/config/datetime.php';
+    $_GET['type'] = "articles";
 
-    $articles = ArticlesDatabase::getArticles();
-
-    $articles_array = array();
-
-    while ($value = $articles->fetch_assoc()) {
-
-        array_push($articles_array, $value);
-    }
 
     ?>
-
-
     <title>Ghost | Articles</title>
-
-
-    <script type="text/javascript">
-        var articles = <?php echo json_encode($articles_array); ?>;
-
-        var username = "<?php if (!empty($_SESSION))
-                            echo $_SESSION['username']; ?>";
-
-    </script>
-
     <link rel="stylesheet" href="/css/articles_list.css">
-
-
 </head>
 
 <body>
@@ -41,37 +19,46 @@
     include $_SERVER['DOCUMENT_ROOT'] . '/templates/base/navbar.php';
     ?>
 
-    <div class="container" style="margin-top: 100px;" id="container">
+    <div class="container-fluid" style="margin-top: 100px;">
+        <?php
+        include $_SERVER['DOCUMENT_ROOT'] . '/config/pagination.php';
+        $articles_array = array();
 
+        while ($value = $articles->fetch_assoc()) {
+
+            array_push($articles_array, $value);
+        }
+
+        ?>
+        <script type="text/javascript">
+            var articles = <?php echo json_encode($articles_array); ?>;
+
+            var username = "<?php if (!empty($_SESSION))
+                                echo $_SESSION['username']; ?>";
+        </script>
+    </div>
+
+    <div class="container" id="container">
         <div id="main">
-            <div class="row m-1 mb-5">
+            <div class="row">
                 <?php foreach ($articles_array as $value) : ?>
-                    <div class="col-sm-12">
-                        <div class="card mb-3 dark-bg">
+                    <div class="col-sm-4 mt-2">
+                        <center class="p-2 dark-bg">
                             <a id="article-img" href="/templates/articles/article.php?article_id=<?php echo $value['id']; ?>">
-                                <img class="card-img-top" id="article-img" src="<?php echo $value['image_path']; ?>" alt="">
+                                <img id="article-img" src="<?php echo $value['image_path']; ?>" alt="">
                             </a>
+                            <h5 class="mt-2 card-title text-light"><?php echo $value['title'] ?></h5>
 
-                            <div class="card-body">
-                                <h5 class="card-title text-light"><?php echo $value['title'] ?></h5>
+                            <small class="text-muted">Added <?php echo DateAndTime::time_elapsed_string($value['date']); ?></small>
 
-                                <a class="btn btn-dark btn-sm" href="/templates/articles/article.php?article_id=<?php echo $value['id']; ?>">Read More</a>
-
-                                <hr>
-                                <p class="card-text text-light">
-                                    <small class="text-muted">Added <?php echo DateAndTime::time_elapsed_string($value['date']); ?></small>
-
-                                    <small class="text-muted"> by
-                                        <a href="/templates/users/user.php?username=<?php echo $value['author']; ?>">
-                                            <b><?php echo $value['author']; ?></b>
-                                        </a>
-                                    </small>
-
-                                </p>
-                            </div>
-                        </div>
+                            <small class="text-muted"> by
+                                <a href="/templates/users/user.php?username=<?php echo $value['author']; ?>">
+                                    <b><?php echo $value['author']; ?></b>
+                                </a>
+                            </small>
+                            <a class="mt-2 btn btn-block btn-dark btn-sm" href="/templates/articles/article.php?article_id=<?php echo $value['id']; ?>">Read More</a>
+                        </center>
                     </div>
-
                 <?php endforeach; ?>
             </div>
         </div>

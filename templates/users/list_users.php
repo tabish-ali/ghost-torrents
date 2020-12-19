@@ -16,12 +16,15 @@
     include $_SERVER['DOCUMENT_ROOT'] . '/articles/articles-database.php';
     include_once $_SERVER['DOCUMENT_ROOT'] . '/templates/base/navbar.php';
     include_once $_SERVER['DOCUMENT_ROOT'] . '/users/user-database.php';
-    $result = UserDatabase::getUsers();
-    ?>
+    $_GET['type'] = "users";
 
-    <div class="container" style="margin-top: 100px;" id="container">
-        <div class="row mt-4">
-            <?php while ($user = $result->fetch_assoc()) : ?>
+    ?>
+    <div class="container-fluid" style="margin-top: 100px;">
+        <?php include_once $_SERVER['DOCUMENT_ROOT'] . '/config/pagination.php'; ?>
+    </div>
+    <div class="container mt-4" id="container">
+        <div class="row">
+            <?php while ($user = $users->fetch_assoc()) : ?>
                 <div class="col-sm-4 p-3 user-div">
                     <a href="/templates/users/user.php?user_id=<?php echo $user['id']; ?>&username=<?php echo $user['username']; ?>">
                         <img class="user-avatar" src="<?php echo $user['image_path'] ?>" alt="">
@@ -29,15 +32,18 @@
                     <h5 class="mt-1 text-white">
                         <a class="text-light" href="/templates/users/user.php?user_id=<?php echo $user['id']; ?>&username=<?php echo $user['username']; ?>">
                             <?php echo $user['username']; ?>
+
                         </a>
                         <span>
-                            <?php if ($_SESSION['username'] === $user['username']) : ?>
-                                <i class="fas fa-user fa-xs" title="It's you"></i>
+                            <?php if (isset($_SESSION['username'])) : ?>
+                                <?php if ($_SESSION['username']  === $user['username']) : ?>
+                                    <i class="fas fa-user fa-xs" title="It's you"></i>
+                                <?php endif; ?>
                             <?php endif; ?>
 
-                            <?php if($user['admin']) : ?>
+                            <?php if ($user['admin']) : ?>
                                 <i class="primary-label fas fa-certificate fa-xs" title="Admin"></i>
-                            <?php endif;?>
+                            <?php endif; ?>
                         </span>
                     </h5>
                     <small class="text-light"> Joined: <?php echo DateAndTime::time_elapsed_string($user['created_at']); ?> </small>

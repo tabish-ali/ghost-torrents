@@ -69,15 +69,12 @@ $(document).ready(function () {
                 if (willDelete) {
                     $.ajax({
                         url: "/torrents/delete-comments.php",
-
                         data: {
                             torrent_id: torrent_id,
                             comment_id: comment.comment_id,
                         },
-
                         dataType: "json",
                         type: "post",
-
                         success: function (data) {
 
                             var response = data['response'];
