@@ -1,8 +1,8 @@
 .delete-btn{
     background: transparent;
     border:none;
+    color: gray;
 }
-
 .delete-btn:hover{
     color: crimson;
 }
