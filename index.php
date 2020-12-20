@@ -83,8 +83,24 @@
             <?php endif; ?>
 
         </div>
-
-        <div id="result-div" class="result-div border shadow-sm p-3">
+        <div id="result-div" style="display: none;">
+            <div class="table table-responsive mt-2">
+                <table class="table table-borderless table-dark shadow-sm dark-bg rounded" id="torrents-table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">
+                                Torrent</th>
+                            <th scope="col">Added</th>
+                            <th scope="col">Size</th>
+                            <th scope="col">Seeds</th>
+                            <th scope="col">Leeches</th>
+                            <th scope="col">Download</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
         </div>
 
 

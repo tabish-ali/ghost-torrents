@@ -1,6 +1,5 @@
 $(document).ready(function () {
 
-    const result_div = document.getElementById('result-div');
     const search_icon = document.getElementById('search-icon');
     const search_btn = document.getElementById('search-btn');
     const search_field = document.getElementById('search-field');
@@ -18,7 +17,6 @@ $(document).ready(function () {
 
         if (search_field.value.length > 0) {
 
-            $('#result-div').fadeOut('slow');
 
             var category = document.querySelector('input[name="category"]:checked').value;
 
@@ -39,61 +37,45 @@ $(document).ready(function () {
                 },
 
                 success: function (data) {
-
-                    result_div.innerHTML = "";
-
-                    var search_title = document.createElement("small");
-
-                    result_div.className = "mb-4 m-4 dark-bg p-4";
-
-                    search_title.className = "bg-dark text-light p-1 rounded";
-
-                    search_title.appendChild(document.createTextNode("Search Results"));
-
-                    result_div.appendChild(search_title);
-
-                    result_div.appendChild(document.createElement("hr"));
-
                     search_btn.disabled = false;
                     search_icon.className = "fa fa-search";
+                    $('#result-div #msg').remove();
+                    $('#torrents-table tbody tr').remove();
 
-                    var count = 0;
+                    if (data['torrents'].length == 0) {
 
-                    if (data.length == 0) {
-
-                        var notification = document.createElement("small");
-                        notification.appendChild(document.createTextNode("Sorry no results found..."));
-
-                        notification.className = "bg-dark p-1 text-light rounded";
+                        $('#result-div .table').css("display", "none");
+                        var notification = "<small id='msg' style='display:block;' class='text-center bg-danger p-1 text-light rounded'>" +
+                            "Sorry no results were found for you search, please try again with different keywords. Thanks<small> "
                         $('#result-div').fadeIn("slow");
-                        result_div.appendChild(notification);
+                        $('#result-div').append(notification);
+                        $('#result-div .title-text').remove();
+
                     }
+                    else {
+                        $('#result-div .table').fadeIn();
+                        $('#result-div').fadeIn();
+                        $('#result-div .title-text').remove();
+                        $('#result-div').prepend("<h6 class='title-text text-light'> Showing <b>" + data["torrents"].length + "</b> results for <b>( " + data['search_string'] + "</b>  )</h6>");
+                        data['torrents'].forEach(torrent => {
+                            var torrent_href = "/templates/torrents/show_torrent.php?torrent_id=" + torrent.id;
+                            var torrent_row = $("<tr id='torrent-row'><td style='letter-spacing: 0.5px;' class='small'><b>" +
+                                "<a class='primary-label' href='" + torrent_href + "'>" +
+                                torrent.name + "</b></a></td>" +
+                                "<td style='letter-spacing: 0.5px;' class='small'><b> " + torrent.date + " </b></td>" +
+                                "<td style='letter-spacing: 0.5px;' class='small'><b> " + torrent.size + " </b></td>" +
+                                "<td style='letter-spacing: 0.5px;' class='small success-label'><b> " + torrent.peers_info.seeders + " </b></td>" +
+                                "<td style='letter-spacing: 0.5px;' class='small danger-label'><b> " + torrent.peers_info.seeders + " </b></td>" +
+                                "<td style='letter-spacing: 0.5px;' class='small'><a href='" + torrent.magnet + "'" + "class='danger-label p-1'>" +
+                                "<i class='fa fa-magnet fa-xs'></i>Magnet</a>" +
+                                "<a href='" + torrent.path + "'" + "class='text-primary p-1'>" +
+                                "<i class='fa fa-file fa-xs'></i>File</a></td>" +
+                                "</tr");
 
-                    data.forEach(torrent => {
+                            $("#torrents-table tbody").append(torrent_row);
+                        });
 
-                        $('#result-div').fadeIn('slow');
-
-                        count++;
-
-                        var result_node = document.createElement("small");
-
-                        var result_link_node = document.createElement("a");
-
-                        result_link_node.href = "/templates/torrents/show_torrent.php?torrent_id="
-                            + torrent.id + "&name=" + torrent.name;
-
-                        var result_text = document.createTextNode(count + ". " + torrent.name);
-
-                        result_link_node.appendChild(result_text);
-
-                        result_node.appendChild(result_link_node);
-
-                        result_node.appendChild(document.createElement("br"));
-
-                        result_div.appendChild(result_node);
-
-                    });
-
+                    }
                 },
             });
         }

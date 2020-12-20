@@ -60,7 +60,7 @@ class Scraper {
      * @param bool         $announce Optional. Use announce instead of scrape, Default false.
      * @return array List of results.
      */
-    public function scrape( $hashes, $trackers, $max_trackers = null, $timeout = 2, $announce = false ) {
+    public function scrape( $hashes, $trackers, $max_trackers = null, $timeout = 6, $announce = false ) {
         $final_result = array();
 
         if ( empty( $trackers ) ) {
@@ -73,7 +73,7 @@ class Scraper {
         if ( is_int( $timeout ) ) {
             $this->timeout = $timeout;
         } else {
-            $this->timeout = 2;
+            $this->timeout = 6;
             $this->errors[] = 'Timeout must be an integer. Using default value.';
         }
 

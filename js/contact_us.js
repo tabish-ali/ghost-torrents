@@ -1,13 +1,21 @@
 $(document).ready(function (e) {
-    var num1 = Math.floor(Math.random() * 10);
-    var num2 = Math.floor(Math.random() * 10);
-    $('#code-div').append("<b class='text-light'>" + num1 + " + " + num2 + "</b>");
+
+    var code = generateCode();
+
+    function generateCode() {
+        var num1 = Math.floor(Math.random() * 10);
+        var num2 = Math.floor(Math.random() * 10);
+        $('#code-div #code-text').remove();
+        $('#code-div').append("<b id='code-text' class='text-light'>" + num1 + " + " + num2 + "</b>");
+
+        return num1 + num2;
+    }
 
     $('#contact-form').submit(function (ev) {
         ev.preventDefault();
+
         var entered_code = parseInt($('#code-input').val());
-        console.log(entered_code);
-        if (entered_code === num1 + num2) {
+        if (entered_code === code) {
             if (user == null)
                 message_obj = {
                     name: $('#name').val(),
@@ -30,12 +38,12 @@ $(document).ready(function (e) {
                 },
                 success: function (data) {
                     var response = data['response'];
-                    console.log(response);
                     if (response === 'success') {
                         $("#contact-form #msg:last-child").remove();
                         var msg = $("<small id='msg' class='success-label' style='display:none'> " + data["response"] + "</small > ");
                         $('#contact-form').append(msg);
                         msg.fadeIn("slow");
+
                     }
                     else {
                         $("#contact-form #msg:last-child").remove();
@@ -43,6 +51,7 @@ $(document).ready(function (e) {
                         $('#contact-form').append(msg);
                         msg.fadeIn("slow");
                     }
+                    code = generateCode();
                 },
 
             });

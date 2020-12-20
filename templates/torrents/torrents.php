@@ -90,6 +90,7 @@
                                     File
                                 </a>
                             </td>
+                        </tr>
                         <?php endforeach; ?>
                 </tbody>
             </table>
