@@ -18,14 +18,14 @@ $(document).ready(function () {
 
             if (password1.value === password2.value) {
                 $('#p-n').fadeIn("slow");
-                password_not_div.className = "alert alert-success alert-dismissible fade show";
+                password_not_div.className = "alert border-dark bg-success text-light alert-secondary alert-dismissible fade show";
                 password_notification.innerHTML = "Password matched.";
                 reg_btn.disabled = false;
 
             }
             else {
                 $('#p-n').fadeIn("slow");
-                password_not_div.className = "alert alert-warning alert-dismissible fade show";
+                password_not_div.className = "alert border-dark bg-warning text-dark alert-secondary alert-dismissible fade show";
                 password_notification.innerHTML = "Please make sure two passwords must match.";
                 reg_btn.disabled = true;
             }

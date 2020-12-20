@@ -36,8 +36,6 @@ if (isset($_POST['reg-btn'])) {
 
         $flag = true;
     } else {
-
-        $notification->setNotification("User with this email already exists");
         $flag = false;
     }
 

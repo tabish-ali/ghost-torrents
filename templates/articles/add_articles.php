@@ -72,7 +72,7 @@
 
                         <?php if ($notification != null) : ?>
 
-                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <div class="alert border-dark bg-danger text-light alert-secondary alert-dismissible fade show" role="alert">
                                 <?php foreach ($notification->getNotification() as $n) : ?>
                                     <small> <?php echo $n ?> </small><br>
                                 <?php endforeach; ?>

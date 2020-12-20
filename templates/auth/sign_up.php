@@ -79,23 +79,19 @@
                 <div class="errors-div">
 
                     <?php
-                    if ($notification != null) {
-                        foreach ($notification->getNotification() as $n) {
+                    if ($notification != null) : ?>
 
-                            echo '
-                        <div class="alert alert-danger alert-dismissible fade show"role="alert">
-                        <small>' . $n . '</small>
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                        </div>';
-                        }
-                    }
-                    ?>
+                        <?php foreach ($notification->getNotification() as $n) : ?>
 
+                            <div class="alert border-dark bg-danger text-light alert-secondary alert-dismissible fade show" role="alert">
+                                <small> <?php echo $n ?> </small>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                        <?php endforeach; ?>
+                    <?php endif; ?>
                 </div>
-
-
             </form>
 
         </div>
