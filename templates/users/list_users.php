@@ -36,7 +36,7 @@
                         </a>
                         <span>
                             <?php if (isset($_SESSION['username'])) : ?>
-                                <?php if ($_SESSION['username']  === $user['username']) : ?>
+                                <?php if ($_SESSION['username'] === $user['username']) : ?>
                                     <i class="fas fa-user fa-xs" title="It's you"></i>
                                 <?php endif; ?>
                             <?php endif; ?>
@@ -51,7 +51,22 @@
                         <i class="fa fa-rss primary-label" title="Total articles written" aria-hidden="true"></i>
                         <small class="text-muted"><?php echo ArticlesDatabase::getArticlesCount($user['username']); ?></small>
                         <i class="text-danger fa fa-heart ml-2" title="Likes on articles" aria-hidden="true"></i>
-                        <small class="text-muted"><?php echo sizeof(json_decode(ArticlesDatabase::totalLikesOnArticle($user['username']))); ?></small>
+                        <small class="text-muted">
+                            <?php
+
+                            $interactions = ArticlesDatabase::totalLikesOnArticle($user['username']);
+
+                            if (isset(json_decode($interactions)[0]->status)) {
+
+                                echo sizeof(json_decode($interactions));
+                            } else {
+                                echo 0;
+                            }
+
+                            ?>
+
+
+                        </small>
                     </div>
 
                 </div>

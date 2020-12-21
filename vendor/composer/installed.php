@@ -6,7 +6,7 @@
     'aliases' => 
     array (
     ),
-    'reference' => '5608cd5bec9b648a147e1788061643864a2ff69b',
+    'reference' => 'b138576a5eb770b52f70ba2031ece159008c0c40',
     'name' => '__root__',
   ),
   'versions' => 
@@ -18,16 +18,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => '5608cd5bec9b648a147e1788061643864a2ff69b',
-    ),
-    'jasongrimes/paginator' => 
-    array (
-      'pretty_version' => '1.0.3',
-      'version' => '1.0.3.0',
-      'aliases' => 
-      array (
-      ),
-      'reference' => '3411e3cd0c6479a0b514f26e4358f0273552f221',
+      'reference' => 'b138576a5eb770b52f70ba2031ece159008c0c40',
     ),
     'phpmailer/phpmailer' => 
     array (

@@ -1,7 +1,5 @@
 <?php
 
-use function PHPSTORM_META\type;
-
 include_once $_SERVER['DOCUMENT_ROOT'] . '/db-config/db-connection.php';
 
 class ArticlesDatabase
@@ -14,7 +12,7 @@ class ArticlesDatabase
 
         $date = date_format(DateAndTime::getDate(), "m/d/Y H:i:s");
 
-        $insert_query = $conn->prepare("INSERT INTO articles (title, content, author, 
+        $insert_query = $conn->prepare("INSERT INTO articles (title, content, author,
         image_path, date, interactions)
         VALUES(?,?,?,?,?,JSON_ARRAY())");
 
@@ -68,8 +66,8 @@ class ArticlesDatabase
     {
         $conn = DBConnection::getConnection();
 
-        $insert_query = "UPDATE articles SET 
-        interactions = JSON_ARRAY_APPEND(interactions, '$', CAST('$interactions' AS JSON)) 
+        $insert_query = "UPDATE articles SET
+        interactions = JSON_ARRAY_APPEND(interactions, '$', CAST('$interactions' AS JSON))
          WHERE id = $article_id";
 
         $conn->query($insert_query);
@@ -97,7 +95,7 @@ class ArticlesDatabase
     {
         $conn = DBConnection::getConnection();
 
-        $delete_query = "UPDATE articles SET interactions = JSON_REMOVE(interactions, '$pos') 
+        $delete_query = "UPDATE articles SET interactions = JSON_REMOVE(interactions, '$pos')
         WHERE id = $article_id";
 
         $conn->query($delete_query);
@@ -148,10 +146,12 @@ class ArticlesDatabase
         foreach ($selected_articles as $article) {
             // unlinking images for deleted articles
 
-            $article = (array)$article;
+            $article = (array) $article;
 
-            if ($article['image_path'] != "/static/article-images/default.jpg")
+            if ($article['image_path'] != "/static/article-images/default.jpg") {
                 unlink($_SERVER['DOCUMENT_ROOT'] . $article['image_path']);
+            }
+
             $article_id = $article['id'];
             $delete_query = "DELETE FROM articles WHERE id = $article_id";
             $conn->query($delete_query);
@@ -161,7 +161,6 @@ class ArticlesDatabase
     public static function updateArticle($article_id, $title, $content)
     {
         $conn = DBConnection::getConnection();
-
 
         $update_query = $conn->prepare("UPDATE articles SET title = ?, content = ?
         WHERE id = $article_id");
@@ -199,7 +198,13 @@ class ArticlesDatabase
         $conn = DBConnection::getConnection();
         $count_query = "SELECT interactions FROM articles WHERE author = '$username'";
         $result = $conn->query($count_query);
-        return $result->fetch_assoc()['interactions'];
+
+        if (mysqli_num_rows($result) != 0) {
+            return $result->fetch_assoc()['interactions'];
+        } else {
+            return 0;
+        }
+
     }
 
     // count total articles for pagination

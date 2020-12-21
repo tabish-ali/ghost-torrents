@@ -20,16 +20,6 @@ class ComposerStaticInit2cb427fc9b6707ad61a18ed7adc94376
         ),
     );
 
-    public static $prefixesPsr0 = array (
-        'J' => 
-        array (
-            'JasonGrimes' => 
-            array (
-                0 => __DIR__ . '/..' . '/jasongrimes/paginator/src',
-            ),
-        ),
-    );
-
     public static $classMap = array (
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
     );
@@ -39,7 +29,6 @@ class ComposerStaticInit2cb427fc9b6707ad61a18ed7adc94376
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInit2cb427fc9b6707ad61a18ed7adc94376::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInit2cb427fc9b6707ad61a18ed7adc94376::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInit2cb427fc9b6707ad61a18ed7adc94376::$prefixesPsr0;
             $loader->classMap = ComposerStaticInit2cb427fc9b6707ad61a18ed7adc94376::$classMap;
 
         }, null, ClassLoader::class);
