@@ -17,38 +17,45 @@ $(document).ready(function () {
     delete_btn.addEventListener("click", deleteTorrentConfirmation);
 
     select_all.addEventListener("click", function () {
-
-        delete_selection.forEach(element => {
-
-            if (element != undefined) {
-                element.checked = select_all.checked;
-                delete_btn.disabled = !select_all.checked
-
-                if (select_all.checked) {
-                    selected_torrents_count = delete_selection.length - 1;
-                }
-                else {
-                    selected_torrents_count = 0;
-                }
+        torrents.forEach(element => {
+            if (select_all.checked) {
+                selected_torrents_count = torrents.length;
+                selected_torrents.push(element);
+                delete_btn.disabled = false;
+            }
+            else {
+                selected_torrents.pop(element);
+                selected_torrents_count = 0;
+                delete_btn.disabled = true;
             }
         });
 
-
-
+        delete_selection.forEach(element => {
+            if (element != null) {
+                if (select_all.checked) {
+                    element.checked = true;
+                }
+                else {
+                    element.checked = false;
+                }
+            }
+        });
     });
 
     function deleteTorrents() {
-
         var selected_torrents_json = JSON.stringify(selected_torrents);
+
+        console.log(selected_torrents_json);
 
         $.ajax({
             type: 'POST',
             data: { selected_torrents_json: selected_torrents_json },
             url: '/torrents/delete-torrents.php',
             header: 'Content-type:appSMALLcation/json',
+            dataType: "json",
             success: function (data) {
-
                 console.log(data);
+                delete_selection = [];
             }
 
         });
@@ -127,21 +134,19 @@ $(document).ready(function () {
         });
 
         torrents.forEach(element => {
-
-            element.edit_btn.addEventListener("click", function () {
-
-
-            });
-
             element.delete_selection.addEventListener("click", function () {
 
                 if (element.delete_selection.checked) {
-                    selected_torrents_count++;
-                    selected_torrents.push(element.id);
+                    if (!containsObject(element, selected_torrents)) {
+                        selected_torrents.push(element);
+                        selected_torrents_count++;
+                    }
                 }
                 else {
-                    selected_torrents_count--;
-                    selected_torrents.pop(element.id);
+                    if (containsObject(element, torrents)) {
+                        selected_torrents_count--;
+                        selected_torrents.pop(element);
+                    }
                 }
 
                 if (selected_torrents_count > 0) {
@@ -154,5 +159,13 @@ $(document).ready(function () {
 
         });
     }
-
-    });
+    function containsObject(obj, list) {
+        var i;
+        for (i = 0; i < list.length; i++) {
+            if (list[i] === obj) {
+                return true;
+            }
+        }
+        return false;
+    }
+});

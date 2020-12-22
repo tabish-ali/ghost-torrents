@@ -185,6 +185,7 @@ class TorrentsDatabase
                 'peers_info' => json_decode($torrent['peers_info'], true),
                 'path' => $torrent['file_path'],
                 'id' => $torrent['id'],
+                'file_path' => $torrent['file_path'],
                 'category' => $torrent['category'],
                 'date' => $torrent['date'],
                 'magnet' => TorrentsDatabase::getMagnetLink(
@@ -329,15 +330,19 @@ class TorrentsDatabase
         $conn->query($delete_query);
     }
 
-    public static function deleteTorrents($selected_ids)
+    public static function deleteTorrents($selected_torrents)
     {
 
         $conn = DBConnection::getConnection();
 
-        foreach ($selected_ids as $id) {
-            $delete_query = "DELETE FROM torrents WHERE id = $id";
+        foreach ($selected_torrents as $torrent) {
+            // delete torrent_file also
+            unlink($_SERVER['DOCUMENT_ROOT'] . $torrent->file_path);
+            $torrent_id = $torrent->id;
+            $delete_query = "DELETE FROM torrents WHERE id = $torrent_id";
             $conn->query($delete_query);
         }
+        $conn->close();
     }
 
     public static function updateTorrentInfo($torrent)
