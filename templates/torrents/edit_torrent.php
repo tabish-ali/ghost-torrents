@@ -43,14 +43,8 @@
 </head>
 
 <body>
-
-
-    <?php
-
-    if ($user["admin"]) : ?>
-
-        <div class="container mt-5 mb-5" id="container">
-
+    <div class="container mb-5" style="margin-top: 100px;" id="container">
+        <?php if ($user["admin"]) : ?>
             <div class="dark-bg rounded" id="container">
 
                 <h4 class="text-light bg-dark p-2 rounded">Update Torrent</h4>
@@ -64,7 +58,7 @@
                     <div class="form-group p-2">
                         <label for="" class="text-light">Select Category</label>
                         <select name="category" id="category-box" class="custom-select custom-select-sm dark-bg">
-                            <option value="movies" selected>Movies</option>
+                            <option value="movies">Movies</option>
                             <option value="games">Games</option>
                             <option value="software">Softwares</option>
                             <option value="tv">TV</option>
@@ -90,19 +84,20 @@
 
                 </div>
             </div>
-        </div>
-    <?php else : ?>
 
-        <small class="bg-danger text-white p-1 rounded">
-            <b>Only admin can add torrents</b>
-        </small>
+        <?php else : ?>
+            <div style="text-align: center;">
+                <small class="bg-danger text-white p-1 rounded">
+                    <b>Only <em>admin</em> can add | edit torrents</b>
+                </small>
+            </div>
+    </div>
 
+<?php endif; ?>
 
-    <?php endif; ?>
-
-    <?php
-    include $_SERVER['DOCUMENT_ROOT'] . '/templates/base/footer.php';
-    ?>
+<?php
+include $_SERVER['DOCUMENT_ROOT'] . '/templates/base/footer.php';
+?>
 
 </body>
 

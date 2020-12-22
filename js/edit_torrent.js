@@ -10,6 +10,10 @@ $(document).ready(function () {
 
     save_file_btn.addEventListener('click', saveFile);
 
+    // select choice box based on the category
+
+    $('#category-box').val(torrent.category);
+
     function editTorrent() {
         $.ajax({
             type: 'POST',

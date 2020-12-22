@@ -1,4 +1,7 @@
 {
     "liveServer.settings.host": "ghost-torrents.com",
-    "liveServer.settings.useWebExt": true
+    "liveServer.settings.useWebExt": true,
+    "editor.fontLigatures": true,
+    "editor.lineHeight": 30,
+    "editor.fontFamily": "'Cascadia Code', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'"
 }

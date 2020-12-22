@@ -3,8 +3,6 @@
 include_once $_SERVER['DOCUMENT_ROOT'] . '/torrents/torrents-database.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/config/datetime.php';
 
-
-
 $username = $_POST['username'];
 $torrent_id = $_POST['torrent_id'];
 $comments = $_POST['comments'];

@@ -11,7 +11,7 @@
     include $_SERVER['DOCUMENT_ROOT'] . '/torrents/torrents-database.php';
 
     if (!empty($_SESSION))
-        $torrents = TorrentsDatabase::getTorrents();
+        $torrents = TorrentsDatabase::getTorrents(0,TorrentsDatabase::countTotalTorrents("all"));
 
 
     ?>

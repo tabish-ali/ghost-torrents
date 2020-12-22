@@ -16,19 +16,19 @@
             <b><i class="fas fa-film"></i> Movies</b></a>
     </div>
     <div class="col-sm-2 mt-1">
-        <a style="text-align: center;" class="btn btn-lg btn-primary btn-block" href="#">
+        <a style="text-align: center; background: yellowgreen;" class="btn btn-lg text-light btn-block" href="/templates/torrents/tv_torrents.php?type=torrents?category=tv">
             <b><i class="fas fa-tv"></i> TV</b></a>
     </div>
     <div class="col-sm-2 mt-1">
-        <a style="text-align: center;" class="btn btn-lg btn-secondary btn-block" href="#">
+        <a style="text-align: center;" class="btn btn-lg btn-secondary btn-block" href="/templates/torrents/music_torrents.php?type=torrents?category=music">
             <b><i class="fas fa-music"></i> Music</b></a>
     </div>
     <div class="col-sm-2 mt-1">
-        <a style="text-align: center;" class="btn btn-lg btn-info btn-block" href="#">
+        <a style="text-align: center;" class="btn btn-lg btn-info btn-block" href="/templates/torrents/software_torrents.php?type=torrents?category=software">
             <b><i class="fa fa-desktop" aria-hidden="true"></i> Softwares</b></a>
     </div>
     <div class="col-sm-2 mt-1">
-        <a style="text-align: center;" class="btn btn-lg btn-dark btn-info btn-block" href="#">
+        <a style="text-align: center;" class="btn btn-lg btn-dark btn-info btn-block" href="/templates/torrents/other_torrents.php?type=torrents?category=other">
             <b><i class="fas fa-boxes"></i> Others</b></a>
     </div>
 </div>

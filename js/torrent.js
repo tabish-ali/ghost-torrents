@@ -23,11 +23,7 @@ $(document).ready(function () {
     refresh_peers_btn.addEventListener("click", refreshPeersInfo);
 
     torrent_comments_obj.forEach(comment => {
-
         // return true if it was user own comment
-
-        console.log("click");
-
         setCommentNode(comment.comment,
             comment.username,
             comment.user_image,
@@ -107,7 +103,7 @@ $(document).ready(function () {
     }
 
     function insertComment() {
-
+        comments = comments_input.value.replace(/\n/g, "<br>");
         if (username != "") {
             total_comments++;
             document.getElementById('comments-count').innerHTML = total_comments;
@@ -115,7 +111,7 @@ $(document).ready(function () {
                 url: "/torrents/insert-comments.php",
 
                 data: {
-                    comments: comments_input.value,
+                    comments: comments,
                     torrent_id: torrent_id,
                     username: username,
                     user_image: user_image,
