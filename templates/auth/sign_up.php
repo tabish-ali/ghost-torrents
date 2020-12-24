@@ -66,7 +66,7 @@
                 <hr>
 
                 <div class="form-group">
-                    <small><a href="/templates/auth/login.php">Already have an account?</a></small>
+                    <small><a href="/templates/auth/login">Already have an account?</a></small>
                 </div>
 
                 <div style="display: none;" class="alert alert-warning alert-dismissible fade show" id="p-n" role="alert">

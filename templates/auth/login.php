@@ -47,11 +47,11 @@
                 <hr>
 
                 <div class="form-group">
-                    <small> <a href="/templates/auth/sign_up.php">Register</a></small>
+                    <small> <a href="/templates/auth/sign_up">Register</a></small>
                 </div>
 
                 <div class="form-group">
-                    <small><a href="/templates/auth/forgot_password.php" class="">Forgot password?</a></small>
+                    <small><a href="/templates/auth/forgot_password" class="">Forgot password?</a></small>
                 </div>
 
                 <div class="errors-div">

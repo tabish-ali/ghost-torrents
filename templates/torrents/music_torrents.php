@@ -32,8 +32,6 @@
                             Torrent</th>
                         <th scope="col">Added</th>
                         <th scope="col">Size</th>
-                        <th scope="col">Seeds</th>
-                        <th scope="col">Leeches</th>
                         <th scope="col">Download</th>
                     </tr>
                 </thead>
@@ -57,26 +55,6 @@
                             <td class="small">
                                 <b class="text-light">
                                     <?php echo $torrent['size']; ?>
-                                </b>
-                            </td>
-
-
-                            <td class="small">
-                                <b class="success-label">
-                                    <?php if (isset($torrent['peers_info']['seeders']))
-                                        echo $torrent['peers_info']['seeders'];
-                                    else
-                                        echo "-" ?>
-                                </b>
-                            </td>
-
-
-                            <td class="small">
-                                <b class="danger-label">
-                                    <?php if (isset($torrent['peers_info']['leechers']))
-                                        echo $torrent['peers_info']['leechers'];
-                                    else
-                                        echo "-" ?>
                                 </b>
                             </td>
 

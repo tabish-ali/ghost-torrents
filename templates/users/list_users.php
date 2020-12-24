@@ -26,11 +26,11 @@
         <div class="row">
             <?php while ($user = $users->fetch_assoc()) : ?>
                 <div class="col-sm-4 p-3 user-div">
-                    <a href="/templates/users/user.php?user_id=<?php echo $user['id']; ?>&username=<?php echo $user['username']; ?>">
+                    <a href="/templates/users/user?user_id=<?php echo $user['id']; ?>&username=<?php echo $user['username']; ?>">
                         <img class="user-avatar" src="<?php echo $user['image_path'] ?>" alt="">
                     </a>
                     <h5 class="mt-1 text-white">
-                        <a class="text-light" href="/templates/users/user.php?user_id=<?php echo $user['id']; ?>&username=<?php echo $user['username']; ?>">
+                        <a class="text-light" href="/templates/users/user?user_id=<?php echo $user['id']; ?>&username=<?php echo $user['username']; ?>">
                             <?php echo $user['username']; ?>
 
                         </a>

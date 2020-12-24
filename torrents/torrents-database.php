@@ -13,17 +13,14 @@ class TorrentsDatabase
         $uploader,
         $description,
         $file_path,
-        $peers_info,
         $category
     ) {
 
         $date = date_format(DateAndTime::getDate(), "m/d/Y H:i:s");
-
         $conn = DBConnection::getConnection();
-
         $insert_query = $conn->prepare("INSERT INTO torrents 
-        (description, uploader, category, file_path, peers_info , date, comments) 
-        VALUES(?,?,?,?,?,?,JSON_ARRAY())");
+        (description, uploader, category, file_path, date, comments) 
+        VALUES(?,?,?,?,?,JSON_ARRAY())");
 
         $insert_query->bind_param(
             "ssssss",
@@ -31,13 +28,10 @@ class TorrentsDatabase
             $uploader,
             $category,
             $file_path,
-            $peers_info,
             $date,
-
         );
 
         $insert_query->execute();
-
         $conn->close();
     }
 

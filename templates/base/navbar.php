@@ -3,10 +3,7 @@
     <!-- Brand -->
     <a style="letter-spacing: 2px; font-size: 18px;" class="navbar-brand" href="/">
         <img src="/static/logos/ghost.png" style="height: 35px;" class="rounded-circle" alt="">
-        <span>
-            <em><b>G</b></em>host
-            <em><b>T</b></em>orrents
-        </span>
+        <span>Ghost Torrents</span>
     </a>
 
     <!-- Toggler/collapsibe Button -->
@@ -18,26 +15,31 @@
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <a href="/templates/torrents/torrents.php?type=torrents" class="nav-link">Torrents</a>
+                <a title="yts movies" href="/templates/yts/yts_movies" class="nav-link">
+                    <img style="height:30px;" src="/static/logos/yts-logo.png" alt="YTS Movies"> 
+                </a>
             </li>
             <li class="nav-item">
-                <a href="/templates/articles/articles_list.php?type=articles" class="nav-link">Articles</a>
+                <a href="/templates/torrents/torrents?type=torrents" class="nav-link">Torrents</a>
             </li>
             <li class="nav-item">
-                <a href="/templates/users/list_users.php?type=users" class="nav-link">Members</a>
+                <a href="/templates/articles/articles_list?type=articles" class="nav-link">Articles</a>
+            </li>
+            <li class="nav-item">
+                <a href="/templates/users/list_users?type=users" class="nav-link">Members</a>
             </li>
             <?php
 
-if (empty($_SESSION['username'])): ?>
+            if (empty($_SESSION['username'])) : ?>
 
                 <li class="nav-item">
-                    <a href="/templates/auth/sign_up.php" class="nav-link">Register</a>
+                    <a href="/templates/auth/sign_up" class="nav-link">Register</a>
                 </li>
                 <li class="nav-item">
-                    <a href="/templates/auth/login.php" class="nav-link">Login</a>
+                    <a href="/templates/auth/login" class="nav-link">Login</a>
                 </li>
 
-            <?php else: ?>
+            <?php else : ?>
 
                 <li class="nav-item dropdown shadow-lg">
 
@@ -47,37 +49,37 @@ if (empty($_SESSION['username'])): ?>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
 
-                        <a class="dropdown-item btn-sm" href="/templates/users/profile.php">
+                        <a class="dropdown-item btn-sm" href="/templates/users/profile">
                             <i class="fa fa-user" aria-hidden="true"></i> Profile</a>
 
-                        <a class="dropdown-item btn-sm" href="/templates/articles/user_articles.php">
+                        <a class="dropdown-item btn-sm" href="/templates/articles/user_articles">
                             <i class="fas fa-newspaper"></i>
                             My Articles
                         </a>
-                        <a href="/templates/articles/add_articles.php" class="dropdown-item btn-sm">
+                        <a href="/templates/articles/add_articles" class="dropdown-item btn-sm">
                             <i class="fa fa-plus-circle"></i>
                             Add Articles
                         </a>
-                        <?php if (isset($_SESSION['admin'])): ?>
-                        <a href="/templates/torrents/add_torrent.php" class="dropdown-item btn-sm">
-                            <i class="fa fa-plus-circle"></i>
-                            Add Torrents
-                        </a>
-                            <a class="dropdown-item btn-sm" href="/templates/torrents/torrents_dashboard.php">
+                        <?php if (isset($_SESSION['admin'])) : ?>
+                            <a href="/templates/torrents/add_torrent" class="dropdown-item btn-sm">
+                                <i class="fa fa-plus-circle"></i>
+                                Add Torrents
+                            </a>
+                            <a class="dropdown-item btn-sm" href="/templates/torrents/torrents_dashboard">
                                 <i class="fas fa-rss"></i>
                                 My Torrents
                             </a>
-                        <?php endif;?>
+                        <?php endif; ?>
 
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item btn-sm" href="/users/logout.php">
+                        <a class="dropdown-item btn-sm" href="/users/logout">
                             <i class="fas fa-sign-out-alt"></i>
                             Logout</a>
                     </div>
                 </li>
 
 
-            <?php endif?>
+            <?php endif ?>
         </ul>
     </div>
 

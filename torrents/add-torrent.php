@@ -30,12 +30,8 @@ $torrent_info  = TorrentsDatabase::getTorrentMetaInfo($torrent_file_path);
 
 $scraper = new Scrapeer\Scraper();
 
-$peers_info = $scraper->scrape($torrent_info['hash'], $torrent_info['trackers']);
-
-$peers_info = json_encode($peers_info[$torrent_info['hash']]);
-
 $torrent_relative_path = $torrent_dir . $torrent_file['name'];
 
-TorrentsDatabase::saveTorrent($uploader_name, $description, $torrent_relative_path, $peers_info, $category);
+TorrentsDatabase::saveTorrent($uploader_name, $description, $torrent_relative_path, $category);
 
 echo json_encode($torrent_info);

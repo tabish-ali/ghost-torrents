@@ -44,7 +44,7 @@
                 <?php foreach ($articles_array as $value) : ?>
                     <div class="col-sm-4 mt-2">
                         <center class="p-2 dark-bg">
-                            <a id="article-img" href="/templates/articles/article.php?article_id=<?php echo $value['id']; ?>">
+                            <a id="article-img" href="/templates/articles/article?article_id=<?php echo $value['id']; ?>">
                                 <img id="article-img" src="<?php echo $value['image_path']; ?>" alt="">
                             </a>
                             <h5 class="mt-2 card-title text-light"><?php echo $value['title'] ?></h5>
@@ -52,11 +52,11 @@
                             <small class="text-muted">Added <?php echo DateAndTime::time_elapsed_string($value['date']); ?></small>
 
                             <small class="text-muted"> by
-                                <a href="/templates/users/user.php?username=<?php echo $value['author']; ?>">
+                                <a href="/templates/users/user?username=<?php echo $value['author']; ?>">
                                     <b><?php echo $value['author']; ?></b>
                                 </a>
                             </small>
-                            <a class="mt-2 btn btn-block btn-dark btn-sm" href="/templates/articles/article.php?article_id=<?php echo $value['id']; ?>">Read More</a>
+                            <a class="mt-2 btn btn-block btn-dark btn-sm" href="/templates/articles/article?article_id=<?php echo $value['id']; ?>">Read More</a>
                         </center>
                     </div>
                 <?php endforeach; ?>

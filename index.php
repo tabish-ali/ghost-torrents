@@ -76,8 +76,8 @@
             <?php if (empty($_SESSION)) : ?>
 
                 <div class="call-to-action mt-4 p-3">
-                    <a href="/templates/auth/login.php" class="btn btn-dark btn-sm ">Login</a>
-                    <a href="/templates/auth/sign_up.php" class="btn btn-success btn-sm ">Register</a>
+                    <a href="/templates/auth/login" class="btn btn-dark btn-sm ">Login</a>
+                    <a href="/templates/auth/sign_up" class="btn btn-success btn-sm ">Register</a>
                 </div>
 
             <?php endif; ?>
@@ -108,7 +108,7 @@
 
             <div class="col-sm-6">
                 <div class="mb-5 p-3 rounded dark-bg">
-                    <a class="btn btn-primary btn-lg" href="/templates/torrents/torrents.php?type=torrents?category=all">Torrents</a> <br>
+                    <a class="btn btn-primary btn-lg" href="/templates/torrents/torrents?type=torrents?category=all">Torrents</a> <br>
                     <div class="mt-2">
                         <small class="text-light">
                             Browse and download torrents of your desired choice, easy to use and
@@ -120,7 +120,7 @@
             </div>
             <div class="col-sm-6">
                 <div class="mb-5 p-3 rounded dark-bg">
-                    <a class="btn btn-success btn-lg" href="/templates/articles/articles_list.php">Articles</a> <br>
+                    <a class="btn btn-success btn-lg" href="/templates/articles/articles_list">Articles</a> <br>
                     <div class="mt-2">
                         <small class="text-light">
                             Read latest articles about technologies and movies. There are many other
@@ -132,7 +132,7 @@
             </div>
 
         </div>
-        <?php include_once $_SERVER['DOCUMENT_ROOT'] . '/templates/torrents/categories.php' ?>
+        <?php include_once $_SERVER['DOCUMENT_ROOT'] . '/templates/torrents/categories' ?>
     </div>
 
     <?php

@@ -35,7 +35,8 @@
                 <p>Site is developed by one person so design won't looks good because he does not
                     know about styling much. He's kind of logical programmer who dont have much eye for
                     details.But he makes sure that site is secure and functionality is not
-                    compromised.</p>
+                    compromised. Unfortunately my server does not support outgoing UDP requests
+                so currenlty I am unable to retrieve seeds and leeches from torrent.</p>
             </div>
             <br>
             <div class="dark-bg p-3 rounded">
@@ -47,7 +48,7 @@
                     <li>AJAX</li>
                     <li>HTML/CSS/Bootstrap</li>
                     <li>MySQL</li>
-                    <li>PHP Torrent Libararies</li>
+                    <li>Torrent Scraper</li>
                     <li>Alot of frustration</li>
                 </ul>
             </div>
@@ -57,7 +58,6 @@
                 <ul>
                     <li>GOD</li>
                     <li><a target="_blank" class="primary-label" href="https://github.com/adriengibrat/torrent-rw">Adrien Gibrat (Torrent info scraper)</a></li>
-                    <li><a target="_blank" class="primary-label" href=" https://github.com/johannes85/PHP-Torrent-Scraper">Johannes Zinnau's (Torrent seed and leeches scraper)</a> </li>
                     <li><a target="_blank" class="primary-label" href="https://www.tiny.cloud/">Tiny MCE (Rich Text Area) </a> </li>
                     <li><a target="_blank" class="primary-label" href="https://www.allphptricks.com/author/javed/">Javed Ur Rehman (For pagination)</a></li>
                     <li><a target="_blank" class="primary-label" href="https://izitoast.marcelodolza.com/">IziToast</a></li>
