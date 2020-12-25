@@ -17,10 +17,18 @@ $(document).ready(function () {
         if (password1.value != "" && password2.value != "") {
 
             if (password1.value === password2.value) {
-                $('#p-n').fadeIn("slow");
-                password_not_div.className = "alert border-dark bg-success text-light alert-secondary alert-dismissible fade show";
-                password_notification.innerHTML = "Password matched.";
-                reg_btn.disabled = false;
+
+                if (password1.value.length >= 6) {
+                    $('#p-n').fadeIn("slow");
+                    password_not_div.className = "alert border-dark bg-success text-light alert-secondary alert-dismissible fade show";
+                    password_notification.innerHTML = "Password matched.";
+                    reg_btn.disabled = false;
+                }
+                else {
+                    password_not_div.className = "alert border-dark bg-danger text-light alert-secondary alert-dismissible fade show";
+                    password_notification.innerHTML = "Password must be greater or equal to six characters";
+                    reg_btn.disabled = true;
+                }
 
             }
             else {

@@ -1,0 +1,26 @@
+.movie-img {
+    width: 100%;
+    height: auto;
+    border: 5px solid black;
+    border-radius: 5px;
+}
+
+.related-img {
+    width: 35%;
+    height: 50%;
+    height: auto;
+    border: 5px solid black;
+    border-radius: 5px;
+}
+
+.screen-shot {
+    width: 100%;
+    height: 150px;
+    border: 1px solid black;
+}
+
+.cast-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50px;
+}

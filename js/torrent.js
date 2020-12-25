@@ -2,10 +2,6 @@ $(document).ready(function () {
 
     var user_comments = [];
 
-    const refresh_peers_btn = document.getElementById('refresh-peers-btn');
-
-    const refresh_icon = document.getElementById('refresh-icon');
-
     const seeders_tag = document.getElementById('seeders');
 
     const completed_tag = document.getElementById('completed');
@@ -19,8 +15,6 @@ $(document).ready(function () {
     const comment_btn = document.getElementById('comment-btn');
 
     const comments_div = document.getElementById('comments-div');
-    
-    refresh_peers_btn.addEventListener("click", refreshPeersInfo);
 
     torrent_comments_obj.forEach(comment => {
         // return true if it was user own comment
@@ -264,46 +258,6 @@ $(document).ready(function () {
                 });
             });
         }
-    }
-
-
-    function refreshPeersInfo() {
-
-        $.ajax({
-            url: "/torrents/refresh-peers-info.php",
-
-            data: {
-                hash: torrent_meta_info.hash,
-                trackers: torrent_meta_info.trackers,
-                torrent_id: torrent_id,
-            },
-
-            dataType: "json",
-            type: "post",
-
-            beforeSend: function () {
-
-                iziToast.info({
-                    title: 'Please wait...',
-                    message: 'Refreshing peers info!',
-                });
-
-                refresh_peers_btn.disabled = true;
-                refresh_icon.className = "fa fa-spinner fa-spin";
-            },
-
-            success: function (peers_info) {
-
-                console.log(peers_info);
-
-                seeders_tag.innerHTML = "Seeders: " + peers_info.seeders;
-                completed_tag.innerHTML = "Completed: " + peers_info.completed;
-                leechers_tag.innerHTML = "Leechers: " + peers_info.leechers;
-
-                refresh_icon.className = "fa fa-sync";
-                refresh_peers_btn.disabled = false;
-            }
-        });
     }
     $('#copy-hash-btn').click(copyHash);
     function copyHash() {

@@ -26,8 +26,6 @@
         $torrent_meta_info_array['trackers']
     );
 
-    $torrent['peers_info'] = json_decode($torrent['peers_info'], true);
-
     $comments = json_decode(TorrentsDatabase::getComments($_GET['torrent_id']), true);
 
     $total_comments = 0;
@@ -80,7 +78,6 @@
 
     <?php
     include $_SERVER['DOCUMENT_ROOT'] . '/templates/base/navbar.php';
-
     ?>
 
     <div class="container" id="container" style="margin-top: 100px;">
@@ -134,16 +131,6 @@
                             <i class="fas fa-copy"></i>
                         </button>
                         <br>
-
-                        <small class="text-light">
-                            <b class="success-label" id="seeders">Seeds: <?php echo $torrent['peers_info']['seeders']; ?></b> |
-                            <b class="aqua-label" id="completed">Completed: <?php echo $torrent['peers_info']['completed'];  ?></b> |
-                            <b class="danger-label" id="leechers">Leeches: <?php echo $torrent['peers_info']['leechers']; ?></b>
-                        </small>
-
-                        <button id="refresh-peers-btn" title="Refresh peers info" class="btn btn-sm btn-dark ml-1">
-                            <i id="refresh-icon" class="fa fa-sync" aria-hidden="true"></i>
-                        </button>
                     </div>
                 </div>
 

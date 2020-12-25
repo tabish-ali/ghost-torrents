@@ -24,7 +24,7 @@ if (isset($_POST['login-btn'])) {
         $_SESSION['image'] = $response->getImage();
         $_SESSION['admin'] = $response->getAdmin();
 
-        header('location: /templates/users/profile.php');
+        header('location: /templates/users/profile');
 
     } else if ($response === "username/email-error") {
         $notification = new Notifications();

@@ -301,4 +301,11 @@ class UserDatabase
         $count = $result->fetch_assoc()['total_users'];
         return $count;
     }
+
+    public static function deleteAccount($user_id)
+    {
+        $conn = DBConnection::getConnection();
+        $delete_query = "DELETE FROM users WHERE id = $user_id";
+        $conn->query($delete_query);
+    }
 }

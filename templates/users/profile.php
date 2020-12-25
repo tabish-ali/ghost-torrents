@@ -19,7 +19,7 @@
     <script src="/js/change_password.js"></script>
     <link rel="stylesheet" href="/css/izi_toast.min.css">
     <script src="/js/izi_toast.min.js" type="text/javascript"></script>
-
+    <script src="/js/delete-account.js"></script>
     <title>Ghost | User Profile | <?php echo $_SESSION['username']; ?></title>
 </head>
 
@@ -39,8 +39,7 @@
             <div class="dark-bg p-4 m-4" id="container">
 
                 <div class="row p-2 shadow-sm">
-
-                    <div class="col-sm">
+                    <div>
                         <h3 id="username-text" class="text-light font-weight-bold"><?php echo $user['username']; ?></h3>
                         <?php if (isset($user['admin'])) : ?>
                             <small class="bg-primary p-1 rounded text-white">
@@ -50,6 +49,7 @@
                             <small class="bg-info p-1 rounded text-white">
                                 <b>User</b>
                             </small>
+
                         <?php endif; ?>
                     </div>
 
@@ -67,6 +67,9 @@
                     </li>
                     <li class="nav-item btn-sm">
                         <a class="flex-sm-fill nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Password</a>
+                    </li>
+                    <li class="nav-item btn-sm">
+                        <a class="flex-sm-fill nav-link" id="pills-settings-tab" data-toggle="pill" href="#pills-settings" role="tab" aria-controls="pills-settings" aria-selected="false">Settings</a>
                     </li>
                 </ul>
                 <div class="tab-content" id="pills-tabContent">
@@ -100,6 +103,7 @@
                         </div>
                     </div>
 
+
                     <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
 
 
@@ -118,9 +122,6 @@
 
                     </div>
                     <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
-
-
-
 
                         <div class="form-group col-sm-6">
                             <label for="password1" class="text-light"> <small>Old Password</small></label>
@@ -143,17 +144,25 @@
                             <br>
                             <small id="password-match-notification" style="display: none;"></small>
                         </div>
-
-
-
+                    </div>
+                    <div class="tab-pane fade" id="pills-settings" role="tabpanel" aria-labelledby="pills-settings-tab">
+                        <form id="delete-account-form">
+                            <div class="form-group col-sm-6 text-light">
+                                <label for="password">Password</label>
+                                <input required id="password-field" class="form-control form-control-sm" type="password" />
+                                <small aria-describedby="passwordHelp" class="text-muted form-text">
+                                    Enter your password to delete account. <br> Once deleted you will not be able to recover it.
+                                </small>
+                                <button type="submit" class="mt-2 btn btn-sm btn-danger">Delete</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
 
-
-
             <?php else : ?>
-                <div class="alert alert-primary" style="text-align: center;" role="alert">
-                    Please login to see your profile...
+                <div class="p-2 rounded bg-dark text-light text-center">
+                    <p> login to see your profile...</p>
+                    <a href="/templates/auth/login" class="primary-label">Login</a>
                 </div>
             <?php endif; ?>
             </div>

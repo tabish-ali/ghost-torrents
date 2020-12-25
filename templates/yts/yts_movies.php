@@ -21,16 +21,17 @@
                 </div>
                 <div class="form-group">
                     <button id="search-btn" class="btn btn-primary"><i id="search-icon" class="fa fa-search"></i>Search</button>
-                    <button id="clear-btn" class="btn btn-danger" >Clear</button>
-                    <button id="test-btn" class="btn btn-dark" >Load TEst</button>
+                    <button id="clear-btn" class="btn btn-danger">Clear</button>
+                    <button id="test-btn" class="btn btn-dark">Load TEst</button>
                 </div>
             </form>
         </div>
         <div id="result-div" class="row text-light">
-         
+
         </div>
 
     </div>
+    <?php include_once $_SERVER['DOCUMENT_ROOT'] . '/templates/base/footer.php' ?>
 </body>
 
 </html>

@@ -81,57 +81,6 @@ class TorrentsDatabase
         return $torrent_info;
     }
 
-    public static function updatePeersInfo($torrent_id, $peers_info)
-    {
-        $conn = DBConnection::getConnection();
-
-        $update_query = $conn->prepare("UPDATE torrents set peers_info = ? WHERE id = $torrent_id");
-
-        $update_query->bind_param("s", $peers_info);
-
-        $update_query->execute();
-
-        $conn->close();
-    }
-
-
-    public static function getUserTorrents($user)
-    {
-
-        // $conn = MongoDbConnection::getConnection();
-
-        // $torrent_collection = $conn->php->torrents;
-
-        // $torrents = $torrent_collection->find(array("uploader_name" => $user));
-
-        // $torrents_info_array = array();
-
-        // foreach ($torrents as $torrent) {
-
-        //     $torrent_meta_info  = TorrentsDatabase::getTorrentMetaInfo($_SERVER['DOCUMENT_ROOT'] . $torrent['torrent_path']);
-
-        //     $torrents_array = array(
-        //         'description' => $torrent['description'],
-        //         'peers_info' => $torrent['peers_info'],
-        //         'path' => $torrent['torrent_path'],
-        //         'id' => $torrent['_id'],
-        //         'category' => $torrent['category'],
-        //         'date' => $torrent['date'],
-        //         'magnet' => TorrentsDatabase::getMagnetLink(
-        //             $torrent_meta_info['name'],
-        //             $torrent_meta_info['hash'],
-        //             $torrent_meta_info['announce'],
-        //             $torrent_meta_info['trackers']
-        //         ),
-        //     );
-
-        //     array_push($torrents_info_array, array_merge($torrent_meta_info, $torrents_array));
-        // }
-
-
-
-        // return $torrents_info_array;
-    }
 
     public static function countTotalTorrents($category)
     {
@@ -167,7 +116,6 @@ class TorrentsDatabase
 
             $torrents_array = array(
                 'description' => $torrent['description'],
-                'peers_info' => json_decode($torrent['peers_info'], true),
                 'path' => $torrent['file_path'],
                 'id' => $torrent['id'],
                 'file_path' => $torrent['file_path'],
@@ -222,7 +170,6 @@ class TorrentsDatabase
 
             $torrents_array = array(
                 'description' => $torrent['description'],
-                'peers_info' => json_decode($torrent['peers_info'], true),
                 'path' => $torrent['file_path'],
                 'id' => $torrent['id'],
                 'category' => $torrent['category'],
@@ -294,6 +241,23 @@ class TorrentsDatabase
         $conn = DBConnection::getConnection();
 
         $search_query = "SELECT JSON_SEARCH(comments, 'all', '$comment_id', NULL, '$[*].comment_id')
+        as POS from torrents WHERE id = $torrent_id";
+
+        $result = $conn->query($search_query);
+
+        $comment_pos = $result->fetch_assoc()['POS'];
+
+        $comment_pos = str_replace('"', "", $comment_pos);
+
+        return explode(".", $comment_pos)[0];
+    }
+
+    public static function getCommentsPosByUsername($torrent_id, $username)
+    {
+
+        $conn = DBConnection::getConnection();
+
+        $search_query = "SELECT JSON_SEARCH(comments, 'all', '$username', NULL, '$[*].username')
         as POS from torrents WHERE id = $torrent_id";
 
         $result = $conn->query($search_query);

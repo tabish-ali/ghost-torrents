@@ -23,35 +23,36 @@ if (isset($_POST['reg-btn'])) {
 
     // adding user to database
 
-    if (UserDatabase::checkUser($username)) {
+    if (strlen($password) >= 6) {
+        if (UserDatabase::checkUser($username)) {
 
-        $flag = true;
-    } else {
+            $flag = true;
+        } else {
 
-        $notification->setNotification("User with this username already exists");
-        $flag = false;
+            $notification->setNotification("User with this username already exists");
+            $flag = false;
+        }
+
+        if (UserDatabase::checkEmailExistance($email) and $flag) {
+
+            $flag = true;
+        } else {
+            $flag = false;
+        }
+
+        if ($flag) {
+
+            $default_image = "/static/user-images/default-user.svg";
+            $id = UserDatabase::registerUser($username, $email, $hashed_password, $default_image);
+            $user = new Users($username, $email, $hashed_password, $id, $default_image, false);
+            $_SESSION['id'] = $id;
+            $_SESSION['username'] = $username;
+            $_SESSION['email'] = $email;
+            $_SESSION['image'] = $default_image;
+            header('location: /index.php');
+        }
+    }else{
+
+        $notification->setNotification("Password must be greater or equal to six characters");
     }
-
-    if (UserDatabase::checkEmailExistance($email) and $flag) {
-
-        $flag = true;
-    } else {
-        $flag = false;
-    }
-
-    if ($flag) {
-
-        $default_image = "/static/user-images/default-user.svg";
-        $id = UserDatabase::registerUser($username, $email, $hashed_password, $default_image);
-        $user = new Users($username, $email, $hashed_password, $id, $default_image, false);
-        $_SESSION['id'] = $id;
-        $_SESSION['username'] = $username;
-        $_SESSION['email'] = $email;
-        $_SESSION['image'] = $default_image;
-        header('location: /index.php');
-
-       
-    }
-
-       
 }

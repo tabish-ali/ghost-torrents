@@ -8,7 +8,7 @@ $(document).ready(function (e) {
     $('#test-btn').click(function () {
 
         $(".container").load("test.php", function () {
-          
+
             console.log("test page loaded");
         });
     });
@@ -32,14 +32,16 @@ $(document).ready(function (e) {
                     $('#result-div').html("");
                     movies.forEach(movie => {
 
-                        // console.log(movie.genres);
+                        console.log(movie.id);
                         // movie.torrents.forEach(torrent_element => {
 
                         // });
 
                         var col = $("<div style='display:none;' id='movie-col' class='col-sm-3 mt-5'></div>");
 
-                        var img = $("<a href='#'> <img class='movie-img'" +
+                        var outer_href = $("<a href='/templates/yts/yts_movie_info?slug=" + movie.slug + "&id=" + movie.id + "'></a>");
+
+                        var img = $("<img class='movie-img'" +
                             "src='" + movie.large_cover_image + "'> </a>");
 
                         var img_div = $("<div class='img-div'></div>");
@@ -51,6 +53,7 @@ $(document).ready(function (e) {
                         var rating = $("<h3><b>" + movie.rating + " / 10 </b></h3>");
 
                         var genres_div = $("<div class='genres-div'></div>");
+
 
                         var i = 0;
 
@@ -77,8 +80,9 @@ $(document).ready(function (e) {
                         img_div.append(quality_div);
                         img_div.append(rating_div);
                         img_div.append(genres_div);
+                        outer_href.append(img_div);
 
-                        col.append(img_div);
+                        col.append(outer_href);
 
                         var title = $("<h6 class='title-text'>" + movie.title + "</h6>");
                         var year = $("<small class='text-muted'>Year " + movie.year + " </small>");

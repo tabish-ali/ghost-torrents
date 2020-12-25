@@ -17,7 +17,7 @@
     display: none;
     background-color: black;
     color: white;
-    padding: 5px;
+    padding: 5px 10px 5px 10px;
     border-bottom-right-radius: 10px;
     cursor: pointer;
 }
