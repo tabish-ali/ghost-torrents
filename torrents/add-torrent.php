@@ -28,8 +28,6 @@ $torrent_file_path = TorrentsDatabase::saveTorrentFile($torrent_file, $target_di
 
 $torrent_info  = TorrentsDatabase::getTorrentMetaInfo($torrent_file_path);
 
-$scraper = new Scrapeer\Scraper();
-
 $torrent_relative_path = $torrent_dir . $torrent_file['name'];
 
 TorrentsDatabase::saveTorrent($uploader_name, $description, $torrent_relative_path, $category);

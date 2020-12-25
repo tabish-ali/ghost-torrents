@@ -4,7 +4,6 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/db-config/db-connection.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/torrents/Torrent.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/config/size_conversion.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/config/datetime.php';
-include_once $_SERVER['DOCUMENT_ROOT'] . '/torrents/scraper.php';
 
 class TorrentsDatabase
 {
@@ -95,14 +94,6 @@ class TorrentsDatabase
         $conn->close();
     }
 
-    public static function getPeersInfo($torrent_hash, $trackers_array)
-    {
-
-        $scraper = new Scrapeer\Scraper();
-        $peers_info = $scraper->scrape($torrent_hash, $trackers_array);
-
-        return $peers_info;
-    }
 
     public static function getUserTorrents($user)
     {
