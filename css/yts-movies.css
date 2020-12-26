@@ -43,6 +43,16 @@
     cursor: pointer;
 }
 
+.small-img {
+    width: 80%;
+    height: auto;
+}
+
+#search-input {
+   
+}
+
+
 .genres-div {
     position: absolute;
     top: 70%;
@@ -65,4 +75,12 @@
     .quality-div {
         display: none !important;
     }
+}
+
+#suggestions-dropdown {
+    padding: 10px;
+    width: 30%;
+    margin-top: 5px;
+    border-radius: 5px;
+    display: none;
 }

@@ -106,25 +106,35 @@
 
         <div class="row m-4">
 
-            <div class="col-sm-6">
+            <div class="col-sm-4">
                 <div class="mb-5 p-3 rounded dark-bg">
-                    <a class="btn btn-primary btn-lg" href="/templates/torrents/torrents?type=torrents?category=all">Torrents</a> <br>
+                    <a class="btn btn-block btn-primary btn-lg" href="/templates/torrents/torrents?type=torrents?category=all">Torrents</a> <br>
                     <div class="mt-2">
                         <small class="text-light">
-                            Browse and download torrents of your desired choice, easy to use and
-                            all the torrents are 100% virus free and with optimal seeds.
+                            Browse and download torrents of your desired choice, easy to use and with optimal seeds.
                         </small>
                     </div>
 
                 </div>
             </div>
-            <div class="col-sm-6">
+            <div class="col-sm-4">
                 <div class="mb-5 p-3 rounded dark-bg">
-                    <a class="btn btn-success btn-lg" href="/templates/articles/articles_list">Articles</a> <br>
+                    <a class="btn btn-block btn-dark btn-lg" href="/templates/articles/articles_list">Articles</a> <br>
                     <div class="mt-2">
                         <small class="text-light">
                             Read latest articles about technologies and movies. There are many other
                             articles about top and best of the everything.
+                        </small>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="mb-5 p-3 rounded dark-bg">
+                    <a class="btn btn-block btn-success btn-lg" href="/templates/yts/yts_movies">YTS Movies</a> <br>
+                    <div class="mt-2">
+                        <small class="text-light">
+                            Search for movies on yts using ghost torrent provided yts api features.
                         </small>
                     </div>
 

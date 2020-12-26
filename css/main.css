@@ -2,10 +2,13 @@ html {
     position: relative;
     min-height: 100%;
 }
+
 body {
-    margin: 0 0 100px; /* bottom = footer height */
+    margin: 0 0 100px;
+    /* bottom = footer height */
     background-color: #121212;
 }
+
 footer {
     position: absolute;
     left: 0;
@@ -14,84 +17,90 @@ footer {
     width: 100%;
 }
 
-input{
-    background:#1a1a1a !important; 
+input {
+    background: #1a1a1a !important;
     border: 1px solid #292b2c !important;
     color: wheat !important;
 }
 
-hr{
+hr {
     background: black;
 }
+
 textarea {
-    background: #1a1a1a !important; 
+    background: #1a1a1a !important;
     color: wheat !important;
-    border-color:#292b2c !important ;
+    border-color: #292b2c !important;
 }
 
-.aqua-label{
-    color:aqua;
+.aqua-label {
+    color: aqua;
 }
 
-.danger-label{
-    color:rgb(255, 73, 49);
+.danger-label {
+    color: rgb(255, 73, 49);
 }
 
-.primary-label{
+.primary-label {
     color: rgb(71, 172, 255);
 }
 
-.primary-label:hover{
+.primary-label:hover {
     text-decoration: none;
     color: rgb(43, 160, 255);
 }
 
-.dark-bg{
+.dark-bg {
     background-color: rgb(31, 31, 31);
 }
 
-.success-label{
+.success-label {
     color: springgreen;
 }
 
-.navbar-nav > li > .dropdown-menu {     
-    background-color:rgb(31, 31, 31);
-  }
-.navbar-nav > li > .dropdown-menu a:focus{
+.navbar-nav>li>.dropdown-menu {
+    background-color: rgb(31, 31, 31);
+}
+
+.navbar-nav>li>.dropdown-menu a:focus {
     background-color: transparent;
 }
 
-/* Dropdown menu font color*/ 
+/* Dropdown menu font color*/
 
- .navbar-nav > li > .dropdown-menu a{ 
-       color: #fff; 
- }
+.navbar-nav>li>.dropdown-menu a {
+    color: #fff;
+}
 
- .navbar-nav > li > .dropdown-menu a:hover{
-    background-color:#e94560;
- }
+.navbar-nav>li>.dropdown-menu a:hover {
+    background-color: #e94560;
+}
 
- .dark-check-box{
-     background-color: rgb(31, 31, 31) !important;
- }
+.dark-check-box {
+    background-color: rgb(31, 31, 31) !important;
+}
 
- .edit-btn{
-    background-color:  rgb(43, 43, 43);
-    color:  #fff;
+.edit-btn {
+    background-color: rgb(43, 43, 43);
+    color: #fff;
     font-weight: bold;
     border-radius: 3px;
     max-height: 50px;
 }
 
-.edit-btn:hover{
+.edit-btn:hover {
     background-color: rgb(54, 54, 54);
     text-decoration: none;
     color: #fff;
 }
 
-.pagination > li > a,
-.pagination > li > span {
+.pagination>li>a,
+.pagination>li>span {
     color: #fff;
     background: transparent;
     border: transparent;
+}
+
+.display-none {
+    display: none;
 }

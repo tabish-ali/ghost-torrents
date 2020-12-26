@@ -18,6 +18,11 @@ $(document).ready(function () {
 
     torrent_comments_obj.forEach(comment => {
         // return true if it was user own comment
+
+        if (user_image === "" || user_image === null) {
+            comment.user_image = "/static/user-images/default-user.svg";
+        }
+
         setCommentNode(comment.comment,
             comment.username,
             comment.user_image,
@@ -187,7 +192,7 @@ $(document).ready(function () {
         add_text.className = "ml-1 text-muted";
 
         var username_div = document.createElement("username-div");
-        
+
         username_div.appendChild(user_avatar);
 
         username_div.appendChild(username_text);
@@ -261,16 +266,16 @@ $(document).ready(function () {
     }
     $('#copy-hash-btn').click(copyHash);
     function copyHash() {
-            var $temp = $("<input>");
-            $("body").append($temp);
-            $temp.val($('#hash').text()).select();
-            document.execCommand("copy");
-            $temp.remove();
-            iziToast.info({
-                title: 'Hash copied',
-                message: 'Torrent hash has been copied to your clipboard.',
-            });
-          
+        var $temp = $("<input>");
+        $("body").append($temp);
+        $temp.val($('#hash').text()).select();
+        document.execCommand("copy");
+        $temp.remove();
+        iziToast.info({
+            title: 'Hash copied',
+            message: 'Torrent hash has been copied to your clipboard.',
+        });
+
     }
 
 });
