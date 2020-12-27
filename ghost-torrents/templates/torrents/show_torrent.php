@@ -7,17 +7,17 @@
     <link rel="stylesheet" href="/css/show_torrent.css">
 
     <?php
-    include_once $_SERVER['DOCUMENT_ROOT'] . '/templates/base/head-tags.php';
-    include_once $_SERVER['DOCUMENT_ROOT'] . '/torrents/torrents-database.php';
-    include_once $_SERVER['DOCUMENT_ROOT'] . '/users/user-database.php';
-    include_once $_SERVER['DOCUMENT_ROOT'] . '/config/size_conversion.php';
-    include_once $_SERVER['DOCUMENT_ROOT'] . '/config/datetime.php';
+    include_once $_SERVER['DOCUMENT_ROOT'] . '/ghost-torrents'.'/templates/base/head-tags.php';
+    include_once $_SERVER['DOCUMENT_ROOT'] . '/ghost-torrents'.'/torrents/torrents-database.php';
+    include_once $_SERVER['DOCUMENT_ROOT'] . '/ghost-torrents'.'/users/user-database.php';
+    include_once $_SERVER['DOCUMENT_ROOT'] . '/ghost-torrents'.'/config/size_conversion.php';
+    include_once $_SERVER['DOCUMENT_ROOT'] . '/ghost-torrents'.'/config/datetime.php';
 
 
     $torrent = TorrentsDatabase::getTorrent($_GET['torrent_id']);
 
     $torrent_meta_info_array =
-        TorrentsDatabase::getTorrentMetaInfo($_SERVER['DOCUMENT_ROOT'] .  $torrent['file_path']);
+        TorrentsDatabase::getTorrentMetaInfo($_SERVER['DOCUMENT_ROOT'] . $torrent['file_path']);
 
     $magnet_link = TorrentsDatabase::getMagnetLink(
         $torrent_meta_info_array['name'],
@@ -77,7 +77,7 @@
 <body>
 
     <?php
-    include $_SERVER['DOCUMENT_ROOT'] . '/templates/base/navbar.php';
+    include $_SERVER['DOCUMENT_ROOT'] . '/ghost-torrents'.'/templates/base/navbar.php';
     ?>
 
     <div class="container" id="container" style="margin-top: 100px;">
@@ -244,7 +244,7 @@
             </div>
         </div>
     </div>
-    <?php include $_SERVER['DOCUMENT_ROOT'] . '/templates/base/footer.php' ?>
+    <?php include $_SERVER['DOCUMENT_ROOT'] . '/ghost-torrents'.'/templates/base/footer.php' ?>
 </body>
 
 </html>

@@ -3,8 +3,8 @@
 
 <head>
     <?php
-    include_once $_SERVER['DOCUMENT_ROOT'] . '/templates/base/head-tags.php';
-    include_once $_SERVER['DOCUMENT_ROOT'] . '/articles/articles-database.php';
+    include_once $_SERVER['DOCUMENT_ROOT'] . '/ghost-torrents' . '/templates/base/head-tags.php';
+    include_once $_SERVER['DOCUMENT_ROOT'] . '/ghost-torrents' . '/articles/articles-database.php';
     $article = ArticlesDatabase::getArticle($_GET['article_id']);
 
 
@@ -25,8 +25,8 @@
 
     <script>
         var article_id = <?php echo $_GET['article_id']; ?>;
-        var old_image_path = "<?php echo $image_path;?>";
-        
+        var old_image_path = "<?php echo $image_path; ?>";
+
         tinymce.init({
             selector: '#content',
             skin: "oxide-dark",

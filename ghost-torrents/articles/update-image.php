@@ -1,7 +1,7 @@
 <?php
 
-include_once $_SERVER['DOCUMENT_ROOT'] . '/articles/articles-database.php';
-include $_SERVER['DOCUMENT_ROOT'] . '/images-uploading/image_upload.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/ghost-torrents'.'/articles/articles-database.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/ghost-torrents'.'/images-uploading/image_upload.php';
 
 $image_file = $_FILES['image'];
 $article_id = $_POST['article_id'];
@@ -15,9 +15,9 @@ if ($image_file['size'] != 0 && $image_file['error'] == 0) {
     //deleting old image first
 
     if ($old_image_path != "/static/article-images/default.jpg")
-        unlink($_SERVER['DOCUMENT_ROOT'] . $old_image_path);
+        unlink($_SERVER['DOCUMENT_ROOT'] . '/ghost-torrents'.$old_image_path);
 
-    $target_dir = $_SERVER['DOCUMENT_ROOT'] . '/static/article-images/';
+    $target_dir = $_SERVER['DOCUMENT_ROOT'] . '/ghost-torrents'.'/static/article-images/';
 
     $newFileName = uniqid($article_id, true)
         . '.' . strtolower(pathinfo($image_file['name'], PATHINFO_EXTENSION));

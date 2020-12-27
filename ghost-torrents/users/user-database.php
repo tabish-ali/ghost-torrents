@@ -1,7 +1,7 @@
 <?php
 
-require_once($_SERVER['DOCUMENT_ROOT'] . '/db-config/db-connection.php');
-require_once($_SERVER['DOCUMENT_ROOT'] . '/users/users.php');
+require_once($_SERVER['DOCUMENT_ROOT'] . '/ghost-torrents' . '/db-config/db-connection.php');
+require_once($_SERVER['DOCUMENT_ROOT'] . '/ghost-torrents' . '/users/users.php');
 
 class UserDatabase
 {

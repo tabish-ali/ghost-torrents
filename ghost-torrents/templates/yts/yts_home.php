@@ -7,7 +7,7 @@
 
 
     <?php
-    include $_SERVER['DOCUMENT_ROOT'] . '/templates/base/head-tags.php';
+    include $_SERVER['DOCUMENT_ROOT'] . '/ghost-torrents'.'/templates/base/head-tags.php';
     ?>
 
 
@@ -21,10 +21,8 @@
     <div class="container-fluid" style="margin-top:100px;">
 
         <?php
-        $yts_data = file_get_contents("https://yts.mx/api/v2/list_movies.json?limit=18&page=" . $page_no . "&with_cast=true&with_images=true&with_rt_ratings=true&order_by=asc");
-        $yts_data = json_decode($yts_data);
-        include_once $_SERVER['DOCUMENT_ROOT'] . '/templates/base/navbar.php';
-        include $_SERVER['DOCUMENT_ROOT'] . '/yts-api/yts-paginations.php';
+        include_once $_SERVER['DOCUMENT_ROOT'] . '/ghost-torrents'.'/templates/base/navbar.php';
+        include $_SERVER['DOCUMENT_ROOT'] . '/ghost-torrents'.'/yts-api/yts-paginations.php';
         ?>
         <div id="result-div" class="row text-light">
             <?php foreach ($yts_data->data->movies as $movie) : ?>
@@ -60,10 +58,10 @@
             <?php endforeach; ?>
         </div>
     
-        <?php include $_SERVER['DOCUMENT_ROOT'] . '/yts-api/yts-paginations.php' ?>;
+        <?php include $_SERVER['DOCUMENT_ROOT'] . '/ghost-torrents'.'/yts-api/yts-paginations.php' ?>;
  
     </div>
-    <?php include_once $_SERVER['DOCUMENT_ROOT'] . '/templates/base/footer.php' ?>
+    <?php include_once $_SERVER['DOCUMENT_ROOT'] . '/ghost-torrents'.'/templates/base/footer.php' ?>
 </body>
 
 </html>

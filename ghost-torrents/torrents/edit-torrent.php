@@ -1,6 +1,6 @@
 <?php
 
-include_once $_SERVER['DOCUMENT_ROOT'] . '/torrents/torrents-database.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/ghost-torrents'.'/torrents/torrents-database.php';
 
 $torrent_id = $_POST['torrent_id'];
 
@@ -31,7 +31,7 @@ if ($type == "text") {
 
         //deleting old image first
 
-        $target_dir = $_SERVER['DOCUMENT_ROOT'] . '/static/torrent-statics/torrent-files/';
+        $target_dir = $_SERVER['DOCUMENT_ROOT'] . '/ghost-torrents'.'/static/torrent-statics/torrent-files/';
 
         $newFileName = $torrent_file['name'];
 

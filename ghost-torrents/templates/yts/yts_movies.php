@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <?php include $_SERVER['DOCUMENT_ROOT'] . '/templates/base/head-tags.php'; ?>
+    <?php include $_SERVER['DOCUMENT_ROOT'] . '/ghost-torrents'.'/templates/base/head-tags.php'; ?>
     <title>Ghost | YTS | Movies</title>
     <link rel="stylesheet" href="/css/yts-movies.css">
     <script src="/js/yts-movies.js"></script>
@@ -12,7 +12,7 @@
 
 <body>
     <div class="container" style="margin-top:100px;">
-        <?php include_once $_SERVER['DOCUMENT_ROOT'] . '/templates/base/navbar.php'; ?>
+        <?php include_once $_SERVER['DOCUMENT_ROOT'] . '/ghost-torrents'.'/templates/base/navbar.php'; ?>
         <div id="search-div" class="text-light text-center shadow-lg p-3">
             <h3>Search <b style="color: #6AC143;">YTS</b> movies and we will get it for you!</h3>
             <form id="search-form" action="GET">
@@ -35,7 +35,7 @@
         </div>
 
     </div>
-    <?php include_once $_SERVER['DOCUMENT_ROOT'] . '/templates/base/footer.php' ?>
+    <?php include_once $_SERVER['DOCUMENT_ROOT'] . '/ghost-torrents'.'/templates/base/footer.php' ?>
 </body>
 
 </html>

@@ -1,6 +1,6 @@
 <?php
 
-include_once $_SERVER['DOCUMENT_ROOT'] . '/articles/articles-database.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/ghost-torrents'.'ghost-torrents/'.'/articles/articles-database.php';
 
 $title = $_POST['title'];
 $content = $_POST['content'];

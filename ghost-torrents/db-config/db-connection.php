@@ -1,6 +1,6 @@
 
 <?php
-require $_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php'; // include Composer's autoloader
+require $_SERVER['DOCUMENT_ROOT'] . '/ghost-torrents'.'/vendor/autoload.php'; // include Composer's autoloader
 
 class DBConnection
 {

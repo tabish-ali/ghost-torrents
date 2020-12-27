@@ -7,9 +7,9 @@
 
     <?php
 
-    include $_SERVER['DOCUMENT_ROOT'] . '/templates/base/head-tags.php';
-    include $_SERVER['DOCUMENT_ROOT'] . '/config/datetime.php';
-    include $_SERVER['DOCUMENT_ROOT'] . '/articles/show_article.php';
+    include $_SERVER['DOCUMENT_ROOT'] . '/ghost-torrents'.'/templates/base/head-tags.php';
+    include $_SERVER['DOCUMENT_ROOT'] . '/ghost-torrents'.'/config/datetime.php';
+    include $_SERVER['DOCUMENT_ROOT'] . '/ghost-torrents'.'/articles/show_article.php';
     $article = ArticlesDatabase::getArticle($_GET['article_id']);
     ?>
 
@@ -26,7 +26,7 @@
 
 <body>
     <?php
-    include $_SERVER['DOCUMENT_ROOT'] . '/templates/base/navbar.php';
+    include $_SERVER['DOCUMENT_ROOT'] . '/ghost-torrents'.'/templates/base/navbar.php';
     ?>
     <div class="container" style="margin-top: 100px;" id="container">
         <div class="row mb-5 dark-bg p-2 m-1">
@@ -54,7 +54,7 @@
 
 <?php
 
-include $_SERVER['DOCUMENT_ROOT'] . '/templates/base/footer.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/ghost-torrents'.'/templates/base/footer.php';
 
 ?>
 

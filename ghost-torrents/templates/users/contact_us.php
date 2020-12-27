@@ -4,9 +4,9 @@
 <head>
 
     <?php
-    include_once $_SERVER['DOCUMENT_ROOT'] . '/templates/base/head-tags.php';
-    include_once $_SERVER['DOCUMENT_ROOT'] . '/templates/base/navbar.php';
-    include_once $_SERVER['DOCUMENT_ROOT'] . '/users/user-database.php';
+    include_once $_SERVER['DOCUMENT_ROOT'] . '/ghost-torrents'.'/templates/base/head-tags.php';
+    include_once $_SERVER['DOCUMENT_ROOT'] . '/ghost-torrents'.'/templates/base/navbar.php';
+    include_once $_SERVER['DOCUMENT_ROOT'] . '/ghost-torrents'.'/users/user-database.php';
     if (isset($_SESSION['id']))
         $user = UserDatabase::getUserById($_SESSION['id']);
     ?>
@@ -52,7 +52,7 @@
         </form>
     </div>
 
-    <?php include $_SERVER['DOCUMENT_ROOT'] . '/templates/base/footer.php' ?>
+    <?php include $_SERVER['DOCUMENT_ROOT'] . '/ghost-torrents'.'/templates/base/footer.php' ?>
 
 </body>
 

@@ -1,7 +1,7 @@
 <?php
 
-include $_SERVER['DOCUMENT_ROOT'] . '/images-uploading/image_upload.php';
-include $_SERVER['DOCUMENT_ROOT'] . '/users/user-database.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/ghost-torrents'.'/images-uploading/image_upload.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/ghost-torrents'.'/users/user-database.php';
 
 session_start();
 
@@ -13,7 +13,7 @@ $notification = null;
 
 if ($image_file['size'] != 0 && $image_file['error'] == 0) {
 
-    $target_dir = $_SERVER['DOCUMENT_ROOT'] . '/static/user-images/';
+    $target_dir = $_SERVER['DOCUMENT_ROOT'] . '/ghost-torrents'.'/static/user-images/';
 
     $newFileName = uniqid($username, true)
         . '.' . strtolower(pathinfo($image_file['name'], PATHINFO_EXTENSION));
@@ -24,7 +24,7 @@ if ($image_file['size'] != 0 && $image_file['error'] == 0) {
         echo json_encode((array)$notification);
     } else {
         if ($_SESSION['image'] != "/static/user-images/default-user.svg")
-            unlink($_SERVER['DOCUMENT_ROOT'] . $_SESSION['image']);
+            unlink($_SERVER['DOCUMENT_ROOT'] . '/ghost-torrents'.$_SESSION['image']);
         $target_file = '/static/user-images/' . $newFileName;
         UserDatabase::saveImagePath($user_id, $target_file);
         $_SESSION['image'] = $target_file;

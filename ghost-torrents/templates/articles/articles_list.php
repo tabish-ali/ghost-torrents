@@ -4,8 +4,8 @@
 <head>
 
     <?php
-    include $_SERVER['DOCUMENT_ROOT'] . '/templates/base/head-tags.php';
-    include $_SERVER['DOCUMENT_ROOT'] . '/config/datetime.php';
+    include $_SERVER['DOCUMENT_ROOT'] . '/ghost-torrents'.'/templates/base/head-tags.php';
+    include $_SERVER['DOCUMENT_ROOT'] . '/ghost-torrents'.'/config/datetime.php';
     $_GET['type'] = "articles";
 
 
@@ -16,12 +16,12 @@
 
 <body>
     <?php
-    include $_SERVER['DOCUMENT_ROOT'] . '/templates/base/navbar.php';
+    include $_SERVER['DOCUMENT_ROOT'] . '/ghost-torrents'.'/templates/base/navbar.php';
     ?>
 
     <div class="container-fluid" style="margin-top: 100px;">
         <?php
-        include $_SERVER['DOCUMENT_ROOT'] . '/config/pagination.php';
+        include $_SERVER['DOCUMENT_ROOT'] . '/ghost-torrents'.'/config/pagination.php';
         $articles_array = array();
 
         while ($value = $articles->fetch_assoc()) {
@@ -64,7 +64,7 @@
         </div>
 
     </div>
-    <?php include_once $_SERVER['DOCUMENT_ROOT'] . '/templates/base/footer.php' ?>
+    <?php include_once $_SERVER['DOCUMENT_ROOT'] . '/ghost-torrents'.'/templates/base/footer.php' ?>
 </body>
 
 </html>

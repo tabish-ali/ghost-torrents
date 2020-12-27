@@ -1,9 +1,9 @@
 <?php
 
 
-include_once $_SERVER['DOCUMENT_ROOT'] . '/users/users.php';
-include_once $_SERVER['DOCUMENT_ROOT'] . '/users/user-database.php';
-include_once $_SERVER['DOCUMENT_ROOT'] . '/config/notifications.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/ghost-torrents'.'/users/users.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/ghost-torrents'.'/users/user-database.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/ghost-torrents'.'/config/notifications.php';
 
 $notification = null;
 

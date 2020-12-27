@@ -2,10 +2,10 @@
 
 use function PHPSTORM_META\type;
 
-include_once $_SERVER['DOCUMENT_ROOT'] . '/db-config/db-connection.php';
-include_once $_SERVER['DOCUMENT_ROOT'] . '/torrents/torrents-database.php';
-include_once $_SERVER['DOCUMENT_ROOT'] . '/users/user-database.php';
-include_once $_SERVER['DOCUMENT_ROOT'] . '/articles/articles-database.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/ghost-torrents'.'/db-config/db-connection.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/ghost-torrents'.'/torrents/torrents-database.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/ghost-torrents'.'/users/user-database.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/ghost-torrents'.'/articles/articles-database.php';
 
 $type = $_GET['type'];
 

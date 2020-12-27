@@ -1,6 +1,6 @@
 <?php
 
-include_once $_SERVER['DOCUMENT_ROOT'] . '/db-config/db-connection.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/ghost-torrents' . '/db-config/db-connection.php';
 
 class ArticlesDatabase
 {
@@ -26,8 +26,7 @@ class ArticlesDatabase
         );
 
         $insert_query->execute();
-
-        echo $conn->error;
+        $conn->close();
     }
 
     public static function getArticles()
@@ -72,7 +71,7 @@ class ArticlesDatabase
 
         $conn->query($insert_query);
 
-        echo $conn->error;
+        $conn->close();
     }
 
     public static function getInteractPos($article_id, $username)
@@ -100,7 +99,7 @@ class ArticlesDatabase
 
         $conn->query($delete_query);
 
-        echo $conn->error;
+        $conn->close();
     }
 
     public static function getInteractionArray($article_id)
@@ -149,7 +148,7 @@ class ArticlesDatabase
             $article = (array) $article;
 
             if ($article['image_path'] != "/static/article-images/default.jpg") {
-                unlink($_SERVER['DOCUMENT_ROOT'] . $article['image_path']);
+                unlink($_SERVER['DOCUMENT_ROOT'] . '/ghost-torrents' . $article['image_path']);
             }
 
             $article_id = $article['id'];
@@ -204,7 +203,6 @@ class ArticlesDatabase
         } else {
             return 0;
         }
-
     }
 
     // count total articles for pagination

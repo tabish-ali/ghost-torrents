@@ -1,7 +1,7 @@
 <?php
 
-include_once $_SERVER['DOCUMENT_ROOT'] . '/torrents/torrents-database.php';
-include_once $_SERVER['DOCUMENT_ROOT'] . '/config/datetime.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/ghost-torrents'.'/torrents/torrents-database.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/ghost-torrents'.'/config/datetime.php';
 
 $find_array = array();
 

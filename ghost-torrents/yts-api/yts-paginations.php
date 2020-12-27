@@ -1,11 +1,15 @@
 <?php
 
-
 if (isset($_GET['page_no']) && $_GET['page_no'] != "") {
     $page_no = $_GET['page_no'];
 } else {
     $page_no = 1;
 }
+
+$yts_data = file_get_contents("https://yts.mx/api/v2/list_movies.json?limit=18&page=" . $page_no . "&with_cast=true&with_images=true&with_rt_ratings=true&order_by=asc");
+$yts_data = json_decode($yts_data);
+
+
 
 $total_records = $yts_data->data->movie_count;
 

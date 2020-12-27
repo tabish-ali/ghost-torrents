@@ -1,8 +1,8 @@
 <?php
 
-include $_SERVER['DOCUMENT_ROOT'] . '/articles/articles-database.php';
-include $_SERVER['DOCUMENT_ROOT'] . '/config/datetime.php';
-include $_SERVER['DOCUMENT_ROOT'] . '/images-uploading/image_upload.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/ghost-torrents' . '/articles/articles-database.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/ghost-torrents' . '/config/datetime.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/ghost-torrents' . '/images-uploading/image_upload.php';
 
 
 $notification = null;
@@ -27,16 +27,14 @@ if (!empty($_POST['title']) and !empty($_POST['content']) and isset($_POST['add-
             . '.' . strtolower(pathinfo($image_file['name'], PATHINFO_EXTENSION));
 
 
-        $target_dir = $_SERVER['DOCUMENT_ROOT'] . "/static/article-images/";
+        $target_dir = $_SERVER['DOCUMENT_ROOT']  . "/ghost-torrents/static/article-images/";
 
         $notification = SaveImages::UploadImage($image_file, $newFileName, $target_dir);
 
-        $target_file = "/static/article-images/" . $newFileName;
+        $target_file = "/ghost-torrents/static/article-images/" . $newFileName;
+    } else {
 
-    }
-    else{
-
-        $target_file = "/static/article-images/default.jpg";
+        $target_file = "/ghost-torrents/static/article-images/default.jpg";
     }
 
     if ($notification == null) {
@@ -44,6 +42,4 @@ if (!empty($_POST['title']) and !empty($_POST['content']) and isset($_POST['add-
         $data_array = ArticlesDatabase::saveArticle($title, $content, $author, $target_file);
         $success_message = "Article saved successfully";
     }
-
-
 }

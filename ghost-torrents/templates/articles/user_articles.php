@@ -7,9 +7,9 @@
 
     <?php
 
-    include $_SERVER['DOCUMENT_ROOT'] . '/templates/base/head-tags.php';
-    include $_SERVER['DOCUMENT_ROOT'] . '/articles/articles-database.php';
-    include $_SERVER['DOCUMENT_ROOT'] . '/config/datetime.php';
+    include $_SERVER['DOCUMENT_ROOT'] . '/ghost-torrents' . '/templates/base/head-tags.php';
+    include $_SERVER['DOCUMENT_ROOT'] . '/ghost-torrents' . '/articles/articles-database.php';
+    include $_SERVER['DOCUMENT_ROOT'] . '/ghost-torrents' . '/config/datetime.php';
 
     if (!empty($_SESSION))
         $articles = ArticlesDatabase::getUserArticles($_SESSION['username']);
@@ -36,7 +36,7 @@
 <body>
 
     <?php
-    include $_SERVER['DOCUMENT_ROOT'] . '/templates/base/navbar.php';
+    include $_SERVER['DOCUMENT_ROOT'] . '/ghost-torrents/templates/base/navbar.php';
     $serial = 0;
     ?>
 

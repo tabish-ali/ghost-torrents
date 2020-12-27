@@ -5,15 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Password Reset</title>
-    <?php include_once $_SERVER['DOCUMENT_ROOT'] . '/templates/base/head-tags.php' ?>
+    <?php include_once $_SERVER['DOCUMENT_ROOT'] . '/ghost-torrents'.'/templates/base/head-tags.php' ?>
 
 </head>
 
 <body>
 
-    <?php include_once $_SERVER['DOCUMENT_ROOT'] . '/templates/base/navbar.php' ?>
+    <?php include_once $_SERVER['DOCUMENT_ROOT'] . '/ghost-torrents'.'/templates/base/navbar.php' ?>
 
-    <?php include $_SERVER['DOCUMENT_ROOT'] . '/users/password-reset.php'; ?>
+    <?php include $_SERVER['DOCUMENT_ROOT'] . '/ghost-torrents'.'/users/password-reset.php'; ?>
 
 
     <div class="container" id="container">
@@ -69,7 +69,7 @@
     </div>
 
 
-    <?php include_once $_SERVER['DOCUMENT_ROOT'] . '/templates/base/footer.php'; ?>
+    <?php include_once $_SERVER['DOCUMENT_ROOT'] . '/ghost-torrents'.'/templates/base/footer.php'; ?>
 
 
 

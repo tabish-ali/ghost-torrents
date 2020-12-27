@@ -1,6 +1,6 @@
 <?php
 
-include_once $_SERVER['DOCUMENT_ROOT'] .'/config/notifications.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/ghost-torrents' . '/config/notifications.php';
 
 class SaveImages
 {

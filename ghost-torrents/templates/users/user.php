@@ -3,8 +3,8 @@
 
 <head>
     <?php
-    include_once $_SERVER['DOCUMENT_ROOT'] . '/templates/base/head-tags.php';
-    include_once $_SERVER['DOCUMENT_ROOT'] . '/config//datetime.php';
+    include_once $_SERVER['DOCUMENT_ROOT'] . '/ghost-torrents'.'/templates/base/head-tags.php';
+    include_once $_SERVER['DOCUMENT_ROOT'] . '/ghost-torrents'.'/config//datetime.php';
     ?>
     <link rel="stylesheet" href="/css/user.css">
 </head>
@@ -12,8 +12,8 @@
 <body>
 
     <?php
-    include_once $_SERVER['DOCUMENT_ROOT'] . '/templates/base/navbar.php';
-    include_once $_SERVER['DOCUMENT_ROOT'] . '/users/user-database.php';
+    include_once $_SERVER['DOCUMENT_ROOT'] . '/ghost-torrents'.'/templates/base/navbar.php';
+    include_once $_SERVER['DOCUMENT_ROOT'] . '/ghost-torrents'.'/users/user-database.php';
 
     if (isset($_GET['user_id'])) {
         $user = UserDatabase::getUserById($_GET['user_id']);
@@ -39,7 +39,7 @@
 
     </div>
 
-    <?php include $_SERVER['DOCUMENT_ROOT'] . '/templates/base/footer.php' ?>
+    <?php include $_SERVER['DOCUMENT_ROOT'] . '/ghost-torrents'.'/templates/base/footer.php' ?>
 
 </body>
 

@@ -1,5 +1,5 @@
 <?php
-include_once $_SERVER['DOCUMENT_ROOT'] . '/torrents/torrents-database.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/ghost-torrents'.'/torrents/torrents-database.php';
 
 $selected_torrents = json_decode($_POST['selected_torrents_json']);
 TorrentsDatabase::deleteTorrents($selected_torrents);

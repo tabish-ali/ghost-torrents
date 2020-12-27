@@ -4,7 +4,7 @@
 <head>
 
     <?php
-    include $_SERVER['DOCUMENT_ROOT'] . '/templates/base/head-tags.php';
+    include $_SERVER['DOCUMENT_ROOT'] . '/ghost-torrents' . '/templates/base/head-tags.php';
     ?>
 
     <title>Add Torrent</title>
@@ -13,15 +13,15 @@
     <script src="https://cdn.tiny.cloud/1/x0ijlg4e0a2wemrzk658tg7n867slze12uejhcy58nd16soc/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 
     <script>
-      tinymce.init({
-        selector: '#description',
-        skin: "oxide-dark",
-        content_css: "dark",
-        init_instance_callback: function(editor) {
+        tinymce.init({
+            selector: '#description',
+            skin: "oxide-dark",
+            content_css: "dark",
+            init_instance_callback: function(editor) {
                 var freeTiny = document.querySelector('.tox .tox-notification--in');
                 freeTiny.style.display = 'none';
             }
-      });
+        });
     </script>
 
     <script src="/js/add_torrent.js"></script>
@@ -31,8 +31,8 @@
 <body>
     <?php
 
-    include_once $_SERVER['DOCUMENT_ROOT'] . '/templates/base/navbar.php';
-    include_once $_SERVER['DOCUMENT_ROOT'] . '/users/user-database.php';
+    include_once $_SERVER['DOCUMENT_ROOT'] . '/ghost-torrents'  . '/templates/base/navbar.php';
+    include_once $_SERVER['DOCUMENT_ROOT'] . '/ghost-torrents' . '/users/user-database.php';
 
 
     $user = UserDatabase::getUserById($_SESSION['id']);

@@ -4,7 +4,7 @@
 
 <head>
     <?php
-    include $_SERVER['DOCUMENT_ROOT'] . '/templates/base/head-tags.php';
+    include $_SERVER['DOCUMENT_ROOT'] . '/ghost-torrents'.'/templates/base/head-tags.php';
     ?>
 
     <script src="/js/search_torrents.js"></script>
@@ -19,7 +19,7 @@
 
     <?php
 
-    include $_SERVER['DOCUMENT_ROOT'] . '/templates/base/navbar.php';
+    include $_SERVER['DOCUMENT_ROOT'] . '/ghost-torrents'.'/templates/base/navbar.php';
 
     ?>
 
@@ -129,7 +129,7 @@
             </div>
             <div class="col-sm-4">
                 <div class="mb-5 p-3 rounded dark-bg">
-                    <a class="btn btn-block btn-success btn-lg" href="/templates/yts/yts_movies">YTS Movies</a> <br>
+                    <a class="btn btn-block btn-success btn-lg" href="/templates/yts/yts_movies">Search YTS Movies</a> <br>
                     <div class="mt-2">
                         <small class="text-light">
                             Search for movies on yts using ghost torrent provided yts api features.
@@ -140,11 +140,11 @@
             </div>
 
         </div>
-        <?php include_once $_SERVER['DOCUMENT_ROOT'] . '/templates/torrents/categories' ?>
+        <?php include_once $_SERVER['DOCUMENT_ROOT'] . '/ghost-torrents'.'/templates/torrents/categories' ?>
     </div>
 
     <?php
-    include $_SERVER['DOCUMENT_ROOT'] . '/templates/base/footer.php';
+    include $_SERVER['DOCUMENT_ROOT'] . '/ghost-torrents'.'/templates/base/footer.php';
     ?>
 
 </body>

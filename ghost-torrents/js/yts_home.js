@@ -15,7 +15,7 @@ $(document).ready(function (e) {
 
         img_div.mouseenter(function () {
             $(this).find($('.rating-div')).fadeTo(300, 1);
-            $(this).find($('.img-div img')).fadeTo(300, 0.3);
+            $(this).find($('.img-div img')).fadeTo(300, 0.2);
             $(this).find($('.genres-div')).fadeTo(300, 1);
 
         });

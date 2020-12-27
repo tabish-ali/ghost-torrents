@@ -1,7 +1,7 @@
 <?php
 
-include_once $_SERVER['DOCUMENT_ROOT'] . "/email/phpemail.php";
-include_once  $_SERVER['DOCUMENT_ROOT'] . "/users/user-database.php";
+include_once $_SERVER['DOCUMENT_ROOT'] . '/ghost-torrents' . "/email/phpemail.php";
+include_once  $_SERVER['DOCUMENT_ROOT'] . '/ghost-torrents' . "/users/user-database.php";
 
 $request_type = $_POST['type'];
 

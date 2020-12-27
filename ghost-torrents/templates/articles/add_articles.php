@@ -4,7 +4,7 @@
 <head>
 
     <?php
-    include_once $_SERVER['DOCUMENT_ROOT'] . '/templates/base/head-tags.php';
+    include_once $_SERVER['DOCUMENT_ROOT'] . '/ghost-torrents'.'/templates/base/head-tags.php';
     ?>
     <title>Add New Article</title>
 
@@ -37,7 +37,7 @@
 
 <body>
     <?php
-    include_once $_SERVER['DOCUMENT_ROOT'] . '/templates/base/navbar.php';
+    include_once $_SERVER['DOCUMENT_ROOT'] . '/ghost-torrents'.'/templates/base/navbar.php';
     ?>
 
     <div class="container" style="margin-bottom: 30px; margin-top: 100px;" id="container">
@@ -66,7 +66,7 @@
 
                     <div class="errors-div">
 
-                        <?php include $_SERVER['DOCUMENT_ROOT'] . '/articles/save-article.php';
+                        <?php include $_SERVER['DOCUMENT_ROOT'] . '/ghost-torrents'.'/articles/save-article.php';
 
                         ?>
 

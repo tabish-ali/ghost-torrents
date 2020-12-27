@@ -5,21 +5,21 @@
     <title>Ghost | Torrents</title>
 
     <?php
-    include $_SERVER['DOCUMENT_ROOT'] . '/templates/base/head-tags.php';
-    include_once $_SERVER['DOCUMENT_ROOT'] . '/torrents/torrents-database.php';
-    include_once  $_SERVER['DOCUMENT_ROOT'] . '/config/datetime.php';
+    include $_SERVER['DOCUMENT_ROOT'] . '/ghost-torrents' . '/templates/base/head-tags.php';
+    include_once $_SERVER['DOCUMENT_ROOT'] . '/ghost-torrents' . '/torrents/torrents-database.php';
+    include_once  $_SERVER['DOCUMENT_ROOT'] . '/ghost-torrents' . '/config/datetime.php';
 
-    $_GET['category'] = "all";
-    $_GET['type'] = "torrents";
     ?>
 </head>
 
 <body>
     <div class="container-fluid" id="container" style="margin-top: 100px;">
+
         <?php
-        include_once $_SERVER['DOCUMENT_ROOT'] . '/templates/base/navbar.php';
-        include_once  $_SERVER['DOCUMENT_ROOT'] . '/config/pagination.php';
+        include_once $_SERVER['DOCUMENT_ROOT'] . '/ghost-torrents/templates/base/navbar.php';
+        include_once  $_SERVER['DOCUMENT_ROOT'] . '/ghost-torrents/config/pagination.php';
         ?>
+    
         <div class="table table-responsive mt-2">
             <table class="table table-borderless table-dark shadow-sm dark-bg rounded" id="articles-table">
                 <thead class="thead-dark">
@@ -71,9 +71,9 @@
         </div>
         <div>
         </div>
-        <?php include_once $_SERVER['DOCUMENT_ROOT'] . '/templates/torrents/categories.php' ?>
+        <?php include_once $_SERVER['DOCUMENT_ROOT'] . '/ghost-torrents' . '/templates/torrents/categories.php' ?>
     </div>
-    <?php include_once $_SERVER['DOCUMENT_ROOT'] . '/templates/base/footer.php' ?>
+    <?php include_once $_SERVER['DOCUMENT_ROOT'] . '/ghost-torrents' . '/templates/base/footer.php' ?>
 </body>
 
 </html>

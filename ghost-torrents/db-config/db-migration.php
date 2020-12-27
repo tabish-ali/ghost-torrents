@@ -1,7 +1,7 @@
 <?php
 
-include_once $_SERVER['DOCUMENT_ROOT'] . '/db-config/db-connection.php';
-include_once $_SERVER['DOCUMENT_ROOT'] . '/config/show_logs.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/ghost-torrents'.'ghost-torrents/'.'/db-config/db-connection.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/ghost-torrents'.'ghost-torrents/'.'/config/show_logs.php';
 
 class DBMigration
 {

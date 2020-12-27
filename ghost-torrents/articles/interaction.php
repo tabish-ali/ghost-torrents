@@ -1,7 +1,7 @@
 <?php
 
-include_once $_SERVER['DOCUMENT_ROOT'] . '/articles/articles-database.php';
-include_once $_SERVER['DOCUMENT_ROOT'] . '/config/datetime.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/ghost-torrents'.'/articles/articles-database.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/ghost-torrents'.'/config/datetime.php';
 
 session_start();
 

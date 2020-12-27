@@ -4,7 +4,7 @@
         <div>
 
             <small>
-                <small class="font-weight-bold" style="font-size:14px;"><?php echo "&copy; " . date(Y) . " " . $_SERVER['HTTP_HOST']; ?></small>
+                <small class="font-weight-bold" style="font-size:14px;"><?php echo "&copy; " . date("Y") . " " . $_SERVER['HTTP_HOST']; ?></small>
                - <a class="primary-label" href="/templates/users/contact_us">Contact Us</a> |
                 <a class="primary-label" href="/templates/info/about_us">About Us</a> |
                 <a class="primary-label" href="/templates/info/privacy_policy">Privacy Policy</a>

@@ -1,6 +1,6 @@
 <?php
 
-include $_SERVER['DOCUMENT_ROOT'] . '/articles/articles-database.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/ghost-torrents'.'/articles/articles-database.php';
 
 $article = ArticlesDatabase::getArticle($_GET['article_id']);
 $liked_by = array();

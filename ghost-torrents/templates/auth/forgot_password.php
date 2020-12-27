@@ -4,7 +4,7 @@
 <head>
 
     <?php
-    include_once $_SERVER['DOCUMENT_ROOT'] . '/templates/base/head-tags.php';
+    include_once $_SERVER['DOCUMENT_ROOT'] . '/ghost-torrents'.'/templates/base/head-tags.php';
     ?>
 
     <script src="/js/send_mail.js"></script>
@@ -15,8 +15,8 @@
 <body>
 
     <?php
-    include $_SERVER['DOCUMENT_ROOT'] . '/templates/base/navbar.php';
-    include_once $_SERVER['DOCUMENT_ROOT'] . '/users/login-user.php';
+    include $_SERVER['DOCUMENT_ROOT'] . '/ghost-torrents'.'/templates/base/navbar.php';
+    include_once $_SERVER['DOCUMENT_ROOT'] . '/ghost-torrents'.'/users/login-user.php';
     ?>
 
 

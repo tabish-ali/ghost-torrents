@@ -15,7 +15,7 @@
 <script src="/js/sweetalert.min.js"></script>
 <script src="/js/nav.js"></script>
 <script src="/js/yts_search.js"></script>
-<?php include_once $_SERVER['DOCUMENT_ROOT'] . '/templates/base/goto_top.php' ?>
+<?php include_once $_SERVER['DOCUMENT_ROOT'] . '/ghost-torrents' . '/templates/base/goto_top.php' ?>
 <?php
 session_start();
 ?>

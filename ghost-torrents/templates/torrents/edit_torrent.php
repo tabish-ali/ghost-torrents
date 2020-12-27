@@ -5,10 +5,10 @@
 
     <?php
 
-    include $_SERVER['DOCUMENT_ROOT'] . '/templates/base/head-tags.php';
-    include_once $_SERVER['DOCUMENT_ROOT'] . '/templates/base/navbar.php';
-    include_once $_SERVER['DOCUMENT_ROOT'] . '/users/user-database.php';
-    include_once $_SERVER['DOCUMENT_ROOT'] . '/torrents/torrents-database.php';
+    include $_SERVER['DOCUMENT_ROOT'] . '/ghost-torrents'.'/templates/base/head-tags.php';
+    include_once $_SERVER['DOCUMENT_ROOT'] . '/ghost-torrents'.'/templates/base/navbar.php';
+    include_once $_SERVER['DOCUMENT_ROOT'] . '/ghost-torrents'.'/users/user-database.php';
+    include_once $_SERVER['DOCUMENT_ROOT'] . '/ghost-torrents'.'/torrents/torrents-database.php';
 
     $user = UserDatabase::getUserById($_SESSION['id']);
 
@@ -96,7 +96,7 @@
 <?php endif; ?>
 
 <?php
-include $_SERVER['DOCUMENT_ROOT'] . '/templates/base/footer.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/ghost-torrents'.'/templates/base/footer.php';
 ?>
 
 </body>

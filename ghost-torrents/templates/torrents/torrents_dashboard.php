@@ -7,11 +7,11 @@
 
     <?php
 
-    include $_SERVER['DOCUMENT_ROOT'] . '/templates/base/head-tags.php';
-    include $_SERVER['DOCUMENT_ROOT'] . '/torrents/torrents-database.php';
+    include $_SERVER['DOCUMENT_ROOT'] . '/ghost-torrents' . '/templates/base/head-tags.php';
+    include $_SERVER['DOCUMENT_ROOT'] . '/ghost-torrents' . '/torrents/torrents-database.php';
 
     if (!empty($_SESSION))
-        $torrents = TorrentsDatabase::getTorrents(0,TorrentsDatabase::countTotalTorrents("all"));
+        $torrents = TorrentsDatabase::getTorrents(0, TorrentsDatabase::countTotalTorrents("all"));
 
 
     ?>
@@ -26,7 +26,7 @@
 <body>
 
     <?php
-    include $_SERVER['DOCUMENT_ROOT'] . '/templates/base/navbar.php';
+    include $_SERVER['DOCUMENT_ROOT'] . '/ghost-torrents' . '/templates/base/navbar.php';
     $serial = 0;
     ?>
 
@@ -46,7 +46,6 @@
                             <th scope="col">Name</th>
                             <th scope="col">Date</th>
                             <th scope="col">Time</th>
-                            <th scope="col">Peers Info</th>
                             <th scope="col">Edit</th>
                         </tr>
                     </thead>
@@ -87,12 +86,6 @@
 
                                 <td class="small">
                                     <b class="bg-primary text-white p-1 rounded"><?php echo DateAndTime::time_elapsed_string($torrent['date']); ?></b>
-                                </td>
-
-                                <td class="small">
-                                    <b class="text-success"><?php echo $torrent['peers_info']['seeders']; ?></b> |
-                                    <b class="text-info"><?php echo $torrent['peers_info']['completed']; ?></b> |
-                                    <b class="text-danger"><?php echo $torrent['peers_info']['leechers']; ?></b>
                                 </td>
 
                                 <td width=5%>
