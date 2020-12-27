@@ -1,9 +1,9 @@
 <?php
 
-include_once $_SERVER['DOCUMENT_ROOT'] . '/ghost-torrents'.'/db-config/db-connection.php';
-include_once $_SERVER['DOCUMENT_ROOT'] . '/ghost-torrents'.'/torrents/Torrent.php';
-include_once $_SERVER['DOCUMENT_ROOT'] . '/ghost-torrents'.'/config/size_conversion.php';
-include_once $_SERVER['DOCUMENT_ROOT'] . '/ghost-torrents'.'/config/datetime.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/ghost-torrents' . '/db-config/db-connection.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/ghost-torrents' . '/torrents/Torrent.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/ghost-torrents' . '/config/size_conversion.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/ghost-torrents' . '/config/datetime.php';
 
 class TorrentsDatabase
 {
@@ -17,9 +17,16 @@ class TorrentsDatabase
 
         $date = date_format(DateAndTime::getDate(), "m/d/Y H:i:s");
         $conn = DBConnection::getConnection();
-        $conn->query("INSERT INTO torrents 
-        (`description`, `uploader`, `category`, `file_path`, `date`, `comments`) 
-        VALUES('$description', '$uploader', '$category', '$file_path', '$date', JSON_ARRAY())");
+        $insert_query = $conn->prepare("INSERT INTO torrents 
+        (description, uploader, category, file_path, date, comments) 
+        VALUES(?,?,?,?,?, JSON_ARRAY())");
+
+        $insert_query->bind_param("sssss",$description, $uploader, $category, $file_path, $date);
+
+        $insert_query->execute();
+
+        var_dump($conn->error);
+
         $conn->close();
     }
 
@@ -303,7 +310,7 @@ class TorrentsDatabase
 
         foreach ($selected_torrents as $torrent) {
             // delete torrent_file also
-            unlink($_SERVER['DOCUMENT_ROOT'] . '/ghost-torrents'.$torrent->file_path);
+            unlink($_SERVER['DOCUMENT_ROOT'] . $torrent->file_path);
             $torrent_id = $torrent->id;
             $delete_query = "DELETE FROM torrents WHERE id = $torrent_id";
             $conn->query($delete_query);

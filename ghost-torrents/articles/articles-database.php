@@ -147,8 +147,8 @@ class ArticlesDatabase
 
             $article = (array) $article;
 
-            if ($article['image_path'] != "/static/article-images/default.jpg") {
-                unlink($_SERVER['DOCUMENT_ROOT'] . '/ghost-torrents' . $article['image_path']);
+            if ($article['image_path'] != "/ghost-torrents/static/article-images/default.jpg") {
+                unlink($_SERVER['DOCUMENT_ROOT']  . $article['image_path']);
             }
 
             $article_id = $article['id'];

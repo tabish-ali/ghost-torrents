@@ -31,4 +31,4 @@ $torrent_relative_path = $torrent_dir . $torrent_file['name'];
 
 TorrentsDatabase::saveTorrent($uploader_name, $description, $torrent_relative_path, $category);
 
-echo json_encode($target_dir);
+echo json_encode($torrent_info);

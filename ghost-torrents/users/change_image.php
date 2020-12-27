@@ -23,9 +23,9 @@ if ($image_file['size'] != 0 && $image_file['error'] == 0) {
     if (!empty($notification)) {
         echo json_encode((array)$notification);
     } else {
-        if ($_SESSION['image'] != "/static/user-images/default-user.svg")
+        if ($_SESSION['image'] != "/ghost-torrents/static/user-images/default-user.svg")
             unlink($_SERVER['DOCUMENT_ROOT'] . '/ghost-torrents'.$_SESSION['image']);
-        $target_file = '/static/user-images/' . $newFileName;
+        $target_file = '/ghost-torrents/static/user-images/' . $newFileName;
         UserDatabase::saveImagePath($user_id, $target_file);
         $_SESSION['image'] = $target_file;
         echo json_encode(["type" => "success", "new_image" => $target_file]);

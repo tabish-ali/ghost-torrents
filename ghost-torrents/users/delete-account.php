@@ -8,8 +8,8 @@ $user_image = $_SESSION['image'];
 
 // unlinking image if its not default
 
-if ($user_image !== "/static/user-images/default-user.svg")
-    unlink($_SERVER['DOCUMENT_ROOT'] . '/ghost-torrents'.$user_image);
+if ($user_image !== "/ghost-torrents/static/user-images/default-user.svg")
+    unlink($_SERVER['DOCUMENT_ROOT'] .$user_image);
 
 // deleting account
 UserDatabase::deleteAccount($user_id);

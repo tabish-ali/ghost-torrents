@@ -8,7 +8,8 @@
     include $_SERVER['DOCUMENT_ROOT'] . '/ghost-torrents' . '/templates/base/head-tags.php';
     include_once $_SERVER['DOCUMENT_ROOT'] . '/ghost-torrents' . '/torrents/torrents-database.php';
     include_once  $_SERVER['DOCUMENT_ROOT'] . '/ghost-torrents' . '/config/datetime.php';
-
+    $_GET['category'] = "all";
+    $_GET['type'] = "torrents";
     ?>
 </head>
 
