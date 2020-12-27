@@ -120,9 +120,9 @@
                             <?php else : ?>
                                 <img class="cast-img" src="/static/user-images/default-user.svg" alt="">
                             <?php endif; ?>
-                            <a class="primary-label" href="https://yts.mx/api/v2/list_movies.json?query_term=<?php echo $cast->name;  ?>&with_cast=true&with_images=true&with_rt_ratings=true">
-                                <small class="ml-2"><b class="text-muted"><?php echo $cast->name; ?></b> as <?php echo $cast->character_name; ?> </small>
-                            </a>
+
+                            <small class="ml-2"><b class="text-muted"><?php echo $cast->name; ?></b> as <?php echo $cast->character_name; ?> </small>
+
                         </div>
                         <hr>
 
@@ -148,31 +148,33 @@
                         <button type="button" class="close float-right" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
-                        <h5 class="modal-title text-center" id="exampleModalLabel">Please select a movie</h5>
+                        <h5 class="modal-title text-success text-center" id="exampleModalLabel">Please select a movie</h5>
                     </div>
                     <div class="modal-body text-center row text-secondary">
-                        <?php foreach ($movie_data->data->movie->torrents as $torrent) : ?>
-                            <div class="col-sm-6 mt-3 border-left">
-                                <?php if ($torrent->quality === "720p") : ?>
-                                    <img class="quality-icon" src="/static/svgs/720.svg" alt="720p">
-                                <?php elseif ($torrent->quality === "1080p") : ?>
-                                    <img class="quality-icon" src="/static/svgs/1080.svg" alt="1080p">
-                                <?php elseif ($torrent->quality === "3D") : ?>
-                                    <img class="quality-icon" src="/static/svgs/3d.svg" alt="3D">
-                                <?php elseif ($torrent->quality === "2160p") : ?>
-                                    <img class="quality-icon" src="/static/svgs/4k.svg" alt="4K">
-                                <?php else : ?>
-                                <?php endif; ?>
-                                <div class="mt-2">
-                                    File Size
-                                    <p class="text-muted font-weight-bold"><?php echo $torrent->size; ?></p>
+                        <?php if (isset($movie_data->data->movie)) : ?>
+                            <?php foreach ($movie_data->data->movie->torrents as $torrent) : ?>
+                                <div class="col-sm-6 mt-3 border-left">
+                                    <?php if ($torrent->quality === "720p") : ?>
+                                        <img class="quality-icon" src="/static/svgs/720.svg" alt="720p">
+                                    <?php elseif ($torrent->quality === "1080p") : ?>
+                                        <img class="quality-icon" src="/static/svgs/1080.svg" alt="1080p">
+                                    <?php elseif ($torrent->quality === "3D") : ?>
+                                        <img class="quality-icon" src="/static/svgs/3d.svg" alt="3D">
+                                    <?php elseif ($torrent->quality === "2160p") : ?>
+                                        <img class="quality-icon" src="/static/svgs/4k.svg" alt="4K">
+                                    <?php else : ?>
+                                        <?php endif; ?>btn btn-default mt-2
+                                        <div class="mt-2">
+                                            File Size
+                                            <p class="text-dark font-weight-bold"><?php echo $torrent->size; ?></p>
+                                        </div>
+                                        <div>
+                                            <a href="<?php echo $torrent->url; ?>" class="btn btn-success btn-sm"><i class="mr-2 fas fa-download"></i>Download</a><br>
+                                            <a href="<?php echo TorrentsDatabase::getYTSMagnetLink($slug, $torrent->hash) ?>" class="btn btn-default mt-2"><i class="text-danger fa-lg fa fa-magnet"></i></a>
+                                        </div>
                                 </div>
-                                <div>
-                                    <a href="<?php echo $torrent->url; ?>" class="btn btn-success btn-sm"><i class="mr-2 fas fa-download"></i>Download</a><br>
-                                    <a href="<?php echo TorrentsDatabase::getYTSMagnetLink($slug, $torrent->hash) ?>" class="btn btn-default mt-1"><i class="text-danger fa fa-magnet"></i></a>
-                                </div>
-                            </div>
-                        <?php endforeach; ?>
+                            <?php endforeach; ?>
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>
