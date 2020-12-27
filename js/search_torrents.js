@@ -64,8 +64,6 @@ $(document).ready(function () {
                                 torrent.name + "</b></a></td>" +
                                 "<td style='letter-spacing: 0.5px;' class='small'><b> " + torrent.date + " </b></td>" +
                                 "<td style='letter-spacing: 0.5px;' class='small'><b> " + torrent.size + " </b></td>" +
-                                "<td style='letter-spacing: 0.5px;' class='small success-label'><b> " + torrent.peers_info.seeders + " </b></td>" +
-                                "<td style='letter-spacing: 0.5px;' class='small danger-label'><b> " + torrent.peers_info.seeders + " </b></td>" +
                                 "<td style='letter-spacing: 0.5px;' class='small'><a href='" + torrent.magnet + "'" + "class='danger-label p-1'>" +
                                 "<i class='fa fa-magnet fa-xs'></i>Magnet</a>" +
                                 "<a href='" + torrent.path + "'" + "class='text-primary p-1'>" +

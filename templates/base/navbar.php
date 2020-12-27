@@ -1,5 +1,4 @@
 <nav class="navbar navbar-expand-md navbar-dark fixed-top" id="banner">
-
     <!-- Brand -->
     <a style="letter-spacing: 2px; font-size: 18px;" class="navbar-brand" href="/">
         <img src="/static/logos/ghost.png" style="height: 35px;" class="rounded-circle" alt="">
@@ -15,7 +14,7 @@
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <a title="yts movies" href="/templates/yts/yts_movies" class="nav-link">
+                <a title="yts movies" href="/templates/yts/yts_home" class="nav-link">
                     <img style="height:30px;" src="/static/logos/yts-logo.png" alt="YTS Movies">
                 </a>
             </li>

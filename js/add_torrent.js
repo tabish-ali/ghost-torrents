@@ -1,11 +1,5 @@
 $(document).ready(function (e) {
 
-    const add_btn = document.getElementById('add-btn');
-
-    const description_field = document.getElementById('description');
-
-    const category_box = document.getElementById('category-box');
-
     const submit_icon = document.getElementById('submit-icon');
 
     const notification = document.getElementById('notification');
@@ -22,11 +16,9 @@ $(document).ready(function (e) {
             contentType: false,
             processData: false,
 
-            beforeSend: function () {
-
-                submit_icon.className = "fa fa-spinner fa-spin";
-
-            },
+            // beforeSend: function () {
+            //     submit_icon.className = "fa fa-spinner fa-spin";
+            // },
 
             success: function (data) {
 
@@ -37,6 +29,8 @@ $(document).ready(function (e) {
                 notification.style = "display: block";
 
                 notification.className ="text-success";
+
+                console.log(data);
 
             }
         });

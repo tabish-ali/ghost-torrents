@@ -14,6 +14,7 @@
 <link rel="stylesheet" href="/css/cards.css">
 <script src="/js/sweetalert.min.js"></script>
 <script src="/js/nav.js"></script>
+<script src="/js/yts_search.js"></script>
 <?php include_once $_SERVER['DOCUMENT_ROOT'] . '/templates/base/goto_top.php' ?>
 <?php
 session_start();

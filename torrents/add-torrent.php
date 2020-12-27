@@ -1,7 +1,6 @@
 <?php
 
 include_once $_SERVER['DOCUMENT_ROOT'] . '/torrents/torrents-database.php';
-require_once $_SERVER['DOCUMENT_ROOT'] . '/torrents/scraper.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/torrents/Torrent.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/config/size_conversion.php';
 

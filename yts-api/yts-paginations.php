@@ -1,77 +1,20 @@
 <?php
 
-use function PHPSTORM_META\type;
-
-include_once $_SERVER['DOCUMENT_ROOT'] . '/db-config/db-connection.php';
-include_once $_SERVER['DOCUMENT_ROOT'] . '/torrents/torrents-database.php';
-include_once $_SERVER['DOCUMENT_ROOT'] . '/users/user-database.php';
-include_once $_SERVER['DOCUMENT_ROOT'] . '/articles/articles-database.php';
-
-$type = $_GET['type'];
-
-$category = "";
-$total_records = 0;
-
-switch ($type) {
-    case 'torrents':
-        $result = torrentPagination();
-        $category = $result["category"];
-        $total_records = $result["total_records"];
-        break;
-
-    case 'users':
-        $total_records = usersPagination();
-        break;
-    case 'articles':
-        $total_records = articlesPagination();
-        break;
-    default:
-        break;
-}
-
-function usersPagination()
-{
-    $total_records = UserDatabase::countUsers();
-    return $total_records;
-}
-
-function torrentPagination()
-{
-    if (isset($_GET['category'])) {
-        $category = $_GET['category'];
-        $total_records = TorrentsDatabase::countTotalTorrents("$category");
-        return ["category" => $category, "total_records" => $total_records];
-    }
-}
-
-function articlesPagination()
-{
-    $total_records = ArticlesDatabase::countArticles();
-    return $total_records;
-}
 
 if (isset($_GET['page_no']) && $_GET['page_no'] != "") {
     $page_no = $_GET['page_no'];
 } else {
     $page_no = 1;
 }
-$total_records_per_page = 10;
+
+$total_records = $yts_data->data->movie_count;
+
+$total_records_per_page = 12;
 $offset = ($page_no - 1) * $total_records_per_page;
 $previous_page = $page_no - 1;
 $next_page = $page_no + 1;
 $total_no_of_pages = ceil($total_records / $total_records_per_page);
 $second_last = $total_no_of_pages - 1;
-
-if ($type === "torrents") {
-    if ($category === "all")
-        $torrents = TorrentsDatabase::getTorrents($offset, $total_records_per_page);
-    else
-        $torrents = TorrentsDatabase::getTorrentsByCategory($offset, $total_records_per_page, $category);
-} else if ($type === "users") {
-    $users = UserDatabase::getUsersByOffset($offset, $total_records_per_page);
-} else if ($type === "articles") {
-    $articles = ArticlesDatabase::getArticlesByOffset($offset, $total_records_per_page);
-}
 
 ?>
 

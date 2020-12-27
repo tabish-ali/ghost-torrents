@@ -163,7 +163,7 @@
                                     <?php elseif ($torrent->quality === "2160p") : ?>
                                         <img class="quality-icon" src="/static/svgs/4k.svg" alt="4K">
                                     <?php else : ?>
-                                        <?php endif; ?>btn btn-default mt-2
+                                        <?php endif; ?>
                                         <div class="mt-2">
                                             File Size
                                             <p class="text-dark font-weight-bold"><?php echo $torrent->size; ?></p>

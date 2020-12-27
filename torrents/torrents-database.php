@@ -17,20 +17,9 @@ class TorrentsDatabase
 
         $date = date_format(DateAndTime::getDate(), "m/d/Y H:i:s");
         $conn = DBConnection::getConnection();
-        $insert_query = $conn->prepare("INSERT INTO torrents 
-        (description, uploader, category, file_path, date, comments) 
-        VALUES(?,?,?,?,?,JSON_ARRAY())");
-
-        $insert_query->bind_param(
-            "ssssss",
-            $description,
-            $uploader,
-            $category,
-            $file_path,
-            $date,
-        );
-
-        $insert_query->execute();
+        $conn->query("INSERT INTO torrents 
+        (`description`, `uploader`, `category`, `file_path`, `date`, `comments`) 
+        VALUES('$description', '$uploader', '$category', '$file_path', '$date', JSON_ARRAY())");
         $conn->close();
     }
 

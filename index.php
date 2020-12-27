@@ -92,8 +92,6 @@
                                 Torrent</th>
                             <th scope="col">Added</th>
                             <th scope="col">Size</th>
-                            <th scope="col">Seeds</th>
-                            <th scope="col">Leeches</th>
                             <th scope="col">Download</th>
                         </tr>
                     </thead>
